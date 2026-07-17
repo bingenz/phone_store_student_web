@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SmartMobile la website ban dien thoai va dong ho, co trang san pham, chi tiet san pham va gio hang don gian.">
+    <title>SmartMobile - Cửa hàng điện thoại</title>
+    <!-- File CSS dùng chung cho toàn bộ trang web -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/logo-phone.svg">
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-bar">
+            <a href="#home" class="logo-box">
+                <img src="images/logo-phone.svg" alt="Logo SmartMobile">
+                <div>
+                    <h1>SmartMobile</h1>
+                    <p>Điện thoại chính hãng</p>
+                </div>
+            </a>
+
+            <nav class="menu">
+                <a href="#home">Trang chủ</a>
+                <a href="#phones">Điện thoại</a>
+                <a href="#watches">Đồng hồ</a>
+                <a href="#contact">Liên hệ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero-wrap">
+                <div class="hero-text">
+                    <h2>Điện thoại mới, giá tốt, bảo hành rõ ràng</h2>
+                    <p>
+                        SmartMobile cung cấp nhiều mẫu điện thoại chính hãng,
+                        phù hợp nhu cầu học tập, làm việc, giải trí và chụp ảnh.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#phones" class="btn btn-primary">Xem sản phẩm</a>
+                        <a href="#contact" class="btn btn-outline">Liên hệ tư vấn</a>
+                    </div>
+                </div>
+
+                <a href="product-detail.html?id=iphone17pro256" target="_self" class="hero-image-box hero-product-link" aria-label="Xem chi tiết iPhone 17 Pro 256GB">
+                    <img src="images/cropped/iphone17pro256.png" alt="iPhone 17 Pro 256GB">
+                    <h3>iPhone 17 Pro 256GB</h3>
+                    <p>Sản phẩm nổi bật trong tháng</p>
+                    <strong>33.990.000đ</strong>
+                </a>
+            </div>
+        </section>
+
+        <section class="quick-info">
+            <div class="container info-grid">
+                <div class="info-box">
+                    <h3>Bảo hành 12 tháng</h3>
+                    <p>Hỗ trợ bảo hành sản phẩm theo chính sách cửa hàng.</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>Trả góp 0%</h3>
+                    <p>Hỗ trợ thanh toán linh hoạt cho nhiều dòng sản phẩm.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Danh mục sản phẩm</h2>
+                    <p>Lựa chọn sản phẩm theo nhu cầu của bạn</p>
+                </div>
+
+                <div class="category-list">
+                    <div class="category-item">Điện thoại cao cấp</div>
+                    <div class="category-item">Điện thoại tầm trung</div>
+                    <div class="category-item">Đồng hồ thời trang</div>
+                    <div class="category-item">Phụ kiện công nghệ</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="phones" class="product-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Điện thoại nổi bật</h2>
+                    <p>Các mẫu điện thoại được quan tâm hiện nay</p>
+                </div>
+
+                <div class="product-grid">
+                    <article class="product-card">
+                        <img src="images/cropped/iphone17pro256.png" alt="iPhone 17 Pro 256GB">
+                        <h3>iPhone 17 Pro 256GB</h3>
+                        <p class="spec">Super Retina XDR • 6.3 inch</p>
+                        <p class="desc">Thiết kế sang trọng, hiệu năng mạnh, camera chất lượng cao.</p>
+
+                        <div class="price-box">
+                            <span class="new-price">33.990.000đ</span>
+                            <span class="old-price">34.990.000đ</span>
+                        </div>
+
+                        <div class="product-actions">
+                            <a href="product-detail.html?id=iphone17pro256" target="_self" class="detail-link">Xem chi tiết</a>
+                            <!-- data-* chứa thông tin sản phẩm để cart.js đọc khi bấm nút -->
+                            <button class="add-cart-btn"
+                                data-id="iphone17pro256"
+                                data-name="iPhone 17 Pro 256GB"
+                                data-price="33.990.000đ"
+                                data-image="images/cropped/iphone17pro256.png">Thêm vào giỏ</button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img src="images/cropped/iphone17pro512.png" alt="iPhone 17 Pro 512GB">
+                        <h3>iPhone 17 Pro 512GB</h3>
+                        <p class="spec">Super Retina XDR • 6.3 inch</p>
+                        <p class="desc">Dung lượng lớn, phù hợp lưu trữ hình ảnh, video và tài liệu.</p>
+
+                        <div class="price-box">
+                            <span class="new-price">39.990.000đ</span>
+                            <span class="old-price">41.490.000đ</span>
+                        </div>
+
+                        <div class="product-actions">
+                            <a href="product-detail.html?id=iphone17pro512" target="_self" class="detail-link">Xem chi tiết</a>
+                            <!-- data-* chứa thông tin sản phẩm để cart.js đọc khi bấm nút -->
+                            <button class="add-cart-btn"
+                                data-id="iphone17pro512"
+                                data-name="iPhone 17 Pro 512GB"
+                                data-price="39.990.000đ"
+                                data-image="images/cropped/iphone17pro512.png">Thêm vào giỏ</button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img src="images/cropped/s25ultra.png" alt="Samsung Galaxy S25 Ultra">
+                        <h3>Samsung Galaxy S25 Ultra</h3>
+                        <p class="spec">12GB/512GB • 6.9 inch</p>
+                        <p class="desc">Màn hình lớn, cấu hình cao, hỗ trợ bút cảm ứng tiện lợi.</p>
+
+                        <div class="price-box">
+                            <span class="new-price">31.090.000đ</span>
+                            <span class="old-price">39.490.000đ</span>
+                        </div>
+
+                        <div class="product-actions">
+                            <a href="product-detail.html?id=s25ultra" target="_self" class="detail-link">Xem chi tiết</a>
+                            <!-- data-* chứa thông tin sản phẩm để cart.js đọc khi bấm nút -->
+                            <button class="add-cart-btn"
+                                data-id="s25ultra"
+                                data-name="Samsung Galaxy S25 Ultra"
+                                data-price="31.090.000đ"
+                                data-image="images/cropped/s25ultra.png">Thêm vào giỏ</button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img src="images/cropped/xiaomi17ultra.png" alt="Xiaomi 17 Ultra 5G">
+                        <h3>Xiaomi 17 Ultra 5G</h3>
+                        <p class="spec">16GB/512GB • 6.9 inch</p>
+                        <p class="desc">Hiệu năng mạnh, thiết kế hiện đại, phù hợp dùng nhiều tác vụ.</p>
+
+                        <div class="price-box">
+                            <span class="new-price">31.190.000đ</span>
+                            <span class="old-price">39.990.000đ</span>
+                        </div>
+
+                        <div class="product-actions">
+                            <a href="product-detail.html?id=xiaomi17ultra" target="_self" class="detail-link">Xem chi tiết</a>
+                            <!-- data-* chứa thông tin sản phẩm để cart.js đọc khi bấm nút -->
+                            <button class="add-cart-btn"
+                                data-id="xiaomi17ultra"
+                                data-name="Xiaomi 17 Ultra 5G"
+                                data-price="31.190.000đ"
+                                data-image="images/cropped/xiaomi17ultra.png">Thêm vào giỏ</button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img src="images/cropped/galaxy_a07.png" alt="Samsung Galaxy A07">
+                        <h3>Samsung Galaxy A07</h3>
+                        <p class="spec">4GB/64GB • 6.7 inch</p>
+                        <p class="desc">Giá dễ tiếp cận, đáp ứng tốt nhu cầu sử dụng cơ bản.</p>
+
+                        <div class="price-box">
+                            <span class="new-price">3.090.000đ</span>
+                            <span class="old-price">3.290.000đ</span>
+                        </div>
+
+                        <div class="product-actions">
+                            <a href="product-detail.html?id=galaxy_a07" target="_self" class="detail-link">Xem chi tiết</a>
+                            <!-- data-* chứa thông tin sản phẩm để cart.js đọc khi bấm nút -->
+                            <button class="add-cart-btn"
+                                data-id="galaxy_a07"
+                                data-name="Samsung Galaxy A07"
+                                data-price="3.090.000đ"
+                                data-image="images/cropped/galaxy_a07.png">Thêm vào giỏ</button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img src="images/cropped/galaxy_a17.png" alt="Samsung Galaxy A17">
+                        <h3>Samsung Galaxy A17</h3>
+                        <p class="spec">8GB/256GB • 6.7 inch</p>
+                        <p class="desc">Dung lượng tốt, phù hợp học tập, giải trí và làm việc online.</p>
+
+                        <div class="price-box">
+                            <span class="new-price">5.890.000đ</span>
+                            <span class="old-price">6.090.000đ</span>
+                        </div>
+
+                        <div class="product-actions">
+                            <a href="product-detail.html?id=galaxy_a17" target="_self" class="detail-link">Xem chi tiết</a>
+                            <!-- data-* chứa thông tin sản phẩm để cart.js đọc khi bấm nút -->
+                            <button class="add-cart-btn"
+                                data-id="galaxy_a17"
+                                data-name="Samsung Galaxy A17"
+                                data-price="5.890.000đ"
+                                data-image="images/cropped/galaxy_a17.png">Thêm vào giỏ</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="sale-banner">
+            <div class="container sale-wrap">
+                <div>
+                    <h2>Ưu đãi khi mua kèm phụ kiện</h2>
+                    <p>Giảm giá cho đồng hồ, tai nghe, sạc nhanh và ốp lưng khi mua kèm điện thoại.</p>
+                </div>
+
+                <a href="#watches" class="btn btn-light">Xem thêm</a>
+            </div>
+        </section>
+
+        <section id="watches" class="product-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Đồng hồ thời trang</h2>
+                    <p>Một số mẫu đồng hồ đang được giảm giá</p>
+                </div>
+
+                <div class="product-grid watch-grid">
+                    <article class="product-card">
+                        <img src="images/cropped/watch_citizen1.png" alt="Citizen EG7073-16Y">
+                        <h3>Citizen EG7073-16Y</h3>
+                        <p class="spec">Đồng hồ nữ • 31 mm</p>
+                        <p class="desc">Thiết kế thanh lịch, phù hợp sử dụng hằng ngày.</p>
+
+                        <div class="price-box">
+                            <span class="new-price">10.280.000đ</span>
+                            <span class="old-price">13.860.000đ</span>
+                        </div>
+
+                        <div class="product-actions">
+                            <a href="product-detail.html?id=watch_citizen1" target="_self" class="detail-link">Xem chi tiết</a>
+                            <!-- data-* chứa thông tin sản phẩm để cart.js đọc khi bấm nút -->
+                            <button class="add-cart-btn"
+                                data-id="watch_citizen1"
+                                data-name="Citizen EG7073-16Y"
+                                data-price="10.280.000đ"
+                                data-image="images/cropped/watch_citizen1.png">Thêm vào giỏ</button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img src="images/cropped/watch_citizen2.png" alt="Citizen EW2700-54L">
+                        <h3>Citizen EW2700-54L</h3>
+                        <p class="spec">Đồng hồ nữ • 33 mm</p>
+                        <p class="desc">Mặt số sáng màu, dây kim loại sang trọng.</p>
+
+                        <div class="price-box">
+                            <span class="new-price">10.302.000đ</span>
+                            <span class="old-price">13.885.000đ</span>
+                        </div>
+
+                        <div class="product-actions">
+                            <a href="product-detail.html?id=watch_citizen2" target="_self" class="detail-link">Xem chi tiết</a>
+                            <!-- data-* chứa thông tin sản phẩm để cart.js đọc khi bấm nút -->
+                            <button class="add-cart-btn"
+                                data-id="watch_citizen2"
+                                data-name="Citizen EW2700-54L"
+                                data-price="10.302.000đ"
+                                data-image="images/cropped/watch_citizen2.png">Thêm vào giỏ</button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img src="images/cropped/watch_citizen3.png" alt="Citizen CA0711-80H">
+                        <h3>Citizen CA0711-80H</h3>
+                        <p class="spec">Đồng hồ nam • 44 mm</p>
+                        <p class="desc">Kiểu dáng mạnh mẽ, phù hợp phong cách thể thao.</p>
+
+                        <div class="price-box">
+                            <span class="new-price">10.315.000đ</span>
+                            <span class="old-price">13.900.000đ</span>
+                        </div>
+
+                        <div class="product-actions">
+                            <a href="product-detail.html?id=watch_citizen3" target="_self" class="detail-link">Xem chi tiết</a>
+                            <!-- data-* chứa thông tin sản phẩm để cart.js đọc khi bấm nút -->
+                            <button class="add-cart-btn"
+                                data-id="watch_citizen3"
+                                data-name="Citizen CA0711-80H"
+                                data-price="10.315.000đ"
+                                data-image="images/cropped/watch_citizen3.png">Thêm vào giỏ</button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img src="images/cropped/watch_orient1.png" alt="Orient Star RE-AT0004S00B">
+                        <h3>Orient Star RE-AT0004S00B</h3>
+                        <p class="spec">Đồng hồ nam • 39.2 mm</p>
+                        <p class="desc">Mặt đồng hồ nổi bật, phù hợp phong cách lịch lãm.</p>
+
+                        <div class="price-box">
+                            <span class="new-price">17.864.000đ</span>
+                            <span class="old-price">23.190.000đ</span>
+                        </div>
+
+                        <div class="product-actions">
+                            <a href="product-detail.html?id=watch_orient1" target="_self" class="detail-link">Xem chi tiết</a>
+                            <!-- data-* chứa thông tin sản phẩm để cart.js đọc khi bấm nút -->
+                            <button class="add-cart-btn"
+                                data-id="watch_orient1"
+                                data-name="Orient Star RE-AT0004S00B"
+                                data-price="17.864.000đ"
+                                data-image="images/cropped/watch_orient1.png">Thêm vào giỏ</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h2>SmartMobile Store</h2>
+                <p><strong>Địa chỉ:</strong> 300A Nguyễn Tất Thành, Quận 4, TP. Hồ Chí Minh</p>
+                <p><strong>Email:</strong> 1235@gmail.com</p>
+                <p><strong>Điện thoại:</strong> 1234 567 891</p>
+                <p><strong>Giờ mở cửa:</strong> 8:00 - 21:00 mỗi ngày</p>
+            </div>
+
+            <div class="footer-map">
+                <iframe
+                    src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Bản đồ cửa hàng SmartMobile">
+                </iframe>
+                <!-- loading="lazy": chỉ tải bản đồ khi người dùng cuộn gần tới footer.
+     referrerpolicy: tăng bảo mật, hạn chế gửi thông tin trang khi tải bản đồ. -->
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Nút giỏ hàng nổi: dùng thẻ <a> để click là chuyển thẳng sang cart.html
+         Badge số lượng (viên tròn đỏ) được cart.js tự động cập nhật -->
+    <a href="cart.html" class="cart-floating-btn" id="cartFloatingBtn">
+        🛒
+        <span class="cart-badge" id="cartBadge"></span>
+    </a>
+
+    <!-- Nhúng cart.js cuối body để DOM đã tải xong trước khi script chạy
+         cart.js tự động: cập nhật badge + lắng nghe nút "Thêm vào giỏ" -->
+    <script src="cart.js"></script>
+</body>
+</html>

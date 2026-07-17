@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gio hang SmartMobile giup xem san pham da chon, cap nhat so luong va tinh tong tien bang JavaScript co ban.">
+    <title>Giỏ hàng - SmartMobile</title>
+    <!-- Dùng chung file CSS với các trang khác -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/logo-phone.svg">
+</head>
+<body>
+
+    <!-- =====================================================
+         HEADER - Copy nguyên từ index.html
+         Link điều hướng về các trang/section chính
+         ===================================================== -->
+    <header class="header">
+        <div class="container nav-bar">
+            <!-- Logo + tên cửa hàng → click về trang chủ -->
+            <a href="index.html#home" target="_self" class="logo-box">
+                <img src="images/logo-phone.svg" alt="Logo SmartMobile">
+                <div>
+                    <h1>SmartMobile</h1>
+                    <p>Điện thoại chính hãng</p>
+                </div>
+            </a>
+
+            <!-- Menu điều hướng chính (không thêm mục Giỏ hàng vào đây) -->
+            <nav class="menu">
+                <a href="index.html#home"    target="_self">Trang chủ</a>
+                <a href="index.html#phones"  target="_self">Điện thoại</a>
+                <a href="index.html#watches" target="_self">Đồng hồ</a>
+                <a href="index.html#contact" target="_self">Liên hệ</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- =====================================================
+         NỘI DUNG CHÍNH: Trang giỏ hàng
+         ===================================================== -->
+    <main class="cart-page">
+        <div class="container">
+
+            <!-- Tiêu đề trang -->
+            <h2 class="cart-page-title">Giỏ hàng của bạn</h2>
+
+            <!-- -------------------------------------------------
+                 LAYOUT 2 CỘT: Luôn hiển thị (dùng CSS grid)
+                 CSS: grid-template-columns: 2fr 1fr
+                 - Cột trái (2fr): Danh sách sản phẩm
+                 - Cột phải (1fr): Tổng đơn hàng
+                 Khi trống: JavaScript chèn <p> vào trong danh sách
+                 ------------------------------------------------- -->
+            <div class="cart-layout" id="cartContent">
+
+                <!-- CỘT TRÁI (2fr): Danh sách sản phẩm trong giỏ -->
+                <div class="cart-items-box">
+
+                    <!-- Header: tiêu đề + nút Xóa tất cả nằm cùng hàng -->
+                    <div class="cart-items-header">
+                        <h3>Sản phẩm đã chọn</h3>
+                        <!-- Nút xóa toàn bộ giỏ hàng - JS ẩn/hiện tùy theo giỏ trống hay không -->
+                        <button class="clear-cart-btn" id="clearCartBtn" onclick="handleClearAll()">
+                            Xóa tất cả
+                        </button>
+                    </div>
+
+                    <!-- Các dòng sản phẩm được JavaScript tạo và chèn vào đây -->
+                    <!-- Mỗi dòng: [hình] [tên + giá] [− input +] [thành tiền] [✕] -->
+                    <!-- Khi trống: JavaScript sẽ chèn <p class="cart-empty-msg"> -->
+                    <div id="cartItemList"></div>
+                </div>
+
+                <!-- CỘT PHẢI (1fr): Tổng đơn hàng -->
+                <div class="cart-summary">
+                    <h3>Tổng đơn hàng</h3>
+
+                    <!-- Dòng 1: Số lượng loại sản phẩm -->
+                    <div class="summary-row">
+                        <span>Số lượng:</span>
+                        <span id="summaryCount">0 sản phẩm</span>
+                    </div>
+
+                    <!-- Dòng 2: Tổng tiền (in đậm, màu đỏ) -->
+                    <div class="summary-row total">
+                        <span>Tổng tiền:</span>
+                        <span class="summary-total-price" id="cartTotal">0đ</span>
+                    </div>
+
+                    <!-- Nút thanh toán (hiển thị nhưng chưa xử lý logic) -->
+                    <button class="checkout-btn" id="checkoutBtn">
+                        Tiến hành thanh toán
+                    </button>
+
+                    <!-- Nút về trang chủ để mua thêm -->
+                    <a href="index.html" class="continue-btn">
+                        ← Tiếp tục mua sắm
+                    </a>
+                </div>
+
+            </div><!-- /#cart-layout -->
+
+        </div><!-- /.container -->
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER - Copy nguyên từ index.html
+         ===================================================== -->
+    <footer id="contact" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h2>SmartMobile Store</h2>
+                <p><strong>Địa chỉ:</strong> 300A Nguyễn Tất Thành, Quận 4, TP. Hồ Chí Minh</p>
+                <p><strong>Email:</strong> 1235@gmail.com</p>
+                <p><strong>Điện thoại:</strong> 1234 567 891</p>
+                <p><strong>Giờ mở cửa:</strong> 8:00 - 21:00 mỗi ngày</p>
+            </div>
+
+            <div class="footer-map">
+                <!-- loading="lazy": chỉ tải bản đồ khi người dùng cuộn gần tới footer -->
+                <iframe
+                    src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Bản đồ cửa hàng SmartMobile">
+                </iframe>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Nút giỏ hàng nổi: ẨN trên trang cart.html vì người dùng đang ở chính trang giỏ hàng
+         (Trên các trang khác như index.html, product-detail.html vẫn hiển thị bình thường) -->
+    <a href="cart.html" class="cart-floating-btn" id="cartFloatingBtn" style="display: none;">
+        🛒
+        <!-- Badge này được cart.js hiện/ẩn và ghi số lượng -->
+        <span class="cart-badge" id="cartBadge"></span>
+    </a>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         Thứ tự nhúng QUAN TRỌNG:
+         1. cart.js phải được nhúng TRƯỚC script bên dưới
+            vì script bên dưới gọi các hàm trong cart.js
+         ===================================================== -->
+
+    <!-- Nhúng file cart.js - chứa: getCart, formatPrice, parsePrice,
+         updateQuantity, removeFromCart, updateCartBadge -->
+    <script src="cart.js"></script>
+
+    <!-- Script riêng xử lý hiển thị trang giỏ hàng -->
+    <script>
+        // =====================================================
+        // Script render nội dung trang giỏ hàng
+        // Chạy sau cart.js (script ở cuối body nên DOM đã sẵn sàng)
+        // =====================================================
+
+
+        // -----------------------------------------------------
+        // Tạo HTML cho MỔI DÒNG sản phẩm trong giỏ
+        // item: object { id, name, price, image, quantity }
+        // Trả về: chuỗi HTML của một dòng .cart-item
+        // -----------------------------------------------------
+        function renderCartItem(item) {
+            // Tính thành tiền = giá đơn × số lượng
+            var unitPrice = parsePrice(item.price);  // parsePrice() ở cart.js
+            var subtotal  = unitPrice * item.quantity;
+
+            // Ghép HTML bằng chuỗi
+            // Chú ý: id duy nhất cho mỗi phần tử để refreshItem() cập nhật được
+            return '<div class="cart-item" id="item-' + item.id + '">'
+                 +   '<img class="cart-item-img" src="' + item.image + '" alt="' + item.name + '">'
+
+                 +   '<div class="cart-item-info">'
+                 +     '<h4>' + item.name + '</h4>'
+                 +     '<p class="cart-item-price">' + item.price + '</p>'
+                 +   '</div>'
+
+                 +   '<div class="qty-control">'
+                 +     '<button class="qty-btn" onclick="handleMinus(\'' + item.id + '\')">&#8722;</button>'
+
+                 // INPUT số lượng: dùng thẻ <input type="number"> để người dùng có thể gõ trực tiếp
+                 // - min="1": không cho phép nhập giá trị nhỏ hơn 1
+                 // - onchange: gọi handleQtyInput() khi người dùng thay đổi và rời khỏi ô
+                 +     '<input type="number" class="qty-input" id="qty-' + item.id + '"'
+                 +       ' value="' + item.quantity + '" min="1"'
+                 +       ' onchange="handleQtyInput(\'' + item.id + '\', this.value)">'
+
+                 +     '<button class="qty-btn" onclick="handlePlus(\'' + item.id + '\')">+</button>'
+                 +   '</div>'
+
+                 +   '<p class="cart-item-subtotal" id="sub-' + item.id + '">' + formatPrice(subtotal) + '</p>'
+
+                 +   '<button class="cart-item-remove"'
+                 +     ' onclick="handleRemove(\'' + item.id + '\')";'
+                 +     ' title="Xóa sản phẩm này">&#10005;</button>'
+                 + '</div>';
+        }
+
+
+        // -----------------------------------------------------
+        // Cập nhật bảng tổng đơn hàng bên phải
+        // Tính lại tổng tiền và số lượng rồi điền vào DOM
+        // -----------------------------------------------------
+        function updateSummary() {
+            var cart  = getCart();
+            var total = 0;
+            var count = 0;
+
+            for (var i = 0; i < cart.length; i++) {
+                var unitPrice = parsePrice(cart[i].price);
+                total += unitPrice * cart[i].quantity;
+                count += cart[i].quantity;
+            }
+
+            document.getElementById('cartTotal').textContent    = formatPrice(total);
+            document.getElementById('summaryCount').textContent = count + ' sản phẩm';
+        }
+
+
+        // -----------------------------------------------------
+        // Render (vẽ) lại toàn bộ nội dung trang giỏ hàng
+        // Gọi khi: trang vừa tải, sau khi xóa sản phẩm, sau khi xóa tất cả
+        //
+        // Thiết kế:
+        // - Layout grid luôn hiển thị (không ẩn/hiện toàn bộ)
+        // - Khi trống: chèn <p class="cart-empty-msg"> vào danh sách
+        // - Khi có hàng: hiển thị các dòng sản phẩm bình thường
+        // -----------------------------------------------------
+        function renderCartPage() {
+            var cart      = getCart();
+            var listEl    = document.getElementById('cartItemList');
+            var clearBtn  = document.getElementById('clearCartBtn');
+
+            if (cart.length === 0) {
+                // Giỏ TRỒNG: hiển thị <p> thông báo ngay trong hộp sản phẩm
+                listEl.innerHTML = '<p class="cart-empty-msg">Giỏ hàng hiện tại đang trống</p>';
+
+                // Ẩn nút "Xóa tất cả" khi không có sản phẩm
+                clearBtn.style.display = 'none';
+
+                // Reset tổng đơn về 0
+                document.getElementById('cartTotal').textContent    = '0đ';
+                document.getElementById('summaryCount').textContent = '0 sản phẩm';
+
+            } else {
+                // Có sản phẩm: vẽ danh sách các dòng sản phẩm
+                // map() chạy renderCartItem() cho từng phần tử, join('') ghép lại
+                listEl.innerHTML = cart.map(renderCartItem).join('');
+
+                // Hiện nút "Xóa tất cả" khi có sản phẩm
+                clearBtn.style.display = 'inline-block';
+
+                // Cập nhật tổng đơn bên phải
+                updateSummary();
+            }
+        }
+
+
+        // -----------------------------------------------------
+        // XọA TẤT CẢ giỏ hàng
+        // Gọi clearCart() từ cart.js, sau đó render lại trang
+        // -----------------------------------------------------
+        function handleClearAll() {
+            // Hỏi xác nhận trước khi xóa (window.confirm trả về true/false)
+            var confirmed = window.confirm('Bạn có chắc chắn muốn xóa toàn bộ giỏ hàng?');
+            if (!confirmed) return;  // Người dùng bấm Hủy thì thôi
+
+            clearCart();        // Hàm trong cart.js: lưu mảng rỗng vào localStorage
+            renderCartPage();   // Render lại → hiện thị thông báo trống
+        }
+
+
+        // -----------------------------------------------------
+        // XọA MỘT sản phẩm (nút ✕)
+        // -----------------------------------------------------
+        function handleRemove(id) {
+            removeFromCart(id);  // Gọi hàm trong cart.js để xóa
+            renderCartPage();    // Render lại vì có thể giỏ thành trống
+        }
+
+
+        // -----------------------------------------------------
+        // XọA SỐ LƯỢNG bằng input: xử lý khi người dùng gõ trực tiếp vào ô
+        // - Gọi khi sự kiện "onchange" của input xảy ra
+        //   (khi người dùng gõ xong và rời khỏi ô, hoặc nhấn Enter)
+        // - newVal: giá trị mới người dùng vừa nhập (dạng chuỗi)
+        // -----------------------------------------------------
+        function handleQtyInput(id, newVal) {
+            // parseInt: chuyển chuỗi thành số nguyên (bỏ phần thập phân nếu có)
+            var qty = parseInt(newVal, 10);
+
+            // Kiểm tra hợp lệ:
+            // - isNaN(qty): kiểm tra có phải số không (isNaN = "is Not a Number")
+            // - qty < 1: không cho nhập giá trị 0 hoặc âm
+            if (isNaN(qty) || qty < 1) {
+                // Giá trị không hợp lệ → đặt lại về 1
+                qty = 1;
+            }
+
+            // Cập nhật số lượng trong localStorage
+            // Không dùng updateQuantity(delta) vì ta muốn đặt thẳng giá trị mới
+            var cart = getCart();
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].id === id) {
+                    cart[i].quantity = qty;  // Ghi đè số lượng mới
+                    break;
+                }
+            }
+            saveCart(cart);      // Lưu lại vào localStorage
+            updateCartBadge();   // Cập nhật badge
+
+            // Cập nhật hiển thị: điền lại đúng giá trị vào input (phòng trường hợp input hiển thị sai)
+            var inputEl = document.getElementById('qty-' + id);
+            if (inputEl) inputEl.value = qty;
+
+            // Cập nhật thành tiền và tổng đơn
+            var unitPrice = parsePrice(cart.find(function(item) { return item.id === id; }).price);
+            var subEl = document.getElementById('sub-' + id);
+            if (subEl) subEl.textContent = formatPrice(unitPrice * qty);
+            updateSummary();
+        }
+
+
+        // -----------------------------------------------------
+        // TĂNG số lượng (nút +)
+        // -----------------------------------------------------
+        function handlePlus(id) {
+            updateQuantity(id, +1);  // Hàm trong cart.js, tăng 1
+            refreshItem(id);         // Chỉ cập nhật dòng đó, không render lại tất cả
+        }
+
+
+        // -----------------------------------------------------
+        // GIẢM số lượng (nút −)
+        // Nếu quantity = 1 và bấm − → sản phẩm bị xóa khỏi giỏ
+        // -----------------------------------------------------
+        function handleMinus(id) {
+            updateQuantity(id, -1);  // Hàm trong cart.js, giảm 1
+
+            // Kiểm tra xem sản phẩm còn tồn tại trong giỏ không
+            var cart = getCart();
+            var stillInCart = cart.some(function(item) {
+                return item.id === id;
+            });
+
+            if (!stillInCart) {
+                renderCartPage();  // Sản phẩm đã bị xóa → render lại
+            } else {
+                refreshItem(id);   // Vẫn còn → chỉ cập nhật dòng đó
+            }
+        }
+
+
+        // -----------------------------------------------------
+        // Cập nhật một DÒNG sản phẩm mà không render lại toàn bộ
+        // Dùng khi tăng/giảm bằng nút (không cần build lại toàn bộ HTML)
+        // -----------------------------------------------------
+        function refreshItem(id) {
+            var cart = getCart();
+            var item = null;
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].id === id) { item = cart[i]; break; }
+            }
+            if (!item) return;
+
+            // Cập nhật giá trị hiển thị trong INPUT số lượng
+            // (dùng .value thấy vì là input, không dùng .textContent)
+            var inputEl = document.getElementById('qty-' + id);
+            if (inputEl) inputEl.value = item.quantity;
+
+            // Cập nhật thành tiền
+            var subEl = document.getElementById('sub-' + id);
+            if (subEl) {
+                var subtotal = parsePrice(item.price) * item.quantity;
+                subEl.textContent = formatPrice(subtotal);
+            }
+
+            // Cập nhật tổng đơn bên phải
+            updateSummary();
+            // Cập nhật badge trên nút giỏ hàng nổi
+            updateCartBadge();
+        }
+
+
+        // =====================================================
+        // KHỞI ĐỘNG: Render trang khi script vừa chạy xong
+        // (Không cần DOMContentLoaded vì script ở cuối body)
+        // =====================================================
+        renderCartPage();
+
+    </script>
+
+</body>
+</html>

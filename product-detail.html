@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trang chi tiet san pham SmartMobile hien thi hinh anh, gia, thong so, danh gia va nut them vao gio hang.">
+    <title>Chi tiết sản phẩm - SmartMobile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/logo-phone.svg">
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-bar">
+            <a href="index.html#home" target="_self" class="logo-box">
+                <img src="images/logo-phone.svg" alt="Logo SmartMobile">
+                <div>
+                    <h1>SmartMobile</h1>
+                    <p>Điện thoại chính hãng</p>
+                </div>
+            </a>
+
+            <nav class="menu">
+                <a href="index.html#home" target="_self">Trang chủ</a>
+                <a href="index.html#phones" target="_self">Điện thoại</a>
+                <a href="index.html#watches" target="_self">Đồng hồ</a>
+                <a href="index.html#contact" target="_self">Liên hệ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="detail-page">
+        <div class="container">
+            <div class="detail-top">
+                <p class="breadcrumb">Trang chủ / Sản phẩm / <span id="breadcrumbName">Chi tiết sản phẩm</span></p>
+            </div>
+
+            <section class="detail-layout">
+                <div class="detail-image-box">
+                    <img id="productImage" src="images/cropped/iphone17pro256.png" alt="iPhone 17 Pro 256GB">
+                    <p>Ảnh sản phẩm minh họa trong cửa hàng</p>
+                </div>
+
+                <div class="detail-info">
+                    <h2 id="productTitle">iPhone 17 Pro 256GB</h2>
+
+                    <div class="rating-line">
+                        <span class="stars" id="productStars">★★★★★</span>
+                        <span id="productRating">4.9/5 - 128 đánh giá giả lập</span>
+                    </div>
+
+                    <div class="detail-price">
+                        <span class="new-price" id="productPrice">33.990.000đ</span>
+                        <span class="old-price" id="productOldPrice">34.990.000đ</span>
+                    </div>
+
+                    <p class="detail-desc" id="productDesc">
+                        Thiết kế sang trọng, hiệu năng mạnh, camera chất lượng cao, phù hợp học tập, làm việc và giải trí.
+                    </p>
+
+                    <ul class="detail-spec-list" id="specList"></ul>
+
+                    <div class="detail-actions">
+                        <button class="add-cart-btn">Thêm vào giỏ</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="review-section">
+                <h3>Đánh giá của người dùng</h3>
+                <div class="review-list" id="reviewList"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h2>SmartMobile Store</h2>
+                <p><strong>Địa chỉ:</strong> 300A Nguyễn Tất Thành, Quận 4, TP. Hồ Chí Minh</p>
+                <p><strong>Email:</strong> 1235@gmail.com</p>
+                <p><strong>Điện thoại:</strong> 1234 567 891</p>
+                <p><strong>Giờ mở cửa:</strong> 8:00 - 21:00 mỗi ngày</p>
+            </div>
+
+            <div class="footer-map">
+                <iframe
+                    src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Bản đồ cửa hàng SmartMobile">
+                </iframe>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Nút giỏ hàng nổi: dùng thẻ <a> để click là chuyển thẳng sang cart.html
+         Badge số lượng (viên tròn đỏ) được cart.js tự động cập nhật -->
+    <a href="cart.html" class="cart-floating-btn" id="cartFloatingBtn">
+        🛒
+        <span class="cart-badge" id="cartBadge"></span>
+    </a>
+
+    <!-- Thứ tự nhúng QUAN TRỌNG:
+         1. cart.js trước - chứa các hàm cần dùng
+         2. Script bên dưới sau - gọi hàm từ cart.js -->
+    <script src="cart.js"></script>
+
+    <!-- Script hiển thị thông tin sản phẩm cho trang chi tiết
+         Thứ tự script QUAN TRỌNG: cart.js phải được nhúng TRƯỚC script này -->
+    <script>
+        // =====================================================
+        // Script hiển thị thông tin sản phẩm trên trang chi tiết
+        // Dữ liệu được lấy từ URL: ?id=iphone17pro256
+        // và tìm trong object "products" bên dưới
+        // =====================================================
+
+        // Dữ liệu tất cả sản phẩm - mỗi key là một id sản phẩm
+        const products = {
+            iphone17pro256: {
+                title: 'iPhone 17 Pro 256GB',
+                image: 'images/cropped/iphone17pro256.png',
+                price: '33.990.000đ',
+                oldPrice: '34.990.000đ',
+                rating: '4.9/5 - 128 đánh giá giả lập',
+                desc: 'Thiết kế sang trọng, hiệu năng mạnh, camera chất lượng cao, phù hợp học tập, làm việc và giải trí.',
+                specs: ['Màn hình: Super Retina XDR 6.3 inch', 'Dung lượng: 256GB', 'Camera: Chụp ảnh và quay video chất lượng cao', 'Bảo hành: 12 tháng']
+            },
+            iphone17pro512: {
+                title: 'iPhone 17 Pro 512GB',
+                image: 'images/cropped/iphone17pro512.png',
+                price: '39.990.000đ',
+                oldPrice: '41.490.000đ',
+                rating: '4.8/5 - 96 đánh giá giả lập',
+                desc: 'Dung lượng lớn, phù hợp người cần lưu nhiều ảnh, video, tài liệu và ứng dụng học tập.',
+                specs: ['Màn hình: Super Retina XDR 6.3 inch', 'Dung lượng: 512GB', 'Phù hợp: Lưu trữ nhiều dữ liệu', 'Bảo hành: 12 tháng']
+            },
+            s25ultra: {
+                title: 'Samsung Galaxy S25 Ultra',
+                image: 'images/cropped/s25ultra.png',
+                price: '31.090.000đ',
+                oldPrice: '39.490.000đ',
+                rating: '4.8/5 - 112 đánh giá giả lập',
+                desc: 'Màn hình lớn, cấu hình cao, hỗ trợ bút cảm ứng, phù hợp ghi chú và xử lý nhiều tác vụ.',
+                specs: ['Màn hình: 6.9 inch', 'RAM/Bộ nhớ: 12GB/512GB', 'Tính năng: Hỗ trợ bút cảm ứng', 'Bảo hành: 12 tháng']
+            },
+            xiaomi17ultra: {
+                title: 'Xiaomi 17 Ultra 5G',
+                image: 'images/cropped/xiaomi17ultra.png',
+                price: '31.190.000đ',
+                oldPrice: '39.990.000đ',
+                rating: '4.7/5 - 84 đánh giá giả lập',
+                desc: 'Hiệu năng mạnh, thiết kế hiện đại, phù hợp người dùng thích màn hình lớn và nhiều tác vụ.',
+                specs: ['Màn hình: 6.9 inch', 'RAM/Bộ nhớ: 16GB/512GB', 'Kết nối: 5G', 'Bảo hành: 12 tháng']
+            },
+            galaxy_a07: {
+                title: 'Samsung Galaxy A07',
+                image: 'images/cropped/galaxy_a07.png',
+                price: '3.090.000đ',
+                oldPrice: '3.290.000đ',
+                rating: '4.5/5 - 63 đánh giá giả lập',
+                desc: 'Giá dễ tiếp cận, đáp ứng tốt nhu cầu nghe gọi, học online và sử dụng mạng xã hội cơ bản.',
+                specs: ['Màn hình: 6.7 inch', 'RAM/Bộ nhớ: 4GB/64GB', 'Phân khúc: Phổ thông', 'Bảo hành: 12 tháng']
+            },
+            galaxy_a17: {
+                title: 'Samsung Galaxy A17',
+                image: 'images/cropped/galaxy_a17.png',
+                price: '5.890.000đ',
+                oldPrice: '6.090.000đ',
+                rating: '4.6/5 - 77 đánh giá giả lập',
+                desc: 'Dung lượng tốt, phù hợp học tập, giải trí, xem video và làm việc online hằng ngày.',
+                specs: ['Màn hình: 6.7 inch', 'RAM/Bộ nhớ: 8GB/256GB', 'Phù hợp: Học tập và giải trí', 'Bảo hành: 12 tháng']
+            },
+            watch_citizen1: {
+                title: 'Citizen EG7073-16Y',
+                image: 'images/cropped/watch_citizen1.png',
+                price: '10.280.000đ',
+                oldPrice: '13.860.000đ',
+                rating: '4.7/5 - 52 đánh giá giả lập',
+                desc: 'Thiết kế thanh lịch, phù hợp sử dụng hằng ngày hoặc làm quà tặng.',
+                specs: ['Loại: Đồng hồ nữ', 'Kích thước: 31 mm', 'Phong cách: Thanh lịch', 'Bảo hành: Theo chính sách cửa hàng']
+            },
+            watch_citizen2: {
+                title: 'Citizen EW2700-54L',
+                image: 'images/cropped/watch_citizen2.png',
+                price: '10.302.000đ',
+                oldPrice: '13.885.000đ',
+                rating: '4.6/5 - 49 đánh giá giả lập',
+                desc: 'Mặt số sáng màu, dây kim loại sang trọng, dễ phối với nhiều trang phục.',
+                specs: ['Loại: Đồng hồ nữ', 'Kích thước: 33 mm', 'Dây: Kim loại', 'Bảo hành: Theo chính sách cửa hàng']
+            },
+            watch_citizen3: {
+                title: 'Citizen CA0711-80H',
+                image: 'images/cropped/watch_citizen3.png',
+                price: '10.315.000đ',
+                oldPrice: '13.900.000đ',
+                rating: '4.7/5 - 58 đánh giá giả lập',
+                desc: 'Kiểu dáng mạnh mẽ, phù hợp phong cách thể thao và sử dụng hằng ngày.',
+                specs: ['Loại: Đồng hồ nam', 'Kích thước: 44 mm', 'Phong cách: Thể thao', 'Bảo hành: Theo chính sách cửa hàng']
+            },
+            watch_orient1: {
+                title: 'Orient Star RE-AT0004S00B',
+                image: 'images/cropped/watch_orient1.png',
+                price: '17.864.000đ',
+                oldPrice: '23.190.000đ',
+                rating: '4.8/5 - 44 đánh giá giả lập',
+                desc: 'Mặt đồng hồ nổi bật, phù hợp phong cách lịch lãm và môi trường công sở.',
+                specs: ['Loại: Đồng hồ nam', 'Kích thước: 39.2 mm', 'Phong cách: Lịch lãm', 'Bảo hành: Theo chính sách cửa hàng']
+            }
+        };
+
+        // Dữ liệu đánh giá giả lập - hiển thị như nhau cho mọi sản phẩm
+        const reviews = [
+            { name: 'Minh Anh', stars: '★★★★★', text: 'Sản phẩm hiển thị đẹp, thông tin rõ ràng, dễ xem trên điện thoại.' },
+            { name: 'Quốc Bảo', stars: '★★★★☆', text: 'Giá và thông số được trình bày dễ hiểu, bố cục gọn gàng.' },
+            { name: 'Hoàng Nam', stars: '★★★★★', text: 'Trang chi tiết có đủ hình ảnh, mô tả, đánh giá và nút thêm vào giỏ.' }
+        ];
+
+        // Lấy giá trị ?id=... từ URL trình duyệt
+        // Ví dụ: URL là product-detail.html?id=s25ultra → id = 's25ultra'
+        const params  = new URLSearchParams(window.location.search);
+        const id      = params.get('id') || 'iphone17pro256';
+
+        // Tìm thông tin sản phẩm theo id, nếu không có thì dùng iPhone 17 Pro mặc định
+        const product = products[id] || products.iphone17pro256;
+
+        // Cập nhật nội dung trang bằng JavaScript (thay thế các phần tử HTML)
+        document.title                                          = product.title + ' - SmartMobile';
+        document.getElementById('breadcrumbName').textContent  = product.title;
+        document.getElementById('productImage').src            = product.image;
+        document.getElementById('productImage').alt            = product.title;
+        document.getElementById('productTitle').textContent    = product.title;
+        document.getElementById('productRating').textContent   = product.rating;
+        document.getElementById('productPrice').textContent    = product.price;
+        document.getElementById('productOldPrice').textContent = product.oldPrice;
+        document.getElementById('productDesc').textContent     = product.desc;
+
+        // Tạo danh sách thông số kỹ thuật dưới dạng <li>
+        // Mỗi chuỗi spec có dạng "Tên: Giá trị", tách ra để in đậm phần tên
+        document.getElementById('specList').innerHTML = product.specs.map(function(item) {
+            const parts = item.split(': ');
+            return '<li><strong>' + parts[0] + ':</strong> ' + (parts[1] || '') + '</li>';
+        }).join('');
+
+        // Tạo danh sách đánh giá giả lập
+        document.getElementById('reviewList').innerHTML = reviews.map(function(review) {
+            return '<article class="review-box"><strong>' + review.name + '</strong><div class="stars">' + review.stars + '</div><p>' + review.text + '</p></article>';
+        }).join('');
+
+        // =====================================================
+        // Gắn thông tin sản phẩm vào nút "Thêm vào giỏ"
+        // cart.js dùng event delegation nên sẽ bắt được click
+        // sau khi data được set bằng setAttribute bên dưới
+        // setAttribute(tên_thuộc_tính, giá_trị): gán data-* cho nút
+        // =====================================================
+        var addBtn = document.querySelector('.detail-actions .add-cart-btn');
+        if (addBtn) {
+            addBtn.setAttribute('data-id',    id);             // ID sản phẩm
+            addBtn.setAttribute('data-name',  product.title); // Tên sản phẩm
+            addBtn.setAttribute('data-price', product.price); // Giá sản phẩm
+            addBtn.setAttribute('data-image', product.image); // Đường dẫn hình
+        }
+    </script>
+</body>
+</html>
