@@ -19,14 +19,31 @@
                 </div>
             </a>
 
+            <!-- Menu ngang desktop -->
             <nav class="menu">
-                <a href="index.html#home" target="_self">Trang chủ</a>
-                <a href="index.html#phones" target="_self">Điện thoại</a>
+                <a href="index.html#home"    target="_self">Trang chủ</a>
+                <a href="index.html#phones"  target="_self">Điện thoại</a>
                 <a href="index.html#watches" target="_self">Đồng hồ</a>
-                <a href="index.html#contact" target="_self">Liên hệ</a>
+                <a href="about.html"         target="_self">Giới thiệu</a>
+                <a href="news.html"          target="_self">Tin tức</a>
+                <a href="contact.html"       target="_self">Liên hệ</a>
             </nav>
+
+            <!-- Nút hamburger mobile -->
+            <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()">☰</button>
         </div>
+
+        <!-- Menu dọc mobile -->
+        <nav class="menu-mobile" id="menuMobile">
+            <a href="index.html#home"    target="_self">Trang chủ</a>
+            <a href="index.html#phones"  target="_self">Điện thoại</a>
+            <a href="index.html#watches" target="_self">Đồng hồ</a>
+            <a href="about.html"         target="_self">Giới thiệu</a>
+            <a href="news.html"          target="_self">Tin tức</a>
+            <a href="contact.html"       target="_self">Liên hệ</a>
+        </nav>
     </header>
+
 
     <main class="detail-page">
         <div class="container">
@@ -260,5 +277,13 @@
             addBtn.setAttribute('data-image', product.image); // Đường dẫn hình
         }
     </script>
+
+    <!-- Script hamburger menu (dùng chung cho tất cả trang) -->
+    <script>
+        function toggleMenu() {
+            document.getElementById('menuMobile').classList.toggle('open');
+        }
+    </script>
+
 </body>
 </html>

@@ -1149,3 +1149,401 @@ button {
     font-size: 16px;
     font-style: italic;
 }
+
+
+/* ============================================================
+   HAMBURGER MENU (Mobile Navigation)
+   Nút ☰ chỉ hiển thị trên màn hình nhỏ (< 768px).
+   Bấm vào sẽ hiện/ẩn menu dọc bên dưới header.
+   ============================================================ */
+
+/* Nút hamburger ☰ — ẩn trên desktop, hiện trên mobile */
+.hamburger-btn {
+    display: none;           /* Mặc định ẩn */
+    background: none;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 22px;
+    color: #334155;
+    line-height: 1;
+    font-family: inherit;
+}
+
+.hamburger-btn:hover {
+    background-color: #f1f5f9;
+}
+
+/* Menu mobile: dạng cột dọc, ẩn mặc định, hiện khi có class .open */
+.menu-mobile {
+    display: none;           /* Mặc định ẩn */
+    flex-direction: column;
+    background-color: #ffffff;
+    border-top: 1px solid #e5e7eb;
+    padding: 10px 0;
+}
+
+/* Khi JavaScript thêm class .open vào .menu-mobile → hiện menu */
+.menu-mobile.open {
+    display: flex;
+}
+
+/* Mỗi link trong menu mobile */
+.menu-mobile a {
+    display: block;
+    padding: 12px 16px;
+    color: #334155;
+    font-weight: bold;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.menu-mobile a:last-child {
+    border-bottom: none;
+}
+
+.menu-mobile a:hover {
+    background-color: #eff6ff;
+    color: #2563eb;
+}
+
+/* Trên mobile (< 768px): ẩn menu ngang, hiện nút hamburger */
+@media (max-width: 768px) {
+    /* Ẩn menu ngang desktop */
+    .menu {
+        display: none;
+    }
+
+    /* Hiện nút hamburger */
+    .hamburger-btn {
+        display: block;
+    }
+
+    /* nav-bar trên mobile: chỉ cần flex để logo và nút hamburger nằm cùng hàng */
+    .nav-bar {
+        flex-wrap: nowrap;
+    }
+}
+
+
+/* ============================================================
+   TRANG GIỚI THIỆU (about.html)
+   ============================================================ */
+
+/* Khu vực chính trang Giới thiệu */
+.about-section {
+    padding: 40px 0 60px;
+}
+
+/* Tiêu đề trang */
+.about-section .section-title {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+/* Đoạn giới thiệu chính: nền trắng, bo góc, bóng nhẹ */
+.about-intro {
+    background-color: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    padding: 32px;
+    margin-bottom: 28px;
+    color: #475569;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.about-intro h3 {
+    font-size: 26px;
+    color: #0f172a;
+    margin-bottom: 14px;
+}
+
+/* Danh sách điểm mạnh (3 mục dạng ul/li) */
+.about-highlight-list {
+    list-style: none; /* Bỏ dấu chấm mặc định, dùng icon ✔ */
+    padding: 0;
+    margin-top: 14px;
+}
+
+.about-highlight-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    font-size: 15px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.about-highlight-list li:last-child {
+    border-bottom: none;
+}
+
+/* Icon ✔ xanh trước mỗi mục */
+.about-highlight-list li::before {
+    content: "✔";
+    color: #2563eb;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* Danh sách đội ngũ: dạng grid 3 cột */
+.team-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 14px;
+}
+
+/* Mỗi thẻ thành viên */
+.team-card {
+    background-color: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    padding: 24px;
+    text-align: center;
+}
+
+/* Icon đại diện (dùng emoji đơn giản) */
+.team-card .team-avatar {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.team-card h4 {
+    font-size: 18px;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.team-card p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* Responsive trang Giới thiệu */
+@media (max-width: 640px) {
+    .team-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ============================================================
+   TRANG TIN TỨC (news.html)
+   ============================================================ */
+
+/* Khu vực chính trang Tin tức */
+.news-section {
+    padding: 40px 0 60px;
+}
+
+.news-section .section-title {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+/* Grid bài viết: 2 cột trên desktop */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+/* Mỗi card tin tức */
+.news-card {
+    background-color: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Nhãn thể loại (ví dụ: "Khuyến mãi") */
+.news-tag {
+    display: inline-block;
+    background-color: #dbeafe;
+    color: #1d4ed8;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+/* Ngày đăng */
+.news-date {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+/* Tiêu đề bài viết */
+.news-card h3 {
+    font-size: 20px;
+    color: #0f172a;
+    line-height: 1.4;
+}
+
+/* Đoạn trích nội dung */
+.news-excerpt {
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.7;
+    flex: 1; /* Chiếm hết chiều cao còn lại để các card đều nhau */
+}
+
+/* Responsive trang Tin tức */
+@media (max-width: 640px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ============================================================
+   TRANG LIÊN HỆ (contact.html)
+   ============================================================ */
+
+/* Khu vực chính trang Liên hệ */
+.contact-page-section {
+    padding: 40px 0 60px;
+}
+
+.contact-page-section .section-title {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+/* Layout 2 cột: thông tin | form */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 28px;
+    align-items: start;
+}
+
+/* Hộp thông tin liên hệ (cột trái) */
+.contact-info-box {
+    background-color: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    padding: 28px;
+}
+
+.contact-info-box h3 {
+    font-size: 22px;
+    color: #0f172a;
+    margin-bottom: 18px;
+}
+
+/* Mỗi dòng thông tin (địa chỉ, email, SĐT...) */
+.contact-info-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+    color: #475569;
+    font-size: 15px;
+    align-items: flex-start;
+}
+
+/* Icon emoji trước mỗi dòng */
+.contact-info-item span.icon {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+/* Bản đồ nhỏ bên dưới thông tin */
+.contact-map {
+    margin-top: 20px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 200px;
+    border: 0;
+    display: block;
+}
+
+/* Hộp form liên hệ (cột phải) */
+.contact-form-box {
+    background-color: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    padding: 28px;
+}
+
+.contact-form-box h3 {
+    font-size: 22px;
+    color: #0f172a;
+    margin-bottom: 20px;
+}
+
+/* Mỗi nhóm label + input */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #334155;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+/* Input và Textarea dùng chung class */
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #0f172a;
+    background-color: #f8fafc;
+    outline: none;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: #2563eb;
+    background-color: #eff6ff;
+}
+
+/* Textarea cao hơn input thường */
+.form-textarea {
+    height: 130px;
+    resize: vertical; /* Cho phép kéo dọc để tăng chiều cao */
+}
+
+/* Nút Gửi */
+.form-submit-btn {
+    width: 100%;
+    padding: 13px;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 6px;
+}
+
+.form-submit-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* Responsive trang Liên hệ */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}

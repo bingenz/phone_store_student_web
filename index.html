@@ -20,14 +20,32 @@
                 </div>
             </a>
 
+            <!-- Menu ngang: hiển thị trên desktop (>768px) -->
             <nav class="menu">
-                <a href="#home">Trang chủ</a>
-                <a href="#phones">Điện thoại</a>
-                <a href="#watches">Đồng hồ</a>
-                <a href="#contact">Liên hệ</a>
+                <a href="index.html#home">Trang chủ</a>
+                <a href="index.html#phones">Điện thoại</a>
+                <a href="index.html#watches">Đồng hồ</a>
+                <a href="about.html" target="_self">Giới thiệu</a>
+                <a href="news.html" target="_self">Tin tức</a>
+                <a href="contact.html" target="_self">Liên hệ</a>
             </nav>
+
+            <!-- Nút hamburger ☰: chỉ hiện trên mobile (<768px) -->
+            <!-- onclick: thêm/bỏ class "open" vào .menu-mobile để hiện/ẩn menu -->
+            <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()">☰</button>
         </div>
+
+        <!-- Menu dọc mobile: ẩn mặc định, hiện khi bấm hamburger -->
+        <nav class="menu-mobile" id="menuMobile">
+            <a href="index.html#home" onclick="closeMenu()">Trang chủ</a>
+            <a href="index.html#phones" onclick="closeMenu()">Điện thoại</a>
+            <a href="index.html#watches" onclick="closeMenu()">Đồng hồ</a>
+            <a href="about.html" target="_self">Giới thiệu</a>
+            <a href="news.html" target="_self">Tin tức</a>
+            <a href="contact.html" target="_self">Liên hệ</a>
+        </nav>
     </header>
+
 
     <main>
         <section id="home" class="hero">
@@ -372,5 +390,21 @@
     <!-- Nhúng cart.js cuối body để DOM đã tải xong trước khi script chạy
          cart.js tự động: cập nhật badge + lắng nghe nút "Thêm vào giỏ" -->
     <script src="cart.js"></script>
+
+    <!-- Script hamburger menu:
+         toggleMenu(): bấm nút ☰ để hiện/ẩn menu mobile
+         closeMenu(): bấm link trong menu mobile → tự đóng menu -->
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menuMobile');
+            // toggle class "open": nếu đang có thì xóa, không có thì thêm
+            menu.classList.toggle('open');
+        }
+
+        function closeMenu() {
+            var menu = document.getElementById('menuMobile');
+            menu.classList.remove('open');
+        }
+    </script>
 </body>
 </html>

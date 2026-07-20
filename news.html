@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tin tuc va khuyen mai moi nhat tu SmartMobile.">
+    <title>Tin tuc - SmartMobile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/logo-phone.svg">
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-bar">
+            <a href="index.html#home" target="_self" class="logo-box">
+                <img src="images/logo-phone.svg" alt="Logo SmartMobile">
+                <div><h1>SmartMobile</h1><p>Dien thoai chinh hang</p></div>
+            </a>
+            <nav class="menu">
+                <a href="index.html#home" target="_self">Trang chu</a>
+                <a href="index.html#phones" target="_self">Dien thoai</a>
+                <a href="index.html#watches" target="_self">Dong ho</a>
+                <a href="about.html" target="_self">Gioi thieu</a>
+                <a href="news.html" target="_self">Tin tuc</a>
+                <a href="contact.html" target="_self">Lien he</a>
+            </nav>
+            <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()">&#9776;</button>
+        </div>
+        <nav class="menu-mobile" id="menuMobile">
+            <a href="index.html#home" target="_self">Trang chu</a>
+            <a href="index.html#phones" target="_self">Dien thoai</a>
+            <a href="index.html#watches" target="_self">Dong ho</a>
+            <a href="about.html" target="_self">Gioi thieu</a>
+            <a href="news.html" target="_self">Tin tuc</a>
+            <a href="contact.html" target="_self">Lien he</a>
+        </nav>
+    </header>
+    <main class="news-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tin tuc va Khuyen mai</h2>
+                <p>Cap nhat thong tin moi nhat tu SmartMobile</p>
+            </div>
+            <div class="news-grid">
+                <article class="news-card">
+                    <span class="news-tag">Khuyen mai</span>
+                    <p class="news-date">15/07/2026</p>
+                    <h3>Giam den 20% cho iPhone 17 Pro trong thang 7</h3>
+                    <p class="news-excerpt">Nhan dip ky niem ngay thanh lap, SmartMobile giam gia den 20% cho toan bo dong iPhone 17 Pro. Day la co hoi tuyet voi de so huu chiec dien thoai cao cap voi gia tot nhat trong nam. Chuong trinh ap dung den het ngay 31/07/2026.</p>
+                </article>
+                <article class="news-card">
+                    <span class="news-tag">Su kien</span>
+                    <p class="news-date">10/07/2026</p>
+                    <h3>SmartMobile mo rong showroom tai Quan 7</h3>
+                    <p class="news-excerpt">Chung toi vui mung thong bao khai truong chi nhanh moi tai Quan 7, TP. Ho Chi Minh. Chi nhanh moi se phuc vu khach hang tu 8:00 den 21:00 hang ngay voi day du cac dong san pham dien thoai va dong ho chinh hang.</p>
+                </article>
+                <article class="news-card">
+                    <span class="news-tag">Cong nghe</span>
+                    <p class="news-date">05/07/2026</p>
+                    <h3>Samsung Galaxy A17 - Lua chon tam trung dang mua nhat 2026</h3>
+                    <p class="news-excerpt">Samsung Galaxy A17 vua ra mat voi nhieu nang cap an tuong: chip manh hon, pin 5000mAh va man hinh 90Hz. Day la lua chon ly tuong cho hoc sinh, sinh vien muon mot chiec dien thoai ben, lau dai voi ngan sach vua phai.</p>
+                </article>
+                <article class="news-card">
+                    <span class="news-tag">Meo dung</span>
+                    <p class="news-date">01/07/2026</p>
+                    <h3>5 cach bao ve dien thoai giup tang tuoi tho pin</h3>
+                    <p class="news-excerpt">Pin la bo phan quan trong nhat nhung lai de hong nhat neu su dung sai cach. Bai viet nay tong hop 5 thoi quen don gian giup ban bao ve pin dien thoai, giu cho may luon hoat dong tot trong nhieu nam.</p>
+                </article>
+            </div>
+        </div>
+    </main>
+    <footer id="contact" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info"><h2>SmartMobile Store</h2><p><strong>Dia chi:</strong> 300A Nguyen Tat Thanh, Quan 4, TP. Ho Chi Minh</p><p><strong>Email:</strong> 1235@gmail.com</p><p><strong>Dien thoai:</strong> 1234 567 891</p><p><strong>Gio mo cua:</strong> 8:00 - 21:00 moi ngay</p></div>
+            <div class="footer-map"><iframe src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ban do SmartMobile"></iframe></div>
+        </div>
+    </footer>
+    <a href="cart.html" class="cart-floating-btn" id="cartFloatingBtn">&#128722;<span class="cart-badge" id="cartBadge"></span></a>
+    <script src="cart.js"></script>
+    <script>function toggleMenu(){document.getElementById('menuMobile').classList.toggle('open');}</script>
+</body>
+</html>
