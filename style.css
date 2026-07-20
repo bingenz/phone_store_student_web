@@ -1428,60 +1428,16 @@ button {
     margin-bottom: 36px;
 }
 
-/* Layout 2 cột: thông tin | form */
+/* Layout: chỉ còn form liên hệ (thông tin cửa hàng đã có ở footer), căn giữa trang */
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 28px;
-    align-items: start;
+    justify-content: center;
 }
 
-/* Hộp thông tin liên hệ (cột trái) */
-.contact-info-box {
-    background-color: #ffffff;
-    border-radius: 22px;
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
-    padding: 28px;
-}
-
-.contact-info-box h3 {
-    font-size: 22px;
-    color: #0f172a;
-    margin-bottom: 18px;
-}
-
-/* Mỗi dòng thông tin (địa chỉ, email, SĐT...) */
-.contact-info-item {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 14px;
-    color: #475569;
-    font-size: 15px;
-    align-items: flex-start;
-}
-
-/* Icon emoji trước mỗi dòng */
-.contact-info-item span.icon {
-    font-size: 18px;
-    flex-shrink: 0;
-}
-
-/* Bản đồ nhỏ bên dưới thông tin */
-.contact-map {
-    margin-top: 20px;
-    border-radius: 16px;
-    overflow: hidden;
-}
-
-.contact-map iframe {
-    width: 100%;
-    height: 200px;
-    border: 0;
-    display: block;
-}
-
-/* Hộp form liên hệ (cột phải) */
+/* Hộp form liên hệ */
 .contact-form-box {
+    width: 100%;
+    max-width: 560px;
     background-color: #ffffff;
     border-radius: 22px;
     box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
