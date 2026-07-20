@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Liên hệ với SmartMobile - địa chỉ, email, số điện thoại và form gửi tin nhắn.">
+    <meta name="description" content="Liên hệ với SmartMobile — địa chỉ, email, số điện thoại và form gửi tin nhắn.">
     <title>Liên hệ - SmartMobile</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/logo-phone.svg">
@@ -20,22 +20,24 @@
                 </div>
             </a>
             <nav class="menu">
-                <a href="accessories.html" target="_self">Ưu đãi</a>
+                <a href="index.html#home" target="_self">Trang chủ</a>
                 <a href="index.html#phones" target="_self">Điện thoại</a>
                 <a href="index.html#watches" target="_self">Đồng hồ</a>
                 <a href="about.html" target="_self">Giới thiệu</a>
                 <a href="news.html" target="_self">Tin tức</a>
                 <a href="contact.html" target="_self">Liên hệ</a>
+                <a href="login.html" class="btn-login-header" target="_self">Đăng nhập</a>
             </nav>
             <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()">&#9776;</button>
         </div>
         <nav class="menu-mobile" id="menuMobile">
-            <a href="accessories.html" target="_self">Ưu đãi</a>
+            <a href="index.html#home" target="_self">Trang chủ</a>
             <a href="index.html#phones" target="_self">Điện thoại</a>
             <a href="index.html#watches" target="_self">Đồng hồ</a>
             <a href="about.html" target="_self">Giới thiệu</a>
             <a href="news.html" target="_self">Tin tức</a>
             <a href="contact.html" target="_self">Liên hệ</a>
+            <a href="login.html" class="btn-login-header" target="_self">Đăng nhập</a>
         </nav>
     </header>
 
@@ -89,9 +91,9 @@
                     <h3>Gởi tin nhắn cho chúng tôi</h3>
 
                     <!--
-                        Form HTML co ban - dung de demo, chua gui that.
-                        action="#": form khong gui di dau.
-                        onsubmit: hien thong bao va ngan submit mac dinh.
+                        Form HTML cơ bản — dùng để demo, chưa gửi thật.
+                        action="#": form không gửi đi đâu.
+                        onsubmit: hiện thông báo và ngăn submit mặc định.
                     -->
                     <form action="#" id="contactForm" onsubmit="handleSubmit(event)">
 
@@ -99,26 +101,29 @@
                         <div class="form-group">
                             <label for="contactName">Họ và tên</label>
                             <input type="text" id="contactName" class="form-input"
-                                   placeholder="VD: Nguyễn Văn A" required>
+                                   placeholder="Nhập họ và tên của bạn" required>
                         </div>
 
                         <div class="form-group">
                             <label for="contactEmail">Email</label>
                             <input type="email" id="contactEmail" class="form-input"
-                                   placeholder="VD: email@gmail.com" required>
+                                   placeholder="Nhập email của bạn" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="contactPhone">Số điện thoại <small>(tùy chọn)</small></label>
+                            <label for="contactPhone">Số điện thoại</label>
                             <input type="tel" id="contactPhone" class="form-input"
-                                   placeholder="VD: 0901 234 567">
+                                   placeholder="Nhập số điện thoại (tùy chọn)">
                         </div>
 
                         <div class="form-group">
-                            <label for="contactMessage">Nội dung cần tư vấn</label>
-                            <!-- textarea: hộp nhập nhiều dòng, resize: vertical (CSS) - chỉ cho phép kéo dọc -->
+                            <label for="contactMessage">Nội dung</label>
+                            <!--
+                                textarea: hộp nhập nhiều dòng.
+                                resize: vertical (CSS) — chỉ cho phép kéo dọc.
+                            -->
                             <textarea id="contactMessage" class="form-textarea"
-                                      placeholder="VD: Tôi muốn biết thêm về iPhone 17 Pro, có trả góp không? Giá bao nhiêu?" required></textarea>
+                                      placeholder="Nhập nội dung cần tư vấn..." required></textarea>
                         </div>
 
                         <button type="submit" class="form-submit-btn" id="submitBtn">
@@ -152,6 +157,7 @@
         <span class="cart-badge" id="cartBadge"></span>
     </a>
     <script src="cart.js"></script>
+    <script src="auth.js"></script>
     <script>
         function toggleMenu() {
             document.getElementById('menuMobile').classList.toggle('open');

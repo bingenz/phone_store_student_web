@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f5f7fb;
@@ -1568,4 +1573,77 @@ button {
     padding-bottom: 8px;
     border-bottom: 2px solid #2563eb; /* Đường gạch dưới màu xanh */
     display: inline-block;
+}
+
+/* ============================================================
+   TRANG ĐĂNG NHẬP / ĐĂNG KÝ (login.html, register.html)
+   ============================================================ */
+.auth-section {
+    padding: 60px 0;
+    min-height: calc(100vh - 400px); /* Đảm bảo đủ chiều cao */
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-box {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    max-width: 420px;
+}
+
+.auth-box h2 {
+    font-size: 24px;
+    color: #1e293b;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.auth-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.auth-link-text {
+    margin-top: 20px;
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.auth-link-text a {
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.auth-link-text a:hover {
+    text-decoration: underline;
+}
+
+/* Nút Header Login */
+.btn-login-header {
+    background-color: #2563eb;
+    color: #ffffff !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.btn-login-header:hover {
+    background-color: #1d4ed8;
+}
+
+@media (max-width: 768px) {
+    .menu-mobile .btn-login-header {
+        display: inline-block;
+        margin-top: 10px;
+    }
 }

@@ -20,22 +20,24 @@
                 </div>
             </a>
             <nav class="menu">
-                <a href="accessories.html" target="_self">Ưu đãi</a>
+                <a href="index.html#home" target="_self">Trang chủ</a>
                 <a href="index.html#phones" target="_self">Điện thoại</a>
                 <a href="index.html#watches" target="_self">Đồng hồ</a>
                 <a href="about.html" target="_self">Giới thiệu</a>
                 <a href="news.html" target="_self">Tin tức</a>
                 <a href="contact.html" target="_self">Liên hệ</a>
+                <a href="login.html" class="btn-login-header" target="_self">Đăng nhập</a>
             </nav>
             <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()">&#9776;</button>
         </div>
         <nav class="menu-mobile" id="menuMobile">
-            <a href="accessories.html" target="_self">Ưu đãi</a>
+            <a href="index.html#home" target="_self">Trang chủ</a>
             <a href="index.html#phones" target="_self">Điện thoại</a>
             <a href="index.html#watches" target="_self">Đồng hồ</a>
             <a href="about.html" target="_self">Giới thiệu</a>
             <a href="news.html" target="_self">Tin tức</a>
             <a href="contact.html" target="_self">Liên hệ</a>
+            <a href="login.html" class="btn-login-header" target="_self">Đăng nhập</a>
         </nav>
     </header>
 
@@ -81,7 +83,7 @@
                 <article class="news-card">
                     <span class="news-tag">Công nghệ</span>
                     <p class="news-date">05/07/2026</p>
-                    <h3>Samsung Galaxy A17 - Lựa chọn tầm trung đáng mua nhất 2026</h3>
+                    <h3>Samsung Galaxy A17 — Lựa chọn tầm trung đáng mua nhất 2026</h3>
                     <p class="news-excerpt">
                         Samsung Galaxy A17 vừa ra mắt với nhiều nâng cấp ấn tượng:
                         chip mạnh hơn, pin 5000mAh và màn hình 90Hz.
@@ -126,6 +128,7 @@
         <span class="cart-badge" id="cartBadge"></span>
     </a>
     <script src="cart.js"></script>
+    <script src="auth.js"></script>
     <script>
         function toggleMenu() {
             document.getElementById('menuMobile').classList.toggle('open');

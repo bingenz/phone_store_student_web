@@ -1,4 +1,4 @@
-﻿# encoding: utf-8
+# encoding: utf-8
 
 # ===== SHARED PARTS =====
 def header():
@@ -18,6 +18,7 @@ def header():
                 <a href="about.html" target="_self">Gi\u1edbi thi\u1ec7u</a>
                 <a href="news.html" target="_self">Tin t\u1ee9c</a>
                 <a href="contact.html" target="_self">Li\u00ean h\u1ec7</a>
+                <a href="login.html" class="btn-login-header" target="_self">Đăng nhập</a>
             </nav>
             <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()">&#9776;</button>
         </div>
@@ -28,6 +29,7 @@ def header():
             <a href="about.html" target="_self">Gi\u1edbi thi\u1ec7u</a>
             <a href="news.html" target="_self">Tin t\u1ee9c</a>
             <a href="contact.html" target="_self">Li\u00ean h\u1ec7</a>
+            <a href="login.html" class="btn-login-header" target="_self">Đăng nhập</a>
         </nav>
     </header>"""
 
@@ -53,6 +55,7 @@ def scripts(extra=""):
         <span class="cart-badge" id="cartBadge"></span>
     </a>
     <script src="cart.js"></script>
+    <script src="auth.js"></script>
     <script>
         function toggleMenu() {
             document.getElementById('menuMobile').classList.toggle('open');
@@ -515,9 +518,126 @@ accessories = """<!DOCTYPE html>
 </body>
 </html>"""
 
+# ===== LOGIN.HTML =====
+login = """<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Đăng nhập tài khoản SmartMobile.">
+    <title>Đăng nhập - SmartMobile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/logo-phone.svg">
+</head>
+<body>
+
+""" + header() + """
+
+    <main class="auth-section">
+        <div class="container auth-container">
+            <div class="auth-box">
+                <h2>Đăng nhập</h2>
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" class="form-input" placeholder="VD: nguyenvana@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Mật khẩu</label>
+                        <input type="password" id="loginPassword" class="form-input" placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <button type="submit" class="form-submit-btn btn btn-primary">Đăng nhập</button>
+                </form>
+                <p class="auth-link-text">
+                    Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+""" + footer() + "\n\n" + scripts("""
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            var email = document.getElementById('loginEmail').value;
+            // Giả lập đăng nhập: lấy tên từ email
+            var username = email.split('@')[0];
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("username", username);
+            alert("Đăng nhập thành công!");
+            window.location.href = "index.html";
+        }
+    </script>""") + """
+</body>
+</html>"""
+
+# ===== REGISTER.HTML =====
+register = """<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Đăng ký tài khoản SmartMobile.">
+    <title>Đăng ký - SmartMobile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/logo-phone.svg">
+</head>
+<body>
+
+""" + header() + """
+
+    <main class="auth-section">
+        <div class="container auth-container">
+            <div class="auth-box">
+                <h2>Đăng ký</h2>
+                <form id="registerForm" onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label for="regName">Họ và tên</label>
+                        <input type="text" id="regName" class="form-input" placeholder="VD: Nguyễn Văn A" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email</label>
+                        <input type="email" id="regEmail" class="form-input" placeholder="VD: nguyenvana@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Mật khẩu</label>
+                        <input type="password" id="regPassword" class="form-input" placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regConfirm">Xác nhận mật khẩu</label>
+                        <input type="password" id="regConfirm" class="form-input" placeholder="Nhập lại mật khẩu" required>
+                    </div>
+                    <button type="submit" class="form-submit-btn btn btn-primary">Đăng ký</button>
+                </form>
+                <p class="auth-link-text">
+                    Đã có tài khoản? <a href="login.html">Đăng nhập</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+""" + footer() + "\n\n" + scripts("""
+    <script>
+        function handleRegister(event) {
+            event.preventDefault();
+            var pass = document.getElementById('regPassword').value;
+            var confirm = document.getElementById('regConfirm').value;
+            if (pass !== confirm) {
+                alert("Mật khẩu xác nhận không khớp!");
+                return;
+            }
+            alert("Đăng ký thành công! Bạn có thể đăng nhập ngay bây giờ.");
+            window.location.href = "login.html";
+        }
+    </script>""") + """
+</body>
+</html>"""
+
 # Ghi file
 with open('about.html', 'w', encoding='utf-8') as f: f.write(about)
 with open('news.html', 'w', encoding='utf-8') as f: f.write(news)
 with open('contact.html', 'w', encoding='utf-8') as f: f.write(contact)
 with open('accessories.html', 'w', encoding='utf-8') as f: f.write(accessories)
-print("Done! 4 files written successfully.")
+with open('login.html', 'w', encoding='utf-8') as f: f.write(login)
+with open('register.html', 'w', encoding='utf-8') as f: f.write(register)
+print("Done! 6 files written successfully.")

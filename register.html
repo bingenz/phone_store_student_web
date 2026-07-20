@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Đăng ký tài khoản SmartMobile.">
+    <title>Đăng ký - SmartMobile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/logo-phone.svg">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-bar">
+            <a href="index.html#home" target="_self" class="logo-box">
+                <img src="images/logo-phone.svg" alt="Logo SmartMobile">
+                <div>
+                    <h1>SmartMobile</h1>
+                    <p>Điện thoại chính hãng</p>
+                </div>
+            </a>
+            <nav class="menu">
+                <a href="index.html#home" target="_self">Trang chủ</a>
+                <a href="index.html#phones" target="_self">Điện thoại</a>
+                <a href="index.html#watches" target="_self">Đồng hồ</a>
+                <a href="about.html" target="_self">Giới thiệu</a>
+                <a href="news.html" target="_self">Tin tức</a>
+                <a href="contact.html" target="_self">Liên hệ</a>
+                <a href="login.html" class="btn-login-header" target="_self">Đăng nhập</a>
+            </nav>
+            <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()">&#9776;</button>
+        </div>
+        <nav class="menu-mobile" id="menuMobile">
+            <a href="index.html#home" target="_self">Trang chủ</a>
+            <a href="index.html#phones" target="_self">Điện thoại</a>
+            <a href="index.html#watches" target="_self">Đồng hồ</a>
+            <a href="about.html" target="_self">Giới thiệu</a>
+            <a href="news.html" target="_self">Tin tức</a>
+            <a href="contact.html" target="_self">Liên hệ</a>
+            <a href="login.html" class="btn-login-header" target="_self">Đăng nhập</a>
+        </nav>
+    </header>
+
+    <main class="auth-section">
+        <div class="container auth-container">
+            <div class="auth-box">
+                <h2>Đăng ký</h2>
+                <form id="registerForm" onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label for="regName">Họ và tên</label>
+                        <input type="text" id="regName" class="form-input" placeholder="VD: Nguyễn Văn A" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email</label>
+                        <input type="email" id="regEmail" class="form-input" placeholder="VD: nguyenvana@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Mật khẩu</label>
+                        <input type="password" id="regPassword" class="form-input" placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regConfirm">Xác nhận mật khẩu</label>
+                        <input type="password" id="regConfirm" class="form-input" placeholder="Nhập lại mật khẩu" required>
+                    </div>
+                    <button type="submit" class="form-submit-btn btn btn-primary">Đăng ký</button>
+                </form>
+                <p class="auth-link-text">
+                    Đã có tài khoản? <a href="login.html">Đăng nhập</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact-footer" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h2>SmartMobile Store</h2>
+                <p><strong>Địa chỉ:</strong> 300A Nguyễn Tất Thành, Quận 4, TP. Hồ Chí Minh</p>
+                <p><strong>Email:</strong> 1235@gmail.com</p>
+                <p><strong>Điện thoại:</strong> 1234 567 891</p>
+                <p><strong>Giờ mở cửa:</strong> 8:00 - 21:00 mỗi ngày</p>
+            </div>
+            <div class="footer-map">
+                <iframe src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bản đồ SmartMobile"></iframe>
+            </div>
+        </div>
+    </footer>
+
+    <a href="cart.html" class="cart-floating-btn" id="cartFloatingBtn">
+        &#128722;
+        <span class="cart-badge" id="cartBadge"></span>
+    </a>
+    <script src="cart.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        function toggleMenu() {
+            document.getElementById('menuMobile').classList.toggle('open');
+        }
+    </script>
+    <script>
+        function handleRegister(event) {
+            event.preventDefault();
+            var pass = document.getElementById('regPassword').value;
+            var confirm = document.getElementById('regConfirm').value;
+            if (pass !== confirm) {
+                alert("Mật khẩu xác nhận không khớp!");
+                return;
+            }
+            alert("Đăng ký thành công! Bạn có thể đăng nhập ngay bây giờ.");
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>
