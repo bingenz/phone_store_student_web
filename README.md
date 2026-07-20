@@ -54,3 +54,15 @@ Dự án có thể chạy trực tiếp bằng trình duyệt mà không cần c
 
 ---
 *Dự án phục vụ mục đích học tập môn Thiết kế Web.*
+
+# Deploy Cloudflare Pages
+
+- Link website: https://phone-store-student-web.pages.dev/
+- Platform: Cloudflare Pages
+- GitHub repository: `bingenz/phone_store_student_web`
+- Production branch: `master`
+- Framework preset: `None`
+- Build command: empty
+- Build output directory: empty because HTML/CSS/JS files are in the project root
+
+After each push to branch `master`, Cloudflare Pages automatically deploys the latest code from GitHub.
