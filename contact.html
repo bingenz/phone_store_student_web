@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Liên hệ với SmartMobile — địa chỉ, email, số điện thoại và form gửi tin nhắn.">
+    <meta name="description" content="Liên hệ với SmartMobile - địa chỉ, email, số điện thoại và form gửi tin nhắn.">
     <title>Liên hệ - SmartMobile</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/logo-phone.svg">
@@ -89,9 +89,9 @@
                     <h3>Gởi tin nhắn cho chúng tôi</h3>
 
                     <!--
-                        Form HTML cơ bản — dùng để demo, chưa gửi thật.
-                        action="#": form không gửi đi đâu.
-                        onsubmit: hiện thông báo và ngăn submit mặc định.
+                        Form HTML co ban - dung de demo, chua gui that.
+                        action="#": form khong gui di dau.
+                        onsubmit: hien thong bao va ngan submit mac dinh.
                     -->
                     <form action="#" id="contactForm" onsubmit="handleSubmit(event)">
 
@@ -99,29 +99,26 @@
                         <div class="form-group">
                             <label for="contactName">Họ và tên</label>
                             <input type="text" id="contactName" class="form-input"
-                                   placeholder="Nhập họ và tên của bạn" required>
+                                   placeholder="VD: Nguyễn Văn A" required>
                         </div>
 
                         <div class="form-group">
                             <label for="contactEmail">Email</label>
                             <input type="email" id="contactEmail" class="form-input"
-                                   placeholder="Nhập email của bạn" required>
+                                   placeholder="VD: email@gmail.com" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="contactPhone">Số điện thoại</label>
+                            <label for="contactPhone">Số điện thoại <small>(tùy chọn)</small></label>
                             <input type="tel" id="contactPhone" class="form-input"
-                                   placeholder="Nhập số điện thoại (tùy chọn)">
+                                   placeholder="VD: 0901 234 567">
                         </div>
 
                         <div class="form-group">
-                            <label for="contactMessage">Nội dung</label>
-                            <!--
-                                textarea: hộp nhập nhiều dòng.
-                                resize: vertical (CSS) — chỉ cho phép kéo dọc.
-                            -->
+                            <label for="contactMessage">Nội dung cần tư vấn</label>
+                            <!-- textarea: hộp nhập nhiều dòng, resize: vertical (CSS) - chỉ cho phép kéo dọc -->
                             <textarea id="contactMessage" class="form-textarea"
-                                      placeholder="Nhập nội dung cần tư vấn..." required></textarea>
+                                      placeholder="VD: Tôi muốn biết thêm về iPhone 17 Pro, có trả góp không? Giá bao nhiêu?" required></textarea>
                         </div>
 
                         <button type="submit" class="form-submit-btn" id="submitBtn">
