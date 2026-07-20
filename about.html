@@ -3,77 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gioi thieu SmartMobile - cua hang dien thoai chinh hang tai TP. HCM.">
-    <title>Gioi thieu - SmartMobile</title>
+    <meta name="description" content="Giới thiệu về SmartMobile - cửa hàng điện thoại chính hãng, uy tín tại TP. Hồ Chí Minh.">
+    <title>Giới thiệu - SmartMobile</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/logo-phone.svg">
 </head>
 <body>
+
     <header class="header">
         <div class="container nav-bar">
             <a href="index.html#home" target="_self" class="logo-box">
                 <img src="images/logo-phone.svg" alt="Logo SmartMobile">
-                <div><h1>SmartMobile</h1><p>Dien thoai chinh hang</p></div>
+                <div>
+                    <h1>SmartMobile</h1>
+                    <p>Điện thoại chính hãng</p>
+                </div>
             </a>
             <nav class="menu">
-                <a href="index.html#home" target="_self">Trang chu</a>
-                <a href="index.html#phones" target="_self">Dien thoai</a>
-                <a href="index.html#watches" target="_self">Dong ho</a>
-                <a href="about.html" target="_self">Gioi thieu</a>
-                <a href="news.html" target="_self">Tin tuc</a>
-                <a href="contact.html" target="_self">Lien he</a>
+                <a href="index.html#home" target="_self">Trang chủ</a>
+                <a href="index.html#phones" target="_self">Điện thoại</a>
+                <a href="index.html#watches" target="_self">Đồng hồ</a>
+                <a href="about.html" target="_self">Giới thiệu</a>
+                <a href="news.html" target="_self">Tin tức</a>
+                <a href="contact.html" target="_self">Liên hệ</a>
             </nav>
             <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()">&#9776;</button>
         </div>
         <nav class="menu-mobile" id="menuMobile">
-            <a href="index.html#home" target="_self">Trang chu</a>
-            <a href="index.html#phones" target="_self">Dien thoai</a>
-            <a href="index.html#watches" target="_self">Dong ho</a>
-            <a href="about.html" target="_self">Gioi thieu</a>
-            <a href="news.html" target="_self">Tin tuc</a>
-            <a href="contact.html" target="_self">Lien he</a>
+            <a href="index.html#home" target="_self">Trang chủ</a>
+            <a href="index.html#phones" target="_self">Điện thoại</a>
+            <a href="index.html#watches" target="_self">Đồng hồ</a>
+            <a href="about.html" target="_self">Giới thiệu</a>
+            <a href="news.html" target="_self">Tin tức</a>
+            <a href="contact.html" target="_self">Liên hệ</a>
         </nav>
     </header>
+
+    <!-- Nội dung chính trang Giới thiệu -->
     <main class="about-section">
         <div class="container">
+
             <div class="section-title">
-                <h2>Gioi thieu SmartMobile</h2>
-                <p>Doi tac tin cay cua ban trong the gioi cong nghe</p>
+                <h2>Giới thiệu SmartMobile</h2>
+                <p>Đối tác tin cậy của bạn trong thế giới công nghệ</p>
             </div>
+
+            <!-- Đoạn giới thiệu chính: dùng class .about-intro định nghĩa trong style.css -->
             <div class="about-intro">
-                <h3>Chung toi la ai?</h3>
-                <p>SmartMobile la cua hang dien thoai va dong ho chinh hang duoc thanh lap voi muc tieu mang den cho khach hang nhung san pham cong nghe chat luong cao voi muc gia hop ly va dich vu hau mai tot nhat.</p>
-                <p>Chung toi hieu rang moi nguoi co nhu cau va ngan sach khac nhau, vi vay SmartMobile luon co gang da dang hoa danh muc san pham, tu dien thoai cao cap nhu iPhone, Samsung Galaxy Ultra cho den cac dong tam trung phu hop voi hoc sinh sinh vien.</p>
+                <h3>Chúng tôi là ai?</h3>
+                <p>
+                    SmartMobile là cửa hàng điện thoại và đồng hồ chính hãng được thành lập
+                    với mục tiêu mang đến cho khách hàng những sản phẩm công nghệ chất lượng cao
+                    với mức giá hợp lý và dịch vụ hậu mãi tốt nhất.
+                </p>
+                <p>
+                    Chúng tôi hiểu rằng mỗi người có nhu cầu và ngân sách khác nhau,
+                    vì vậy SmartMobile luôn cố gắng đa dạng hóa danh mục sản phẩm —
+                    từ điện thoại cao cấp như iPhone, Samsung Galaxy Ultra
+                    cho đến các dòng tầm trung phù hợp với học sinh, sinh viên.
+                </p>
             </div>
+
+            <!-- Điểm mạnh của cửa hàng: dùng ul/li để dễ đọc theo AGENTS.md -->
             <div class="about-intro">
-                <h3>Tai sao chon SmartMobile?</h3>
+                <h3>Tại sao chọn SmartMobile?</h3>
                 <ul class="about-highlight-list">
-                    <li>San pham chinh hang 100% - co hoa don, tem bao hanh ro rang</li>
-                    <li>Bao hanh 12 thang tai cua hang, ho tro doi tra trong 7 ngay</li>
-                    <li>Gia niem yet minh bach, khong phu thu phi an</li>
-                    <li>Ho tro tra gop 0% lai suat cho nhieu dong san pham</li>
-                    <li>Doi ngu tu van nhiet tinh, giai dap truoc va sau khi mua</li>
+                    <li>Sản phẩm chính hãng 100% — có hóa đơn, tem bảo hành rõ ràng</li>
+                    <li>Bảo hành 12 tháng tại cửa hàng, hỗ trợ đổi trả trong 7 ngày</li>
+                    <li>Giá niêm yết minh bạch, không phụ thu phí ẩn</li>
+                    <li>Hỗ trợ trả góp 0% lãi suất cho nhiều dòng sản phẩm</li>
+                    <li>Đội ngũ tư vấn nhiệt tình, giải đáp trước và sau khi mua</li>
                 </ul>
             </div>
+
+            <!-- Đội ngũ -->
             <div class="section-title" style="margin-top: 36px;">
-                <h2>Doi ngu cua chung toi</h2>
-                <p>Nhung nguoi luon san sang ho tro ban</p>
+                <h2>Đội ngũ của chúng tôi</h2>
+                <p>Những người luôn sẵn sàng hỗ trợ bạn</p>
             </div>
+
+            <!-- 3 thẻ thành viên: dùng emoji đại diện đơn giản -->
             <div class="team-list">
-                <div class="team-card"><div class="team-avatar">&#128188;</div><h4>Nguyen Van An</h4><p>Quan ly cua hang</p><p>5 nam kinh nghiem trong nganh ban le dien thoai</p></div>
-                <div class="team-card"><div class="team-avatar">&#128101;</div><h4>Tran Thi Binh</h4><p>Tu van vien</p><p>Chuyen ve dien thoai cao cap va dong ho thoi trang</p></div>
-                <div class="team-card"><div class="team-avatar">&#128295;</div><h4>Le Hoang Cuong</h4><p>Ky thuat vien</p><p>Phu trach kiem tra va bao hanh san pham</p></div>
+                <div class="team-card">
+                    <div class="team-avatar">&#128188;</div>
+                    <h4>Lê Ngọc Thuận</h4>
+                    <p>Quản lý cửa hàng</p>
+                    <p>5 năm kinh nghiệm trong ngành bán lẻ điện thoại</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">&#128101;</div>
+                    <h4>Phạm Nguyễn Hoàng Tiến</h4>
+                    <p>Tư vấn viên</p>
+                    <p>Chuyên về điện thoại cao cấp và đồng hồ thời trang</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">&#128295;</div>
+                    <h4>Nguyễn Minh Tân</h4>
+                    <p>Kỹ thuật viên</p>
+                    <p>Phụ trách kiểm tra và bảo hành sản phẩm</p>
+                </div>
             </div>
+
         </div>
     </main>
-    <footer id="contact" class="footer">
+
+    <footer id="contact-footer" class="footer">
         <div class="container footer-grid">
-            <div class="footer-info"><h2>SmartMobile Store</h2><p><strong>Dia chi:</strong> 300A Nguyen Tat Thanh, Quan 4, TP. Ho Chi Minh</p><p><strong>Email:</strong> 1235@gmail.com</p><p><strong>Dien thoai:</strong> 1234 567 891</p><p><strong>Gio mo cua:</strong> 8:00 - 21:00 moi ngay</p></div>
-            <div class="footer-map"><iframe src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ban do SmartMobile"></iframe></div>
+            <div class="footer-info">
+                <h2>SmartMobile Store</h2>
+                <p><strong>Địa chỉ:</strong> 300A Nguyễn Tất Thành, Quận 4, TP. Hồ Chí Minh</p>
+                <p><strong>Email:</strong> 1235@gmail.com</p>
+                <p><strong>Điện thoại:</strong> 1234 567 891</p>
+                <p><strong>Giờ mở cửa:</strong> 8:00 - 21:00 mỗi ngày</p>
+            </div>
+            <div class="footer-map">
+                <iframe src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bản đồ SmartMobile"></iframe>
+            </div>
         </div>
     </footer>
-    <a href="cart.html" class="cart-floating-btn" id="cartFloatingBtn">&#128722;<span class="cart-badge" id="cartBadge"></span></a>
+
+    <a href="cart.html" class="cart-floating-btn" id="cartFloatingBtn">
+        &#128722;
+        <span class="cart-badge" id="cartBadge"></span>
+    </a>
     <script src="cart.js"></script>
-    <script>function toggleMenu(){document.getElementById('menuMobile').classList.toggle('open');}</script>
+    <script>
+        function toggleMenu() {
+            document.getElementById('menuMobile').classList.toggle('open');
+        }
+    </script>
 </body>
 </html>

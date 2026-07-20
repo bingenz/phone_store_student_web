@@ -1219,9 +1219,15 @@ button {
         display: block;
     }
 
-    /* nav-bar trên mobile: chỉ cần flex để logo và nút hamburger nằm cùng hàng */
+    /* Override: nav-bar trên mobile phải là hàng ngang (logo trái, nút ☰ phải)
+       @media 980px đặt flex-direction:column, nên cần override lại ở đây */
     .nav-bar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
         flex-wrap: nowrap;
+        min-height: 64px;
+        padding: 12px 0;
     }
 }
 
@@ -1546,4 +1552,20 @@ button {
     .contact-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* ============================================================
+   TRANG PHỤ KIỆN (accessories.html)
+   ============================================================ */
+
+/* Tiêu đề phân loại: Tai nghe / Ốp lưng / Cục sạc
+   Nằm giữa các .product-grid để phân tách rõ từng nhóm */
+.acc-category-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #2563eb; /* Đường gạch dưới màu xanh */
+    display: inline-block;
 }

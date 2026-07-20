@@ -3,93 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lien he SmartMobile - dia chi, email, so dien thoai va form gui tin nhan.">
-    <title>Lien he - SmartMobile</title>
+    <meta name="description" content="Liên hệ với SmartMobile — địa chỉ, email, số điện thoại và form gửi tin nhắn.">
+    <title>Liên hệ - SmartMobile</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/logo-phone.svg">
 </head>
 <body>
+
     <header class="header">
         <div class="container nav-bar">
             <a href="index.html#home" target="_self" class="logo-box">
                 <img src="images/logo-phone.svg" alt="Logo SmartMobile">
-                <div><h1>SmartMobile</h1><p>Dien thoai chinh hang</p></div>
+                <div>
+                    <h1>SmartMobile</h1>
+                    <p>Điện thoại chính hãng</p>
+                </div>
             </a>
             <nav class="menu">
-                <a href="index.html#home" target="_self">Trang chu</a>
-                <a href="index.html#phones" target="_self">Dien thoai</a>
-                <a href="index.html#watches" target="_self">Dong ho</a>
-                <a href="about.html" target="_self">Gioi thieu</a>
-                <a href="news.html" target="_self">Tin tuc</a>
-                <a href="contact.html" target="_self">Lien he</a>
+                <a href="index.html#home" target="_self">Trang chủ</a>
+                <a href="index.html#phones" target="_self">Điện thoại</a>
+                <a href="index.html#watches" target="_self">Đồng hồ</a>
+                <a href="about.html" target="_self">Giới thiệu</a>
+                <a href="news.html" target="_self">Tin tức</a>
+                <a href="contact.html" target="_self">Liên hệ</a>
             </nav>
             <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()">&#9776;</button>
         </div>
         <nav class="menu-mobile" id="menuMobile">
-            <a href="index.html#home" target="_self">Trang chu</a>
-            <a href="index.html#phones" target="_self">Dien thoai</a>
-            <a href="index.html#watches" target="_self">Dong ho</a>
-            <a href="about.html" target="_self">Gioi thieu</a>
-            <a href="news.html" target="_self">Tin tuc</a>
-            <a href="contact.html" target="_self">Lien he</a>
+            <a href="index.html#home" target="_self">Trang chủ</a>
+            <a href="index.html#phones" target="_self">Điện thoại</a>
+            <a href="index.html#watches" target="_self">Đồng hồ</a>
+            <a href="about.html" target="_self">Giới thiệu</a>
+            <a href="news.html" target="_self">Tin tức</a>
+            <a href="contact.html" target="_self">Liên hệ</a>
         </nav>
     </header>
+
+    <!-- Nội dung chính trang Liên hệ -->
     <main class="contact-page-section">
         <div class="container">
+
             <div class="section-title">
-                <h2>Lien he voi chung toi</h2>
-                <p>Chung toi luon san sang lang nghe va ho tro ban</p>
+                <h2>Liên hệ với chúng tôi</h2>
+                <p>Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn</p>
             </div>
+
+            <!-- Layout 2 cột: thông tin (trái) | form (phải) -->
             <div class="contact-grid">
+
+                <!-- CỘT TRÁI: Thông tin liên hệ -->
                 <div class="contact-info-box">
-                    <h3>Thong tin cua hang</h3>
-                    <div class="contact-info-item"><span class="icon">&#128205;</span><span>300A Nguyen Tat Thanh, Quan 4, TP. Ho Chi Minh</span></div>
-                    <div class="contact-info-item"><span class="icon">&#128231;</span><span>1235@gmail.com</span></div>
-                    <div class="contact-info-item"><span class="icon">&#128222;</span><span>1234 567 891</span></div>
-                    <div class="contact-info-item"><span class="icon">&#128336;</span><span>Mo cua: 8:00 - 21:00, tat ca cac ngay trong tuan</span></div>
+                    <h3>Thông tin cửa hàng</h3>
+
+                    <!-- Mỗi dòng dùng class .contact-info-item gồm icon + nội dung -->
+                    <div class="contact-info-item">
+                        <span class="icon">&#128205;</span>
+                        <span>300A Nguyễn Tất Thành, Quận 4, TP. Hồ Chí Minh</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="icon">&#128231;</span>
+                        <span>1235@gmail.com</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="icon">&#128222;</span>
+                        <span>1234 567 891</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="icon">&#128336;</span>
+                        <span>Mở cửa: 8:00 – 21:00, tất cả các ngày trong tuần</span>
+                    </div>
+
+                    <!-- Bản đồ nhỏ (iframe copy từ footer index.html) -->
                     <div class="contact-map">
-                        <iframe src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ban do SmartMobile"></iframe>
+                        <iframe
+                            src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&amp;output=embed"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Bản đồ SmartMobile">
+                        </iframe>
                     </div>
                 </div>
+
+                <!-- CỘT PHẢI: Form liên hệ -->
                 <div class="contact-form-box">
-                    <h3>Gui tin nhan cho chung toi</h3>
+                    <h3>Gởi tin nhắn cho chúng tôi</h3>
+
+                    <!--
+                        Form HTML cơ bản — dùng để demo, chưa gửi thật.
+                        action="#": form không gửi đi đâu.
+                        onsubmit: hiện thông báo và ngăn submit mặc định.
+                    -->
                     <form action="#" id="contactForm" onsubmit="handleSubmit(event)">
+
+                        <!-- Mỗi nhóm: label + input trong .form-group -->
                         <div class="form-group">
-                            <label for="contactName">Ho va ten</label>
-                            <input type="text" id="contactName" class="form-input" placeholder="Nhap ho va ten cua ban" required>
+                            <label for="contactName">Họ và tên</label>
+                            <input type="text" id="contactName" class="form-input"
+                                   placeholder="Nhập họ và tên của bạn" required>
                         </div>
+
                         <div class="form-group">
                             <label for="contactEmail">Email</label>
-                            <input type="email" id="contactEmail" class="form-input" placeholder="Nhap email cua ban" required>
+                            <input type="email" id="contactEmail" class="form-input"
+                                   placeholder="Nhập email của bạn" required>
                         </div>
+
                         <div class="form-group">
-                            <label for="contactPhone">So dien thoai</label>
-                            <input type="tel" id="contactPhone" class="form-input" placeholder="Nhap so dien thoai (tuy chon)">
+                            <label for="contactPhone">Số điện thoại</label>
+                            <input type="tel" id="contactPhone" class="form-input"
+                                   placeholder="Nhập số điện thoại (tùy chọn)">
                         </div>
+
                         <div class="form-group">
-                            <label for="contactMessage">Noi dung</label>
-                            <textarea id="contactMessage" class="form-textarea" placeholder="Nhap noi dung can tu van..." required></textarea>
+                            <label for="contactMessage">Nội dung</label>
+                            <!--
+                                textarea: hộp nhập nhiều dòng.
+                                resize: vertical (CSS) — chỉ cho phép kéo dọc.
+                            -->
+                            <textarea id="contactMessage" class="form-textarea"
+                                      placeholder="Nhập nội dung cần tư vấn..." required></textarea>
                         </div>
-                        <button type="submit" class="form-submit-btn" id="submitBtn">Gui tin nhan</button>
+
+                        <button type="submit" class="form-submit-btn" id="submitBtn">
+                            Gửi tin nhắn
+                        </button>
+
                     </form>
                 </div>
+
             </div>
         </div>
     </main>
+
     <footer id="contact-footer" class="footer">
         <div class="container footer-grid">
-            <div class="footer-info"><h2>SmartMobile Store</h2><p><strong>Dia chi:</strong> 300A Nguyen Tat Thanh, Quan 4, TP. Ho Chi Minh</p><p><strong>Email:</strong> 1235@gmail.com</p><p><strong>Dien thoai:</strong> 1234 567 891</p><p><strong>Gio mo cua:</strong> 8:00 - 21:00 moi ngay</p></div>
-            <div class="footer-map"><iframe src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ban do SmartMobile"></iframe></div>
+            <div class="footer-info">
+                <h2>SmartMobile Store</h2>
+                <p><strong>Địa chỉ:</strong> 300A Nguyễn Tất Thành, Quận 4, TP. Hồ Chí Minh</p>
+                <p><strong>Email:</strong> 1235@gmail.com</p>
+                <p><strong>Điện thoại:</strong> 1234 567 891</p>
+                <p><strong>Giờ mở cửa:</strong> 8:00 - 21:00 mỗi ngày</p>
+            </div>
+            <div class="footer-map">
+                <iframe src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bản đồ SmartMobile"></iframe>
+            </div>
         </div>
     </footer>
-    <a href="cart.html" class="cart-floating-btn" id="cartFloatingBtn">&#128722;<span class="cart-badge" id="cartBadge"></span></a>
+
+    <a href="cart.html" class="cart-floating-btn" id="cartFloatingBtn">
+        &#128722;
+        <span class="cart-badge" id="cartBadge"></span>
+    </a>
     <script src="cart.js"></script>
     <script>
-        function toggleMenu(){document.getElementById('menuMobile').classList.toggle('open');}
-        function handleSubmit(event){
+        function toggleMenu() {
+            document.getElementById('menuMobile').classList.toggle('open');
+        }
+    </script>
+    <!-- Script xử lý form liên hệ -->
+    <script>
+        // handleSubmit: chạy khi người dùng bấm nút Gửi
+        // event.preventDefault(): ngăn form gửi thật (chỉ demo)
+        function handleSubmit(event) {
             event.preventDefault();
-            var name=document.getElementById('contactName').value;
-            alert('Cam on '+name+'! Tin nhan cua ban da duoc gui. Chung toi se lien he som!');
+            var name = document.getElementById('contactName').value;
+            alert('Cảm ơn ' + name + '! Tin nhắn của bạn đã được ghi nhận. Chúng tôi sẽ liên hệ sớm!');
             document.getElementById('contactForm').reset();
         }
     </script>

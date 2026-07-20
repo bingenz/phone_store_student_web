@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Phụ kiện chính hãng tại SmartMobile: ốp lưng, tai nghe, củc sạc và nhiều hơn nữa.">
+    <title>Phụ kiện - SmartMobile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/logo-phone.svg">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-bar">
+            <a href="index.html#home" target="_self" class="logo-box">
+                <img src="images/logo-phone.svg" alt="Logo SmartMobile">
+                <div>
+                    <h1>SmartMobile</h1>
+                    <p>Điện thoại chính hãng</p>
+                </div>
+            </a>
+            <nav class="menu">
+                <a href="index.html#home" target="_self">Trang chủ</a>
+                <a href="index.html#phones" target="_self">Điện thoại</a>
+                <a href="index.html#watches" target="_self">Đồng hồ</a>
+                <a href="about.html" target="_self">Giới thiệu</a>
+                <a href="news.html" target="_self">Tin tức</a>
+                <a href="contact.html" target="_self">Liên hệ</a>
+            </nav>
+            <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()">&#9776;</button>
+        </div>
+        <nav class="menu-mobile" id="menuMobile">
+            <a href="index.html#home" target="_self">Trang chủ</a>
+            <a href="index.html#phones" target="_self">Điện thoại</a>
+            <a href="index.html#watches" target="_self">Đồng hồ</a>
+            <a href="about.html" target="_self">Giới thiệu</a>
+            <a href="news.html" target="_self">Tin tức</a>
+            <a href="contact.html" target="_self">Liên hệ</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="product-section">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Phụ kiện chính hãng</h2>
+                    <p>Ƭu đãi giảm giá khi mua kèm điện thoại</p>
+                </div>
+
+                <!-- Nội dung chia theo loại phụ kiện -->
+
+                <!-- ===== TAI NGHE ===== -->
+                <h3 class="acc-category-title">&#127911; Tai nghe</h3>
+                <div class="product-grid">
+
+                    <article class="product-card">
+                        <img src="images/tai_nghe_airpods.png" alt="Apple AirPods Pro">
+                        <h3>Apple AirPods Pro</h3>
+                        <p class="spec">Bluetooth 5.3 • Chống ồn chủ động</p>
+                        <p class="desc">Chất âm thanh vang, thiết kế nhẹ cóm, hộp sạc kèm theo.</p>
+                        <div class="price-box">
+                            <span class="new-price">5.490.000đ</span>
+                            <span class="old-price">6.200.000đ</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="detail-link">Xem chi tiết</a>
+                            <button class="add-cart-btn"
+                                data-id="airpods_pro"
+                                data-name="Apple AirPods Pro"
+                                data-price="5490000"
+                                data-image="images/tai_nghe_airpods.png">Thêm vào giỏ</button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img src="images/tai_nghe_samsung.png" alt="Samsung Galaxy Buds">
+                        <h3>Samsung Galaxy Buds FE</h3>
+                        <p class="spec">Bluetooth 5.2 • Nghe 7h</p>
+                        <p class="desc">Chống ồn chủ động, âm bass sâu, tương thích tốt với Android.</p>
+                        <div class="price-box">
+                            <span class="new-price">1.290.000đ</span>
+                            <span class="old-price">1.800.000đ</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="detail-link">Xem chi tiết</a>
+                            <button class="add-cart-btn"
+                                data-id="galaxy_buds_fe"
+                                data-name="Samsung Galaxy Buds FE"
+                                data-price="1290000"
+                                data-image="images/tai_nghe_samsung.png">Thêm vào giỏ</button>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- ===== ỔP LƯNG ===== -->
+                <h3 class="acc-category-title">&#128241; Ổp lưng</h3>
+                <div class="product-grid">
+
+                    <article class="product-card">
+                        <img src="images/op_lung_pitaka.png" alt="Ổp lưng PITAKA">
+                        <h3>Ổp lưng PITAKA MagEZ</h3>
+                        <p class="spec">Carbon fiber • Hỗ trợ MagSafe</p>
+                        <p class="desc">Siêu nhẹ, củng cáp, vân carbon đẹp mắt, bảo vệ máy tốt.</p>
+                        <div class="price-box">
+                            <span class="new-price">890.000đ</span>
+                            <span class="old-price">1.100.000đ</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="detail-link">Xem chi tiết</a>
+                            <button class="add-cart-btn"
+                                data-id="op_lung_pitaka"
+                                data-name="Ổp lưng PITAKA MagEZ"
+                                data-price="890000"
+                                data-image="images/op_lung_pitaka.png">Thêm vào giỏ</button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img src="images/op_lung_cam.png" alt="Ổp lưng XTREME INNO">
+                        <h3>Ổp lưng XTREME INNO</h3>
+                        <p class="spec">Chống sốc • Cửa sổ camera</p>
+                        <p class="desc">Thiết kế nổi bật với vòng camera độc đáo, chất liệu silicon cao cấp.</p>
+                        <div class="price-box">
+                            <span class="new-price">350.000đ</span>
+                            <span class="old-price">500.000đ</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="detail-link">Xem chi tiết</a>
+                            <button class="add-cart-btn"
+                                data-id="op_lung_cam"
+                                data-name="Ổp lưng XTREME INNO"
+                                data-price="350000"
+                                data-image="images/op_lung_cam.png">Thêm vào giỏ</button>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- ===== CỤC SẠC ===== -->
+                <h3 class="acc-category-title">&#128267; Củc sạc</h3>
+                <div class="product-grid">
+
+                    <article class="product-card">
+                        <img src="images/cuc_sac_trang.png" alt="Củc sạc 20W">
+                        <h3>Củc sạc nhanh 20W USB-C</h3>
+                        <p class="spec">20W • Sạc nhanh • Chuẩn EU</p>
+                        <p class="desc">Thiết kế gọn, thiết lập nhanh, tương thích nhiều thiết bị USB-C.</p>
+                        <div class="price-box">
+                            <span class="new-price">180.000đ</span>
+                            <span class="old-price">250.000đ</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="detail-link">Xem chi tiết</a>
+                            <button class="add-cart-btn"
+                                data-id="cuc_sac_20w"
+                                data-name="Củc sạc nhanh 20W USB-C"
+                                data-price="180000"
+                                data-image="images/cuc_sac_trang.png">Thêm vào giỏ</button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img src="images/cuc_sac_anker.png" alt="Anker 45W">
+                        <h3>Anker Nano II 45W</h3>
+                        <p class="spec">45W • Power IQ 3.0 • USB-C</p>
+                        <p class="desc">Sạc siêu nhanh, kích thước nhỏ gọn, an toàn thông minh với Power IQ.</p>
+                        <div class="price-box">
+                            <span class="new-price">390.000đ</span>
+                            <span class="old-price">520.000đ</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="detail-link">Xem chi tiết</a>
+                            <button class="add-cart-btn"
+                                data-id="anker_45w"
+                                data-name="Anker Nano II 45W"
+                                data-price="390000"
+                                data-image="images/cuc_sac_anker.png">Thêm vào giỏ</button>
+                        </div>
+                    </article>
+
+                </div><!-- /.product-grid -->
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact-footer" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h2>SmartMobile Store</h2>
+                <p><strong>Địa chỉ:</strong> 300A Nguyễn Tất Thành, Quận 4, TP. Hồ Chí Minh</p>
+                <p><strong>Email:</strong> 1235@gmail.com</p>
+                <p><strong>Điện thoại:</strong> 1234 567 891</p>
+                <p><strong>Giờ mở cửa:</strong> 8:00 - 21:00 mỗi ngày</p>
+            </div>
+            <div class="footer-map">
+                <iframe src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bản đồ SmartMobile"></iframe>
+            </div>
+        </div>
+    </footer>
+
+    <a href="cart.html" class="cart-floating-btn" id="cartFloatingBtn">
+        &#128722;
+        <span class="cart-badge" id="cartBadge"></span>
+    </a>
+    <script src="cart.js"></script>
+    <script>
+        function toggleMenu() {
+            document.getElementById('menuMobile').classList.toggle('open');
+        }
+    </script>
+
+</body>
+</html>
