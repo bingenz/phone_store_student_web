@@ -15,12 +15,11 @@ Dự án chú trọng vào tính dễ đọc, code cấu trúc tốt, giao diệ
 
 Dự án được viết bằng **HTML5, CSS3, Vanilla JavaScript**. Code không sử dụng thư viện UI nặng nề để đảm bảo tính gọn nhẹ và dễ hiểu để sinh viên có thể giải thích trực tiếp.
 
-### Danh sách các trang chính (9 trang):
+### Danh sách các trang chính (8 trang):
 
-- 🏠 `index.html`: Trang chủ - Tổng hợp banner, các mẫu điện thoại nổi bật, đồng hồ giảm giá và ưu đãi.
+- 🏠 `index.html`: Trang chủ - Tổng hợp banner, điện thoại, đồng hồ và sản phẩm ưu đãi.
 - 📱 `product-detail.html`: Trang chi tiết sản phẩm - Hiển thị ảnh tĩnh, thông số, mô tả chi tiết, chức năng chọn màu sắc và thêm vào giỏ hàng.
 - 🛒 `cart.html`: Trang giỏ hàng - Mô phỏng giỏ hàng với thông tin chi tiết và tính tổng tiền mua sắm (lưu qua LocalStorage).
-- 🎁 `accessories.html`: Trang phụ kiện/Ưu đãi - Trưng bày đầy đủ các dòng phụ kiện như Tai nghe, Ốp lưng, Cục sạc.
 - 📰 `news.html`: Trang tin tức công nghệ - Cập nhật thông tin và xu hướng công nghệ mới.
 - 👥 `about.html`: Trang giới thiệu - Thông tin về lịch sử hình thành, triết lý kinh doanh và thông tin nhóm.
 - 📞 `contact.html`: Trang liên hệ - Gồm form gửi tin nhắn chuyên nghiệp và bản đồ đường đi.
@@ -31,7 +30,7 @@ Dự án được viết bằng **HTML5, CSS3, Vanilla JavaScript**. Code không
 - 🎨 `style.css`: File định dạng giao diện cho toàn bộ 9 trang HTML (Có Responsive Design: Desktop, Tablet, Mobile).
 - ⚙️ `cart.js`: Tập lệnh JavaScript đơn giản xử lý Logic Thêm/Xóa/Sửa giỏ hàng sử dụng `localStorage`.
 - 🔐 `auth.js`: Script quản lý trạng thái đăng nhập/đăng xuất giả lập (dùng localStorage).
-- 🐍 `make_pages.py`: Script Python sinh tự động các trang phụ (about, news, contact, accessories, login, register).
+- 🐍 `make_pages.py`: Script Python sinh tự động các trang phụ (about, news, contact, login, register).
 
 ---
 
@@ -66,3 +65,11 @@ Dự án có thể chạy trực tiếp bằng trình duyệt mà không cần c
 - Build output directory: empty because HTML/CSS/JS files are in the project root
 
 After each push to branch `master`, Cloudflare Pages automatically deploys the latest code from GitHub.
+
+## Cập nhật giao diện mới
+
+- Header chỉ giữ các điều hướng chính: Điện thoại, Đồng hồ và Đăng nhập. Logo được dùng để quay về trang chủ.
+- Liên kết Giới thiệu, Tin tức và Liên hệ được chuyển xuống footer.
+- Các sản phẩm ưu đãi được hiển thị trực tiếp bên dưới mục Đồng hồ trong `index.html`.
+- Ảnh sản phẩm dùng đường dẫn tương đối đến các file thật trong thư mục `images`.
+- Khi kiểm tra bằng cách nhấn đúp mở `index.html` trong Chrome, cần kiểm tra ảnh ở trang chủ, chi tiết sản phẩm và giỏ hàng.

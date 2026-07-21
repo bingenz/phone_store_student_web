@@ -12,23 +12,15 @@ def header():
                 </div>
             </a>
             <nav class="menu">
-                <a href="index.html#home" target="_self">Trang ch\u1ee7</a>
                 <a href="index.html#phones" target="_self">\u0110i\u1ec7n tho\u1ea1i</a>
                 <a href="index.html#watches" target="_self">\u0110\u1ed3ng h\u1ed3</a>
-                <a href="about.html" target="_self">Gi\u1edbi thi\u1ec7u</a>
-                <a href="news.html" target="_self">Tin t\u1ee9c</a>
-                <a href="contact.html" target="_self">Li\u00ean h\u1ec7</a>
                 <a href="login.html" class="btn-login-header" target="_self">Đăng nhập</a>
             </nav>
             <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()">&#9776;</button>
         </div>
         <nav class="menu-mobile" id="menuMobile">
-            <a href="index.html#home" target="_self">Trang ch\u1ee7</a>
             <a href="index.html#phones" target="_self">\u0110i\u1ec7n tho\u1ea1i</a>
             <a href="index.html#watches" target="_self">\u0110\u1ed3ng h\u1ed3</a>
-            <a href="about.html" target="_self">Gi\u1edbi thi\u1ec7u</a>
-            <a href="news.html" target="_self">Tin t\u1ee9c</a>
-            <a href="contact.html" target="_self">Li\u00ean h\u1ec7</a>
             <a href="login.html" class="btn-login-header" target="_self">Đăng nhập</a>
         </nav>
     </header>"""
@@ -43,6 +35,12 @@ def footer():
                 <p><strong>\u0110i\u1ec7n tho\u1ea1i:</strong> 1234 567 891</p>
                 <p><strong>Gi\u1edd m\u1edf c\u1eeda:</strong> 8:00 - 21:00 m\u1ed7i ng\u00e0y</p>
             </div>
+            <nav class="footer-links" aria-label="Liên kết thông tin">
+                <h3>Thông tin</h3>
+                <a href="about.html" target="_self">Giới thiệu</a>
+                <a href="news.html" target="_self">Tin tức</a>
+                <a href="contact.html" target="_self">Liên hệ</a>
+            </nav>
             <div class="footer-map">
                 <iframe src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="B\u1ea3n \u0111\u1ed3 SmartMobile"></iframe>
             </div>
@@ -261,41 +259,6 @@ contact = """<!DOCTYPE html>
 
             <!-- Layout 2 c\u1ed9t: th\u00f4ng tin (tr\u00e1i) | form (ph\u1ea3i) -->
             <div class="contact-grid">
-
-                <!-- C\u1ed8T TR\u00c1I: Th\u00f4ng tin li\u00ean h\u1ec7 -->
-                <div class="contact-info-box">
-                    <h3>Th\u00f4ng tin c\u1eeda h\u00e0ng</h3>
-
-                    <!-- M\u1ed7i d\u00f2ng d\u00f9ng class .contact-info-item g\u1ed3m icon + n\u1ed9i dung -->
-                    <div class="contact-info-item">
-                        <span class="icon">&#128205;</span>
-                        <span>300A Nguy\u1ec5n T\u1ea5t Th\u00e0nh, Qu\u1eadn 4, TP. H\u1ed3 Ch\u00ed Minh</span>
-                    </div>
-                    <div class="contact-info-item">
-                        <span class="icon">&#128231;</span>
-                        <span>1235@gmail.com</span>
-                    </div>
-                    <div class="contact-info-item">
-                        <span class="icon">&#128222;</span>
-                        <span>1234 567 891</span>
-                    </div>
-                    <div class="contact-info-item">
-                        <span class="icon">&#128336;</span>
-                        <span>M\u1edf c\u1eeda: 8:00 \u2013 21:00, t\u1ea5t c\u1ea3 c\u00e1c ng\u00e0y trong tu\u1ea7n</span>
-                    </div>
-
-                    <!-- B\u1ea3n \u0111\u1ed3 nh\u1ecf (iframe copy t\u1eeb footer index.html) -->
-                    <div class="contact-map">
-                        <iframe
-                            src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&amp;output=embed"
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="B\u1ea3n \u0111\u1ed3 SmartMobile">
-                        </iframe>
-                    </div>
-                </div>
-
-                <!-- C\u1ed8T PH\u1ea2I: Form li\u00ean h\u1ec7 -->
                 <div class="contact-form-box">
                     <h3>G\u1edfi tin nh\u1eafn cho ch\u00fang t\u00f4i</h3>
 
@@ -310,19 +273,19 @@ contact = """<!DOCTYPE html>
                         <div class="form-group">
                             <label for="contactName">H\u1ecd v\u00e0 t\u00ean</label>
                             <input type="text" id="contactName" class="form-input"
-                                   placeholder="Nh\u1eadp h\u1ecd v\u00e0 t\u00ean c\u1ee7a b\u1ea1n" required>
+                                   placeholder="Nhập họ và tên đầy đủ" required>
                         </div>
 
                         <div class="form-group">
                             <label for="contactEmail">Email</label>
                             <input type="email" id="contactEmail" class="form-input"
-                                   placeholder="Nh\u1eadp email c\u1ee7a b\u1ea1n" required>
+                                   placeholder="Nhập địa chỉ email" required>
                         </div>
 
                         <div class="form-group">
                             <label for="contactPhone">S\u1ed1 \u0111i\u1ec7n tho\u1ea1i</label>
                             <input type="tel" id="contactPhone" class="form-input"
-                                   placeholder="Nh\u1eadp s\u1ed1 \u0111i\u1ec7n tho\u1ea1i (t\u00f9y ch\u1ecdn)">
+                                   placeholder="Nhập số điện thoại (không bắt buộc)">
                         </div>
 
                         <div class="form-group">
@@ -332,7 +295,7 @@ contact = """<!DOCTYPE html>
                                 resize: vertical (CSS) \u2014 ch\u1ec9 cho ph\u00e9p k\u00e9o d\u1ecdc.
                             -->
                             <textarea id="contactMessage" class="form-textarea"
-                                      placeholder="Nh\u1eadp n\u1ed9i dung c\u1ea7n t\u01b0 v\u1ea5n..." required></textarea>
+                                      placeholder="Mô tả nội dung bạn cần hỗ trợ" required></textarea>
                         </div>
 
                         <button type="submit" class="form-submit-btn" id="submitBtn">
@@ -361,7 +324,7 @@ contact = """<!DOCTYPE html>
 </body>
 </html>"""
 
-# ===== ACCESSORIES.HTML =====
+# ===== LEGACY OFFERS TEMPLATE =====
 accessories = """<!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -391,7 +354,7 @@ accessories = """<!DOCTYPE html>
                     <!-- \u1ed4P L\u01afNG 1 -->
                     <article class="product-card">
                         <!-- \u1ea2nh s\u1ebd \u0111\u01b0\u1ee3c thay th\u1ebf b\u1eb1ng \u0111\u01b0\u1edcng d\u1eabn \u1ea3nh th\u1eadt sau -->
-                        <img src="images/placeholder.png" alt="\u1ed4p l\u01b0ng \u0111i\u1ec7n tho\u1ea1i" style="background:#f1f5f9;height:210px;object-fit:contain;">
+                        <img src="images/op_lung_samsung.png" alt="\u1ed4p l\u01b0ng \u0111i\u1ec7n tho\u1ea1i" style="background:#f1f5f9;height:210px;object-fit:contain;">
                         <h3>\u1ed4p l\u01b0ng ch\u1ed1ng s\u1ed1c</h3>
                         <p class="spec">T\u01b0\u01a1ng th\u00edch nhi\u1ec1u d\u00f2ng m\u00e1y</p>
                         <p class="desc">B\u1ea3o v\u1ec7 m\u00e1y kh\u1ecfi va \u0111\u1eadp, ch\u1ea5t li\u1ec7u silicon cao c\u1ea5p, m\u1ec1m m\u1ea1i.</p>
@@ -405,13 +368,13 @@ accessories = """<!DOCTYPE html>
                                 data-id="op_lung_1"
                                 data-name="\u1ed4p l\u01b0ng ch\u1ed1ng s\u1ed1c"
                                 data-price="150.000\u0111"
-                                data-image="images/placeholder.png">Th\u00eam v\u00e0o gi\u1ecf</button>
+                                data-image="images/op_lung_samsung.png">Th\u00eam v\u00e0o gi\u1ecf</button>
                         </div>
                     </article>
 
                     <!-- \u1ed4P L\u01afNG 2 -->
                     <article class="product-card">
-                        <img src="images/placeholder.png" alt="\u1ed4p l\u01b0ng trong su\u1ed1t" style="background:#f1f5f9;height:210px;object-fit:contain;">
+                        <img src="images/op_lung_trong_suot.png" alt="\u1ed4p l\u01b0ng trong su\u1ed1t" style="background:#f1f5f9;height:210px;object-fit:contain;">
                         <h3>\u1ed4p l\u01b0ng trong su\u1ed1t</h3>
                         <p class="spec">TPU m\u1ec1m, ch\u1ed1ng \u0111\u1ed1i v\u00e0ng</p>
                         <p class="desc">Gi\u1eef nguy\u00ean v\u1ebb \u0111\u1eb9p g\u1ed1c c\u1ee7a m\u00e1y, ch\u1ed1ng tr\u00e0y x\u01b0\u1edbc hi\u1ec7u qu\u1ea3.</p>
@@ -425,13 +388,13 @@ accessories = """<!DOCTYPE html>
                                 data-id="op_lung_2"
                                 data-name="\u1ed4p l\u01b0ng trong su\u1ed1t"
                                 data-price="80.000\u0111"
-                                data-image="images/placeholder.png">Th\u00eam v\u00e0o gi\u1ecf</button>
+                                data-image="images/op_lung_trong_suot.png">Th\u00eam v\u00e0o gi\u1ecf</button>
                         </div>
                     </article>
 
                     <!-- TAI NGHE 1 -->
                     <article class="product-card">
-                        <img src="images/placeholder.png" alt="Tai nghe c\u00f3 d\u00e2y" style="background:#f1f5f9;height:210px;object-fit:contain;">
+                        <img src="images/tai_nghe_samsung.png" alt="Tai nghe c\u00f3 d\u00e2y" style="background:#f1f5f9;height:210px;object-fit:contain;">
                         <h3>Tai nghe nh\u00e9t tai c\u00f3 d\u00e2y</h3>
                         <p class="spec">3.5mm • Jack c\u1eafm\u0000ph\u1ed5 th\u00f4ng</p>
                         <p class="desc">\u00c2m thanh r\u00f5 r\u00e0ng, thi\u1ebft k\u1ebf nh\u1eb9, ph\u00f9 h\u1ee3p d\u00f9ng h\u00e0ng ng\u00e0y.</p>
@@ -445,13 +408,13 @@ accessories = """<!DOCTYPE html>
                                 data-id="tai_nghe_1"
                                 data-name="Tai nghe nh\u00e9t tai c\u00f3 d\u00e2y"
                                 data-price="120.000\u0111"
-                                data-image="images/placeholder.png">Th\u00eam v\u00e0o gi\u1ecf</button>
+                                data-image="images/tai_nghe_samsung.png">Th\u00eam v\u00e0o gi\u1ecf</button>
                         </div>
                     </article>
 
                     <!-- TAI NGHE 2 -->
                     <article class="product-card">
-                        <img src="images/placeholder.png" alt="Tai nghe kh\u00f4ng d\u00e2y" style="background:#f1f5f9;height:210px;object-fit:contain;">
+                        <img src="images/tai_nghe_jbl_den2.png" alt="Tai nghe kh\u00f4ng d\u00e2y" style="background:#f1f5f9;height:210px;object-fit:contain;">
                         <h3>Tai nghe kh\u00f4ng d\u00e2y Bluetooth</h3>
                         <p class="spec">Bluetooth 5.0 • Pin 6 gi\u1edd</p>
                         <p class="desc">K\u1ebft n\u1ed1i \u1ed5n \u0111\u1ecbnh, ti\u1ec7n l\u1ee3i khi t\u1eadp th\u1ec3 d\u1ee5c v\u00e0 di chuy\u1ec3n.</p>
@@ -465,13 +428,13 @@ accessories = """<!DOCTYPE html>
                                 data-id="tai_nghe_2"
                                 data-name="Tai nghe kh\u00f4ng d\u00e2y Bluetooth"
                                 data-price="350.000\u0111"
-                                data-image="images/placeholder.png">Th\u00eam v\u00e0o gi\u1ecf</button>
+                                data-image="images/tai_nghe_jbl_den2.png">Th\u00eam v\u00e0o gi\u1ecf</button>
                         </div>
                     </article>
 
                     <!-- C\u1ee4C S\u1ea0C 1 -->
                     <article class="product-card">
-                        <img src="images/placeholder.png" alt="C\u1ee7c s\u1ea1c nhanh 20W" style="background:#f1f5f9;height:210px;object-fit:contain;">
+                        <img src="images/cuc_sac_anker.png" alt="C\u1ee7c s\u1ea1c nhanh 20W" style="background:#f1f5f9;height:210px;object-fit:contain;">
                         <h3>C\u1ee7c s\u1ea1c nhanh 20W</h3>
                         <p class="spec">USB-C • S\u1ea1c nhanh PD</p>
                         <p class="desc">S\u1ea1c nhanh h\u01a1n 3 l\u1ea7n s\u1ea1c th\u01b0\u1eddng, t\u01b0\u01a1ng th\u00edch nhi\u1ec1u thi\u1ebft b\u1ecb.</p>
@@ -485,13 +448,13 @@ accessories = """<!DOCTYPE html>
                                 data-id="cuc_sac_1"
                                 data-name="C\u1ee7c s\u1ea1c nhanh 20W"
                                 data-price="200.000\u0111"
-                                data-image="images/placeholder.png">Th\u00eam v\u00e0o gi\u1ecf</button>
+                                data-image="images/cuc_sac_anker.png">Th\u00eam v\u00e0o gi\u1ecf</button>
                         </div>
                     </article>
 
                     <!-- C\u1ee4C S\u1ea0C 2 -->
                     <article class="product-card">
-                        <img src="images/placeholder.png" alt="C\u1ee7c s\u1ea1c kh\u00f4ng d\u00e2y" style="background:#f1f5f9;height:210px;object-fit:contain;">
+                        <img src="images/cuc_sac_anker_zolo.png" alt="C\u1ee7c s\u1ea1c kh\u00f4ng d\u00e2y" style="background:#f1f5f9;height:210px;object-fit:contain;">
                         <h3>C\u1ee7c s\u1ea1c kh\u00f4ng d\u00e2y 15W</h3>
                         <p class="spec">Wireless • T\u01b0\u01a1ng th\u00edch Qi</p>
                         <p class="desc">S\u1ea1c kh\u00f4ng d\u00e2y ti\u1ec7n l\u1ee3i, \u0111\u1eb7t m\u00e1y l\u00ean l\u00e0 s\u1ea1c, kh\u00f4ng c\u1ea7n c\u1eafm c\u00e1p.</p>
@@ -505,7 +468,7 @@ accessories = """<!DOCTYPE html>
                                 data-id="cuc_sac_2"
                                 data-name="C\u1ee7c s\u1ea1c kh\u00f4ng d\u00e2y 15W"
                                 data-price="320.000\u0111"
-                                data-image="images/placeholder.png">Th\u00eam v\u00e0o gi\u1ecf</button>
+                                data-image="images/cuc_sac_anker_zolo.png">Th\u00eam v\u00e0o gi\u1ecf</button>
                         </div>
                     </article>
 
@@ -540,11 +503,11 @@ login = """<!DOCTYPE html>
                 <form id="loginForm" onsubmit="handleLogin(event)">
                     <div class="form-group">
                         <label for="loginEmail">Email</label>
-                        <input type="email" id="loginEmail" class="form-input" placeholder="VD: nguyenvana@gmail.com" required>
+                        <input type="email" id="loginEmail" class="form-input" placeholder="Nhập địa chỉ email" required>
                     </div>
                     <div class="form-group">
                         <label for="loginPassword">Mật khẩu</label>
-                        <input type="password" id="loginPassword" class="form-input" placeholder="Nhập mật khẩu" required>
+                        <input type="password" id="loginPassword" class="form-input" placeholder="Nhập mật khẩu của bạn" required>
                     </div>
                     <button type="submit" class="form-submit-btn btn btn-primary">Đăng nhập</button>
                 </form>
@@ -593,19 +556,19 @@ register = """<!DOCTYPE html>
                 <form id="registerForm" onsubmit="handleRegister(event)">
                     <div class="form-group">
                         <label for="regName">Họ và tên</label>
-                        <input type="text" id="regName" class="form-input" placeholder="VD: Nguyễn Văn A" required>
+                        <input type="text" id="regName" class="form-input" placeholder="Nhập họ và tên đầy đủ" required>
                     </div>
                     <div class="form-group">
                         <label for="regEmail">Email</label>
-                        <input type="email" id="regEmail" class="form-input" placeholder="VD: nguyenvana@gmail.com" required>
+                        <input type="email" id="regEmail" class="form-input" placeholder="Nhập địa chỉ email" required>
                     </div>
                     <div class="form-group">
                         <label for="regPassword">Mật khẩu</label>
-                        <input type="password" id="regPassword" class="form-input" placeholder="Nhập mật khẩu" required>
+                        <input type="password" id="regPassword" class="form-input" placeholder="Nhập mật khẩu của bạn" required>
                     </div>
                     <div class="form-group">
                         <label for="regConfirm">Xác nhận mật khẩu</label>
-                        <input type="password" id="regConfirm" class="form-input" placeholder="Nhập lại mật khẩu" required>
+                        <input type="password" id="regConfirm" class="form-input" placeholder="Nhập lại mật khẩu để xác nhận" required>
                     </div>
                     <button type="submit" class="form-submit-btn btn btn-primary">Đăng ký</button>
                 </form>
@@ -637,7 +600,6 @@ register = """<!DOCTYPE html>
 with open('about.html', 'w', encoding='utf-8') as f: f.write(about)
 with open('news.html', 'w', encoding='utf-8') as f: f.write(news)
 with open('contact.html', 'w', encoding='utf-8') as f: f.write(contact)
-with open('accessories.html', 'w', encoding='utf-8') as f: f.write(accessories)
 with open('login.html', 'w', encoding='utf-8') as f: f.write(login)
 with open('register.html', 'w', encoding='utf-8') as f: f.write(register)
-print("Done! 6 files written successfully.")
+print("Done! 5 files written successfully.")

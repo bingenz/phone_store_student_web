@@ -556,7 +556,7 @@ button {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: 0.9fr 0.45fr 1.1fr;
     gap: 24px;
     align-items: start;
 }
@@ -570,6 +570,30 @@ button {
 .footer-info p {
     color: #dbeafe;
     margin-bottom: 10px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 4px;
+}
+
+.footer-links h3 {
+    color: #facc15;
+    margin: 0 0 6px;
+    font-size: 20px;
+}
+
+.footer-links a {
+    width: fit-content;
+    color: #dbeafe;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
 }
 
 .footer-map iframe {
@@ -1516,7 +1540,7 @@ button {
 }
 
 /* ============================================================
-   TRANG PHỤ KIỆN (accessories.html)
+   KHU VỰC ƯU ĐÃI TRÊN TRANG CHỦ
    ============================================================ */
 
 /* Tiêu đề phân loại: Tai nghe / Ốp lưng / Cục sạc
