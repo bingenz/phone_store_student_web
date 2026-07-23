@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Đăng nhập tài khoản SmartMobile.">
-    <title>Đăng nhập - SmartMobile</title>
+    <meta name="description" content="Tải ứng dụng SmartMobile trên App Store hoặc Google Play.">
+    <title>Tải ứng dụng - SmartMobile</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/logo-phone.svg">
 </head>
 <body>
-
     <header class="header">
         <div class="container nav-bar">
             <a href="index.html#home" target="_self" class="logo-box">
@@ -19,14 +18,17 @@
                     <p>Điện thoại chính hãng</p>
                 </div>
             </a>
+
             <nav class="menu">
                 <a href="index.html#phones" target="_self">Điện thoại</a>
                 <a href="index.html#watches" target="_self">Đồng hồ</a>
                 <a href="app-download.html" target="_self">Tải app</a>
                 <a href="login.html" class="btn-login-header" target="_self">Đăng nhập</a>
             </nav>
+
             <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()">&#9776;</button>
         </div>
+
         <nav class="menu-mobile" id="menuMobile">
             <a href="index.html#phones" target="_self">Điện thoại</a>
             <a href="index.html#watches" target="_self">Đồng hồ</a>
@@ -35,26 +37,32 @@
         </nav>
     </header>
 
-    <main class="auth-section">
-        <div class="container auth-container">
-            <div class="auth-box">
-                <h2>Đăng nhập</h2>
-                <form id="loginForm" onsubmit="handleLogin(event)">
-                    <div class="form-group">
-                        <label for="loginEmail">Email</label>
-                        <input type="email" id="loginEmail" class="form-input" placeholder="Nhập địa chỉ email" required>
+    <main>
+        <section class="app-download-section">
+            <div class="container app-download-grid">
+                <div class="app-download-image">
+                    <img src="images/smartmobile-app-mockup-floating.png" alt="Giao diện ứng dụng mua sắm SmartMobile trên điện thoại">
+                </div>
+
+                <div class="app-download-content">
+                    <h2>Tải ứng dụng SmartMobile</h2>
+                    <p>
+                        Khám phá điện thoại, đồng hồ và phụ kiện ngay trên thiết bị di động.
+                        Tải ứng dụng để xem sản phẩm và mua sắm thuận tiện hơn.
+                    </p>
+
+                    <div class="store-badges">
+                        <a href="https://www.apple.com/app-store/" class="store-badge" target="_blank" rel="noopener noreferrer" aria-label="Mở trang App Store">
+                            <img src="images/app-store-badge.svg" class="app-store-badge" alt="Tải trên App Store">
+                        </a>
+
+                        <a href="https://play.google.com/store/games" class="store-badge" target="_blank" rel="noopener noreferrer" aria-label="Mở trang Google Play">
+                            <img src="images/google-play-badge.png" class="google-play-badge" alt="Tải trên Google Play">
+                        </a>
                     </div>
-                    <div class="form-group">
-                        <label for="loginPassword">Mật khẩu</label>
-                        <input type="password" id="loginPassword" class="form-input" placeholder="Nhập mật khẩu của bạn" required>
-                    </div>
-                    <button type="submit" class="form-submit-btn btn btn-primary">Đăng nhập</button>
-                </form>
-                <p class="auth-link-text">
-                    Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a>
-                </p>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer id="contact-footer" class="footer">
@@ -66,39 +74,30 @@
                 <p><strong>Điện thoại:</strong> 1234 567 891</p>
                 <p><strong>Giờ mở cửa:</strong> 8:00 - 21:00 mỗi ngày</p>
             </div>
+
             <nav class="footer-links" aria-label="Liên kết thông tin">
                 <h3>Thông tin</h3>
                 <a href="about.html" target="_self">Giới thiệu</a>
                 <a href="news.html" target="_self">Tin tức</a>
                 <a href="contact.html" target="_self">Liên hệ</a>
             </nav>
+
             <div class="footer-map">
-                <iframe src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bản đồ SmartMobile"></iframe>
+                <iframe
+                    src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&amp;output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Bản đồ cửa hàng SmartMobile">
+                </iframe>
             </div>
         </div>
     </footer>
 
-    <a href="cart.html" class="cart-floating-btn" id="cartFloatingBtn">
-        &#128722;
-        <span class="cart-badge" id="cartBadge"></span>
-    </a>
-    <script src="cart.js"></script>
     <script src="auth.js"></script>
     <script>
         function toggleMenu() {
-            document.getElementById('menuMobile').classList.toggle('open');
-        }
-    </script>
-    <script>
-        function handleLogin(event) {
-            event.preventDefault();
-            var email = document.getElementById('loginEmail').value;
-            // Giả lập đăng nhập: lấy tên từ email
-            var username = email.split('@')[0];
-            localStorage.setItem("isLoggedIn", "true");
-            localStorage.setItem("username", username);
-            alert("Đăng nhập thành công!");
-            window.location.href = "index.html";
+            var menu = document.getElementById('menuMobile');
+            menu.classList.toggle('open');
         }
     </script>
 </body>

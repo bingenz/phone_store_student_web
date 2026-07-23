@@ -15,9 +15,10 @@ Dự án chú trọng vào tính dễ đọc, code cấu trúc tốt, giao diệ
 
 Dự án được viết bằng **HTML5, CSS3, Vanilla JavaScript**. Code không sử dụng thư viện UI nặng nề để đảm bảo tính gọn nhẹ và dễ hiểu để sinh viên có thể giải thích trực tiếp.
 
-### Danh sách các trang chính (8 trang):
+### Danh sách các trang chính (9 trang):
 
 - 🏠 `index.html`: Trang chủ - Tổng hợp banner, điện thoại, đồng hồ và sản phẩm ưu đãi.
+- 📲 `app-download.html`: Trang tải ứng dụng - Hiển thị ảnh giới thiệu và liên kết tải SmartMobile trên App Store, Google Play.
 - 📱 `product-detail.html`: Trang chi tiết sản phẩm - Hiển thị ảnh tĩnh, thông số, mô tả chi tiết, chức năng chọn màu sắc và thêm vào giỏ hàng.
 - 🛒 `cart.html`: Trang giỏ hàng - Mô phỏng giỏ hàng với thông tin chi tiết và tính tổng tiền mua sắm (lưu qua LocalStorage).
 - 📰 `news.html`: Trang tin tức công nghệ - Cập nhật thông tin và xu hướng công nghệ mới.
@@ -73,5 +74,5 @@ After each push to branch `master`, Cloudflare Pages automatically deploys the l
 - Các sản phẩm ưu đãi được hiển thị trực tiếp bên dưới mục Đồng hồ trong `index.html`.
 - Ảnh sản phẩm dùng đường dẫn tương đối đến các file thật trong thư mục `images`.
 - Khi kiểm tra bằng cách nhấn đúp mở `index.html` trong Chrome, cần kiểm tra ảnh ở trang chủ, chi tiết sản phẩm và giỏ hàng.
-- Trang chủ có thêm khu vực tải ứng dụng SmartMobile ngay trước footer. Khu vực này dùng các class `app-download-section`, `app-download-grid` và `store-badge`, hiển thị hai cột trên máy tính và một cột trên điện thoại.
+- Khu vực tải ứng dụng SmartMobile được tách sang trang `app-download.html` và mở bằng liên kết `Tải app` trên header. Khu vực này dùng các class `app-download-section`, `app-download-grid` và `store-badge`, hiển thị hai cột trên máy tính và một cột trên điện thoại.
 - Hai badge tải ứng dụng dùng ảnh chính thức tại `images/app-store-badge.svg` và `images/google-play-badge.png`, mở liên kết trong tab mới. Ảnh điện thoại nền trong suốt được lưu tại `images/smartmobile-app-mockup-floating.png`.
