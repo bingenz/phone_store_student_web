@@ -394,6 +394,77 @@ button {
     background-color: #e5e7eb;
 }
 
+/* Khu vực tải ứng dụng */
+.app-download-section {
+    padding: 18px 0 46px;
+}
+
+.app-download-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 22px;
+    padding: 36px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.app-download-image {
+    text-align: center;
+}
+
+.app-download-image img {
+    width: 100%;
+    max-width: 330px;
+    height: 470px;
+    object-fit: contain;
+    filter: drop-shadow(0 18px 18px rgba(15, 23, 42, 0.2));
+}
+
+.app-download-content h2 {
+    color: #0f172a;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.app-download-content p {
+    color: #64748b;
+    max-width: 520px;
+}
+
+.store-badges {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 22px;
+}
+
+.store-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.store-badge:hover {
+    opacity: 0.85;
+}
+
+.store-badge img {
+    display: block;
+    width: auto;
+}
+
+.app-store-badge {
+    height: 56px;
+}
+
+.google-play-badge {
+    height: 82px;
+    margin: -13px 0;
+}
+
 /* Đồng hồ */
 .watch-grid {
     grid-template-columns: repeat(4, 1fr);
@@ -682,8 +753,31 @@ button {
 
     .hero-text h2,
     .section-title h2,
-    .sale-wrap h2 {
+    .sale-wrap h2,
+    .app-download-content h2 {
         font-size: 28px;
+    }
+
+    .app-download-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 22px 18px;
+    }
+
+    .app-download-image img {
+        height: 390px;
+    }
+
+    .app-download-content {
+        text-align: center;
+    }
+
+    .app-download-content p {
+        margin: 0 auto;
+    }
+
+    .store-badges {
+        justify-content: center;
     }
 
     .product-card img,

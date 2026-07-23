@@ -73,3 +73,5 @@ After each push to branch `master`, Cloudflare Pages automatically deploys the l
 - Các sản phẩm ưu đãi được hiển thị trực tiếp bên dưới mục Đồng hồ trong `index.html`.
 - Ảnh sản phẩm dùng đường dẫn tương đối đến các file thật trong thư mục `images`.
 - Khi kiểm tra bằng cách nhấn đúp mở `index.html` trong Chrome, cần kiểm tra ảnh ở trang chủ, chi tiết sản phẩm và giỏ hàng.
+- Trang chủ có thêm khu vực tải ứng dụng SmartMobile ngay trước footer. Khu vực này dùng các class `app-download-section`, `app-download-grid` và `store-badge`, hiển thị hai cột trên máy tính và một cột trên điện thoại.
+- Hai badge tải ứng dụng dùng ảnh chính thức tại `images/app-store-badge.svg` và `images/google-play-badge.png`, mở liên kết trong tab mới. Ảnh điện thoại nền trong suốt được lưu tại `images/smartmobile-app-mockup-floating.png`.
