@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Các đánh giá giả lập của khách hàng về sản phẩm và dịch vụ tại SmartMobile.">
+    <title>Đánh giá khách hàng - SmartMobile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/logo-phone.svg">
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-bar">
+            <a href="index.html#home" target="_self" class="logo-box">
+                <img src="images/logo-phone.svg" alt="Logo SmartMobile">
+                <div>
+                    <h1>SmartMobile</h1>
+                    <p>Điện thoại chính hãng</p>
+                </div>
+            </a>
+            <nav class="menu">
+                <a href="index.html#phones" target="_self">Điện thoại</a>
+                <a href="index.html#watches" target="_self">Đồng hồ</a>
+                <a href="app-download.html" target="_self">Tải app</a>
+                <a href="login.html" class="btn-login-header" target="_self">Đăng nhập</a>
+            </nav>
+            <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()">&#9776;</button>
+        </div>
+        <nav class="menu-mobile" id="menuMobile">
+            <a href="index.html#phones" target="_self">Điện thoại</a>
+            <a href="index.html#watches" target="_self">Đồng hồ</a>
+            <a href="app-download.html" target="_self">Tải app</a>
+            <a href="login.html" class="btn-login-header" target="_self">Đăng nhập</a>
+        </nav>
+    </header>
+
+    <main class="client-review-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Đánh giá của khách hàng</h2>
+                <p>Các nhận xét giả lập về trải nghiệm mua sắm tại SmartMobile</p>
+            </div>
+
+            <div class="review-summary-grid">
+                <div class="review-summary-box">
+                    <strong>4.9/5</strong>
+                    <p>Điểm đánh giá trung bình</p>
+                </div>
+                <div class="review-summary-box">
+                    <strong>98%</strong>
+                    <p>Khách hàng hài lòng</p>
+                </div>
+                <div class="review-summary-box">
+                    <strong>1.200+</strong>
+                    <p>Lượt mua hàng giả lập</p>
+                </div>
+            </div>
+
+            <div class="client-review-grid">
+                <article class="client-review-card">
+                    <div class="client-info">
+                        <div class="client-avatar">AN</div>
+                        <div><h3>An Nguyễn</h3><p>Đã mua iPhone 17 Pro</p></div>
+                    </div>
+                    <div class="review-stars" aria-label="5 sao">★★★★★</div>
+                    <p class="review-text">Máy đúng mô tả, đóng gói cẩn thận và nhân viên tư vấn rất dễ hiểu.</p>
+                </article>
+
+                <article class="client-review-card">
+                    <div class="client-info">
+                        <div class="client-avatar">MT</div>
+                        <div><h3>Minh Trang</h3><p>Đã mua Samsung Galaxy A17</p></div>
+                    </div>
+                    <div class="review-stars" aria-label="5 sao">★★★★★</div>
+                    <p class="review-text">Sản phẩm phù hợp nhu cầu học tập, giá rõ ràng và bảo hành đầy đủ.</p>
+                </article>
+
+                <article class="client-review-card">
+                    <div class="client-info">
+                        <div class="client-avatar">HL</div>
+                        <div><h3>Hoàng Long</h3><p>Đã mua Xiaomi 17 Ultra</p></div>
+                    </div>
+                    <div class="review-stars" aria-label="5 sao">★★★★★</div>
+                    <p class="review-text">Giao hàng nhanh, máy hoạt động tốt và được hướng dẫn sử dụng tận tình.</p>
+                </article>
+
+                <article class="client-review-card">
+                    <div class="client-info">
+                        <div class="client-avatar">TP</div>
+                        <div><h3>Thu Phương</h3><p>Đã mua đồng hồ Citizen</p></div>
+                    </div>
+                    <div class="review-stars" aria-label="5 sao">★★★★★</div>
+                    <p class="review-text">Đồng hồ đẹp, vừa tay và có đầy đủ hộp cùng phiếu bảo hành.</p>
+                </article>
+
+                <article class="client-review-card">
+                    <div class="client-info">
+                        <div class="client-avatar">QD</div>
+                        <div><h3>Quốc Duy</h3><p>Đã mua Samsung S25 Ultra</p></div>
+                    </div>
+                    <div class="review-stars" aria-label="4 sao">★★★★☆</div>
+                    <p class="review-text">Điện thoại dùng mượt, cửa hàng hỗ trợ chuyển dữ liệu khá nhanh.</p>
+                </article>
+
+                <article class="client-review-card">
+                    <div class="client-info">
+                        <div class="client-avatar">LN</div>
+                        <div><h3>Lan Ngọc</h3><p>Đã mua phụ kiện</p></div>
+                    </div>
+                    <div class="review-stars" aria-label="5 sao">★★★★★</div>
+                    <p class="review-text">Phụ kiện dễ sử dụng, nhân viên thân thiện và không chờ đợi lâu.</p>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact-footer" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h2>SmartMobile Store</h2>
+                <p><strong>Địa chỉ:</strong> 300A Nguyễn Tất Thành, Quận 4, TP. Hồ Chí Minh</p>
+                <p><strong>Email:</strong> 1235@gmail.com</p>
+                <p><strong>Điện thoại:</strong> 1234 567 891</p>
+                <p><strong>Giờ mở cửa:</strong> 8:00 - 21:00 mỗi ngày</p>
+            </div>
+            <nav class="footer-links" aria-label="Liên kết thông tin">
+                <h3>Thông tin</h3>
+                <a href="about.html" target="_self">Giới thiệu</a>
+                <a href="news.html" target="_self">Tin tức</a>
+                <a href="contact.html" target="_self">Liên hệ</a>
+                <a href="client-partner.html" target="_self">Đánh giá khách hàng</a>
+            </nav>
+            <div class="footer-map">
+                <iframe src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bản đồ SmartMobile"></iframe>
+            </div>
+        </div>
+    </footer>
+
+    <div class="social-buttons" aria-label="Liên hệ qua mạng xã hội">
+        <a href="https://zalo.me" target="_blank" rel="noopener noreferrer" class="social-button zalo-button" aria-label="Liên hệ qua Zalo">Zalo</a>
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-button facebook-button" aria-label="Liên hệ qua Facebook">f</a>
+    </div>
+
+    <a href="cart.html" class="cart-floating-btn" id="cartFloatingBtn">
+        &#128722;
+        <span class="cart-badge" id="cartBadge"></span>
+    </a>
+    <script src="cart.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        function toggleMenu() {
+            document.getElementById('menuMobile').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

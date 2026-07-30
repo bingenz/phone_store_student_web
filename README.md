@@ -15,7 +15,7 @@ Dự án chú trọng vào tính dễ đọc, code cấu trúc tốt, giao diệ
 
 Dự án được viết bằng **HTML5, CSS3, Vanilla JavaScript**. Code không sử dụng thư viện UI nặng nề để đảm bảo tính gọn nhẹ và dễ hiểu để sinh viên có thể giải thích trực tiếp.
 
-### Danh sách các trang chính (9 trang):
+### Danh sách các trang chính (10 trang):
 
 - 🏠 `index.html`: Trang chủ - Tổng hợp banner, điện thoại, đồng hồ và sản phẩm ưu đãi.
 - 📲 `app-download.html`: Trang tải ứng dụng - Hiển thị ảnh giới thiệu và liên kết tải SmartMobile trên App Store, Google Play.
@@ -26,9 +26,10 @@ Dự án được viết bằng **HTML5, CSS3, Vanilla JavaScript**. Code không
 - 📞 `contact.html`: Trang liên hệ - Gồm form gửi tin nhắn chuyên nghiệp và bản đồ đường đi.
 - 🔑 `login.html`: Trang đăng nhập - Form đăng nhập giả lập, lưu trạng thái qua localStorage.
 - 📝 `register.html`: Trang đăng ký - Form đăng ký giả lập với xác nhận mật khẩu.
+- ⭐ `client-partner.html`: Trang đánh giá - Hiển thị các đánh giá giả lập của khách hàng theo dạng lưới.
 
 ### Danh sách các tệp hệ thống:
-- 🎨 `style.css`: File định dạng giao diện cho toàn bộ 9 trang HTML (Có Responsive Design: Desktop, Tablet, Mobile).
+- 🎨 `style.css`: File định dạng giao diện cho toàn bộ 10 trang HTML (Có Responsive Design: Desktop, Tablet, Mobile).
 - ⚙️ `cart.js`: Tập lệnh JavaScript đơn giản xử lý Logic Thêm/Xóa/Sửa giỏ hàng sử dụng `localStorage`.
 - 🔐 `auth.js`: Script quản lý trạng thái đăng nhập/đăng xuất giả lập (dùng localStorage).
 - 🐍 `make_pages.py`: Script Python sinh tự động các trang phụ (about, news, contact, login, register).
@@ -76,3 +77,5 @@ After each push to branch `master`, Cloudflare Pages automatically deploys the l
 - Khi kiểm tra bằng cách nhấn đúp mở `index.html` trong Chrome, cần kiểm tra ảnh ở trang chủ, chi tiết sản phẩm và giỏ hàng.
 - Khu vực tải ứng dụng SmartMobile được tách sang trang `app-download.html` và mở bằng liên kết `Tải app` trên header. Khu vực này dùng các class `app-download-section`, `app-download-grid` và `store-badge`, hiển thị hai cột trên máy tính và một cột trên điện thoại.
 - Hai badge tải ứng dụng dùng ảnh chính thức tại `images/app-store-badge.svg` và `images/google-play-badge.png`, mở liên kết trong tab mới. Ảnh điện thoại nền trong suốt được lưu tại `images/smartmobile-app-mockup-floating.png`.
+- Trang đánh giá khách hàng dùng các class `review-summary-grid`, `client-review-grid` và `client-review-card`. Lưới có 3 cột trên máy tính, 2 cột trên máy tính bảng và 1 cột trên điện thoại.
+- Cụm nút liên hệ dùng class `social-buttons` và `social-button`, được đặt cố định ở góc phải dưới của tất cả các trang.
