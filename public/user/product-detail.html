@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Trang chi tiet san pham SmartMobile hien thi hinh anh, gia, thong so, danh gia va nut them vao gio hang.">
     <title>Chi tiết sản phẩm - SmartMobile</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="images/logo-phone.svg">
+    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="shortcut icon" href="../images/logo-phone.svg">
 </head>
 <body>
     <header class="header">
         <div class="container nav-bar">
             <a href="index.html#home" target="_self" class="logo-box">
-                <img src="images/logo-phone.svg" alt="Logo SmartMobile">
+                <img src="../images/logo-phone.svg" alt="Logo SmartMobile">
                 <div>
                     <h1>SmartMobile</h1>
                     <p>Điện thoại chính hãng</p>
@@ -49,7 +49,7 @@
 
             <section class="detail-layout">
                 <div class="detail-image-box">
-                    <img id="productImage" src="images/cropped/iphone17pro256.png" alt="iPhone 17 Pro 256GB">
+                    <img id="productImage" src="../images/cropped/iphone17pro256.png" alt="iPhone 17 Pro 256GB">
                     <p>Ảnh sản phẩm minh họa trong cửa hàng</p>
                 </div>
 
@@ -90,8 +90,8 @@
             <div class="footer-info">
                 <h2>SmartMobile Store</h2>
                 <p><strong>Địa chỉ:</strong> 300A Nguyễn Tất Thành, Quận 4, TP. Hồ Chí Minh</p>
-                <p><strong>Email:</strong> 1235@gmail.com</p>
-                <p><strong>Điện thoại:</strong> 1234 567 891</p>
+                <p><strong>Email:</strong> contact@smartmobile.example</p>
+                <p><strong>Điện thoại:</strong> Đang cập nhật</p>
                 <p><strong>Giờ mở cửa:</strong> 8:00 - 21:00 mỗi ngày</p>
             </div>
             <nav class="footer-links" aria-label="Liên kết thông tin">
@@ -126,9 +126,11 @@
     </a>
 
     <!-- Thứ tự nhúng QUAN TRỌNG:
-         1. cart.js trước - chứa các hàm cần dùng
-         2. Script bên dưới sau - gọi hàm từ cart.js -->
-    <script src="cart.js"></script>
+         1. store-data.js chứa dữ liệu sản phẩm và tồn kho dùng chung
+         2. cart.js chứa các hàm giỏ hàng
+         3. Script bên dưới hiển thị chi tiết sản phẩm -->
+    <script src="../shared/store-data.js?v=2"></script>
+    <script src="cart.js?v=2"></script>
     <script src="auth.js"></script>
 
     <!-- Script hiển thị thông tin sản phẩm cho trang chi tiết
@@ -144,7 +146,7 @@
         const products = {
             iphone17pro256: {
                 title: 'iPhone 17 Pro 256GB',
-                image: 'images/cropped/iphone17pro256.png',
+                image: '../images/cropped/iphone17pro256.png',
                 price: '33.990.000đ',
                 oldPrice: '34.990.000đ',
                 rating: '4.9/5 - 128 đánh giá giả lập',
@@ -153,7 +155,7 @@
             },
             iphone17pro512: {
                 title: 'iPhone 17 Pro 512GB',
-                image: 'images/cropped/iphone17pro512.png',
+                image: '../images/cropped/iphone17pro512.png',
                 price: '39.990.000đ',
                 oldPrice: '41.490.000đ',
                 rating: '4.8/5 - 96 đánh giá giả lập',
@@ -162,7 +164,7 @@
             },
             s25ultra: {
                 title: 'Samsung Galaxy S25 Ultra',
-                image: 'images/cropped/s25ultra.png',
+                image: '../images/cropped/s25ultra.png',
                 price: '31.090.000đ',
                 oldPrice: '39.490.000đ',
                 rating: '4.8/5 - 112 đánh giá giả lập',
@@ -171,7 +173,7 @@
             },
             xiaomi17ultra: {
                 title: 'Xiaomi 17 Ultra 5G',
-                image: 'images/cropped/xiaomi17ultra.png',
+                image: '../images/cropped/xiaomi17ultra.png',
                 price: '31.190.000đ',
                 oldPrice: '39.990.000đ',
                 rating: '4.7/5 - 84 đánh giá giả lập',
@@ -180,7 +182,7 @@
             },
             galaxy_a07: {
                 title: 'Samsung Galaxy A07',
-                image: 'images/cropped/galaxy_a07.png',
+                image: '../images/cropped/galaxy_a07.png',
                 price: '3.090.000đ',
                 oldPrice: '3.290.000đ',
                 rating: '4.5/5 - 63 đánh giá giả lập',
@@ -189,7 +191,7 @@
             },
             galaxy_a17: {
                 title: 'Samsung Galaxy A17',
-                image: 'images/cropped/galaxy_a17.png',
+                image: '../images/cropped/galaxy_a17.png',
                 price: '5.890.000đ',
                 oldPrice: '6.090.000đ',
                 rating: '4.6/5 - 77 đánh giá giả lập',
@@ -198,7 +200,7 @@
             },
             watch_citizen1: {
                 title: 'Citizen EG7073-16Y',
-                image: 'images/cropped/watch_citizen1.png',
+                image: '../images/cropped/watch_citizen1.png',
                 price: '10.280.000đ',
                 oldPrice: '13.860.000đ',
                 rating: '4.7/5 - 52 đánh giá giả lập',
@@ -207,7 +209,7 @@
             },
             watch_citizen2: {
                 title: 'Citizen EW2700-54L',
-                image: 'images/cropped/watch_citizen2.png',
+                image: '../images/cropped/watch_citizen2.png',
                 price: '10.302.000đ',
                 oldPrice: '13.885.000đ',
                 rating: '4.6/5 - 49 đánh giá giả lập',
@@ -216,7 +218,7 @@
             },
             watch_citizen3: {
                 title: 'Citizen CA0711-80H',
-                image: 'images/cropped/watch_citizen3.png',
+                image: '../images/cropped/watch_citizen3.png',
                 price: '10.315.000đ',
                 oldPrice: '13.900.000đ',
                 rating: '4.7/5 - 58 đánh giá giả lập',
@@ -225,7 +227,7 @@
             },
             watch_orient1: {
                 title: 'Orient Star RE-AT0004S00B',
-                image: 'images/cropped/watch_orient1.png',
+                image: '../images/cropped/watch_orient1.png',
                 price: '17.864.000đ',
                 oldPrice: '23.190.000đ',
                 rating: '4.8/5 - 44 đánh giá giả lập',
@@ -234,7 +236,7 @@
             },
             op_lung_1: {
                 title: 'Ốp lưng chống sốc',
-                image: 'images/op_lung_samsung.png',
+                image: '../images/op_lung_samsung.png',
                 price: '150.000đ',
                 oldPrice: '200.000đ',
                 rating: '4.7/5 - 36 đánh giá giả lập',
@@ -243,7 +245,7 @@
             },
             op_lung_2: {
                 title: 'Ốp lưng trong suốt',
-                image: 'images/op_lung_trong_suot.png',
+                image: '../images/op_lung_trong_suot.png',
                 price: '80.000đ',
                 oldPrice: '120.000đ',
                 rating: '4.6/5 - 29 đánh giá giả lập',
@@ -252,7 +254,7 @@
             },
             tai_nghe_1: {
                 title: 'Tai nghe nhét tai có dây',
-                image: 'images/tai_nghe_samsung.png',
+                image: '../images/tai_nghe_samsung.png',
                 price: '120.000đ',
                 oldPrice: '180.000đ',
                 rating: '4.5/5 - 41 đánh giá giả lập',
@@ -261,7 +263,7 @@
             },
             tai_nghe_2: {
                 title: 'Tai nghe không dây Bluetooth',
-                image: 'images/tai_nghe_jbl_den2.png',
+                image: '../images/tai_nghe_jbl_den2.png',
                 price: '350.000đ',
                 oldPrice: '450.000đ',
                 rating: '4.6/5 - 38 đánh giá giả lập',
@@ -270,7 +272,7 @@
             },
             cuc_sac_1: {
                 title: 'Cục sạc nhanh 20W',
-                image: 'images/cuc_sac_anker.png',
+                image: '../images/cuc_sac_anker.png',
                 price: '200.000đ',
                 oldPrice: '280.000đ',
                 rating: '4.7/5 - 33 đánh giá giả lập',
@@ -279,7 +281,7 @@
             },
             cuc_sac_2: {
                 title: 'Cục sạc không dây 15W',
-                image: 'images/cuc_sac_anker_zolo.png',
+                image: '../images/cuc_sac_anker_zolo.png',
                 price: '320.000đ',
                 oldPrice: '400.000đ',
                 rating: '4.6/5 - 27 đánh giá giả lập',
@@ -290,9 +292,9 @@
 
         // Dữ liệu đánh giá giả lập - hiển thị như nhau cho mọi sản phẩm
         const reviews = [
-            { name: 'Minh Anh', stars: '★★★★★', text: 'Sản phẩm hiển thị đẹp, thông tin rõ ràng, dễ xem trên điện thoại.' },
-            { name: 'Quốc Bảo', stars: '★★★★☆', text: 'Giá và thông số được trình bày dễ hiểu, bố cục gọn gàng.' },
-            { name: 'Hoàng Nam', stars: '★★★★★', text: 'Trang chi tiết có đủ hình ảnh, mô tả, đánh giá và nút thêm vào giỏ.' }
+            { name: 'Người dùng mẫu 01', stars: '★★★★★', text: 'Sản phẩm hiển thị đẹp, thông tin rõ ràng, dễ xem trên điện thoại.' },
+            { name: 'Người dùng mẫu 02', stars: '★★★★☆', text: 'Giá và thông số được trình bày dễ hiểu, bố cục gọn gàng.' },
+            { name: 'Người dùng mẫu 03', stars: '★★★★★', text: 'Trang chi tiết có đủ hình ảnh, mô tả, đánh giá và nút thêm vào giỏ.' }
         ];
 
         // Lấy giá trị ?id=... từ URL trình duyệt
@@ -300,45 +302,90 @@
         const params  = new URLSearchParams(window.location.search);
         const id      = params.get('id') || 'iphone17pro256';
 
-        // Tìm thông tin sản phẩm theo id, nếu không có thì dùng iPhone 17 Pro mặc định
-        const product = products[id] || products.iphone17pro256;
+        function renderProductDetail() {
+            var storeProduct = getStoreProductById(id);
+            var savedDetail = products[id];
+            var addBtn = document.querySelector('.detail-actions .add-cart-btn');
+            var reviewSection = document.querySelector('.review-section');
 
-        // Cập nhật nội dung trang bằng JavaScript (thay thế các phần tử HTML)
-        document.title                                          = product.title + ' - SmartMobile';
-        document.getElementById('breadcrumbName').textContent  = product.title;
-        document.getElementById('productImage').src            = product.image;
-        document.getElementById('productImage').alt            = product.title;
-        document.getElementById('productTitle').textContent    = product.title;
-        document.getElementById('productRating').textContent   = product.rating;
-        document.getElementById('productPrice').textContent    = product.price;
-        document.getElementById('productOldPrice').textContent = product.oldPrice;
-        document.getElementById('productDesc').textContent     = product.desc;
+            // ID không còn trong dữ liệu admin nghĩa là sản phẩm đã ngừng bán.
+            if (!storeProduct) {
+                document.title = 'Sản phẩm không còn kinh doanh - SmartMobile';
+                document.getElementById('breadcrumbName').textContent = 'Sản phẩm không còn kinh doanh';
+                document.getElementById('productImage').src = '../images/logo-phone.svg';
+                document.getElementById('productImage').alt = 'Sản phẩm không còn kinh doanh';
+                document.getElementById('productTitle').textContent = 'Sản phẩm không còn kinh doanh';
+                document.getElementById('productRating').textContent = 'Không có dữ liệu';
+                document.getElementById('productPrice').textContent = '—';
+                document.getElementById('productOldPrice').hidden = true;
+                document.getElementById('productDesc').textContent = 'Sản phẩm này đã bị xóa hoặc tạm ngừng kinh doanh tại SmartMobile.';
+                document.getElementById('specList').innerHTML = '<li><strong>Trạng thái:</strong> Ngừng kinh doanh</li>';
+                addBtn.removeAttribute('data-id');
+                addBtn.disabled = true;
+                addBtn.setAttribute('aria-disabled', 'true');
+                addBtn.textContent = 'Không còn kinh doanh';
+                reviewSection.hidden = true;
+                return;
+            }
 
-        // Tạo danh sách thông số kỹ thuật dưới dạng <li>
-        // Mỗi chuỗi spec có dạng "Tên: Giá trị", tách ra để in đậm phần tên
-        document.getElementById('specList').innerHTML = product.specs.map(function(item) {
-            const parts = item.split(': ');
-            return '<li><strong>' + parts[0] + ':</strong> ' + (parts[1] || '') + '</li>';
-        }).join('');
+            var currentPrice = formatStorePrice(storeProduct.price);
+            var product = savedDetail || {
+                price: currentPrice,
+                oldPrice: '',
+                rating: 'Sản phẩm mới - chưa có đánh giá',
+                desc: 'Sản phẩm mới được cập nhật từ trang quản trị SmartMobile.',
+                specs: ['Bảo hành: Theo chính sách cửa hàng']
+            };
+            var oldPrice = product.price === currentPrice ? product.oldPrice : '';
+            var specs = [
+                'Loại sản phẩm: ' + storeProduct.category,
+                'Tồn kho: ' + Number(storeProduct.stock) + ' sản phẩm'
+            ].concat(product.specs || []);
+            var isInStock = Number(storeProduct.stock) > 0;
 
-        // Tạo danh sách đánh giá giả lập
-        document.getElementById('reviewList').innerHTML = reviews.map(function(review) {
-            return '<article class="review-box"><strong>' + review.name + '</strong><div class="stars">' + review.stars + '</div><p>' + review.text + '</p></article>';
-        }).join('');
+            document.title = storeProduct.name + ' - SmartMobile';
+            document.getElementById('breadcrumbName').textContent = storeProduct.name;
+            document.getElementById('productImage').src = storeProduct.image;
+            document.getElementById('productImage').alt = storeProduct.name;
+            document.getElementById('productTitle').textContent = storeProduct.name;
+            document.getElementById('productRating').textContent = product.rating;
+            document.getElementById('productPrice').textContent = currentPrice;
+            document.getElementById('productOldPrice').textContent = oldPrice;
+            document.getElementById('productOldPrice').hidden = !oldPrice;
+            document.getElementById('productDesc').textContent = product.desc;
 
-        // =====================================================
-        // Gắn thông tin sản phẩm vào nút "Thêm vào giỏ"
-        // cart.js dùng event delegation nên sẽ bắt được click
-        // sau khi data được set bằng setAttribute bên dưới
-        // setAttribute(tên_thuộc_tính, giá_trị): gán data-* cho nút
-        // =====================================================
-        var addBtn = document.querySelector('.detail-actions .add-cart-btn');
-        if (addBtn) {
-            addBtn.setAttribute('data-id',    id);             // ID sản phẩm
-            addBtn.setAttribute('data-name',  product.title); // Tên sản phẩm
-            addBtn.setAttribute('data-price', product.price); // Giá sản phẩm
-            addBtn.setAttribute('data-image', product.image); // Đường dẫn hình
+            var specList = document.getElementById('specList');
+            specList.innerHTML = '';
+            specs.forEach(function(item) {
+                var parts = item.split(': ');
+                var li = document.createElement('li');
+                var strong = document.createElement('strong');
+                strong.textContent = parts[0] + ':';
+                li.appendChild(strong);
+                li.appendChild(document.createTextNode(' ' + (parts.slice(1).join(': ') || '')));
+                specList.appendChild(li);
+            });
+
+            document.getElementById('reviewList').innerHTML = reviews.map(function(review) {
+                return '<article class="review-box"><strong>' + review.name + '</strong><div class="stars">' + review.stars + '</div><p>' + review.text + '</p></article>';
+            }).join('');
+            reviewSection.hidden = false;
+
+            addBtn.setAttribute('data-id', id);
+            addBtn.setAttribute('data-name', storeProduct.name);
+            addBtn.setAttribute('data-price', currentPrice);
+            addBtn.setAttribute('data-image', storeProduct.image);
+            addBtn.disabled = !isInStock;
+            addBtn.setAttribute('aria-disabled', String(!isInStock));
+            addBtn.textContent = isInStock ? 'Thêm vào giỏ' : 'Hết hàng';
         }
+
+        renderProductDetail();
+
+        // Cập nhật lại trang chi tiết nếu admin thay đổi sản phẩm ở tab khác.
+        window.addEventListener('storage', function(event) {
+            if (event.key === STORE_PRODUCTS_KEY) renderProductDetail();
+        });
     </script>
 
     <!-- Script hamburger menu (dùng chung cho tất cả trang) -->

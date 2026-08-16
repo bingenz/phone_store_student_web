@@ -12,6 +12,15 @@
 - Nếu có nhiều phương án, nên gợi ý ngắn gọn ưu/nhược điểm để người thực hiện chọn.
 - Nếu người dùng đã nói rõ yêu cầu, thực hiện trực tiếp theo yêu cầu đó, không tự ý đổi hướng.
 - Cần phân biệt rõ file chính và file tham khảo. Ví dụ: `phone_store...` là dự án cần sửa, còn `c.zip` chỉ dùng để tham khảo giao diện hoặc cách làm.
+- Thư mục dự án ngoài cùng là bản chính. Không tạo hoặc chỉnh một thư mục `phone_store_student_web-master` khác nằm bên trong chính dự án.
+- Khi giải nén hoặc sao chép dự án, cần kiểm tra đường dẫn đích trước để tránh lồng thêm một bản sao cùng tên.
+
+## Cấu trúc dự án bắt buộc
+
+- Toàn bộ file chạy website nằm trong `public/`; không tạo lại `index.html`, `user/`, `admin/`, `images/` hoặc `shared/` ở thư mục gốc.
+- `public/index.html` là entry point khi chạy thử. Trang khách hàng nằm trong `public/user/`, quản trị trong `public/admin/`, ảnh trong `public/images/` và dữ liệu dùng chung trong `public/shared/`.
+- Thư mục gốc chỉ giữ file cấu hình và tài liệu Markdown như `.gitignore`, `AGENTS.md`, `README.md`. Không lưu báo cáo Word/PowerPoint cũ hoặc bản nháp trong repository; nếu sau này cần đưa bản chính thức lên GitHub thì tạo lại thư mục `docs/` theo yêu cầu cụ thể.
+- Hiện tại chưa triển khai lại hosting. Khi người dùng yêu cầu deploy sau này, ưu tiên cấu hình build output là `public/`; không sao chép website ra gốc và không tạo thêm bản lồng.
 
 ## Phạm vi chỉnh sửa
 
@@ -29,6 +38,15 @@
 - Code cần có cấu trúc rõ ràng, tên class dễ hiểu, dễ tìm trong HTML/CSS.
 - Với trang mới, nên tách thành file riêng nếu yêu cầu là “trang riêng”.
 - Link chuyển trang nên dùng cùng tab (`target="_self"`) nếu cần người dùng có thể quay lại bằng Back.
+
+## Nguyên tắc dữ liệu sản phẩm và tồn kho
+
+- Mỗi `id` sản phẩm chỉ dùng một nguồn dữ liệu chính cho tên, giá, ảnh và tồn kho: `smartmobile_admin_products` trong `localStorage`.
+- Trang chủ, trang chi tiết, giỏ hàng và trang admin phải cùng đọc nguồn dữ liệu sản phẩm dùng chung trong `public/shared/store-data.js`.
+- Sản phẩm có tồn kho bằng `0`, đã bị xóa hoặc không còn trong dữ liệu admin thì không được thêm vào giỏ hay đặt hàng.
+- Khi tăng hoặc nhập số lượng trong giỏ, luôn giới hạn theo tồn kho hiện tại.
+- Trước khi tạo đơn phải kiểm tra lại tồn kho, sau đó mới lưu đơn, trừ kho và xóa giỏ.
+- Khi thay đổi cấu trúc dữ liệu `localStorage`, cần có migration một lần; không ghi đè sản phẩm admin đã sửa hoặc tự thêm.
 
 ## Nguyên tắc về tài liệu và ghi chú
 
@@ -51,3 +69,4 @@
 - Nêu rõ cách kiểm tra nhanh.
 - Nếu tạo bản zip, đặt tên file dễ hiểu.
 - Không nói là đã hoàn thành 100% nếu chưa kiểm tra cơ bản đường dẫn, file HTML và CSS.
+- Trước khi bàn giao, kiểm tra dự án không còn thư mục bản sao lồng cùng tên bên trong workspace.

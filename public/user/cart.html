@@ -6,8 +6,8 @@
     <meta name="description" content="Gio hang SmartMobile giup xem san pham da chon, cap nhat so luong va tinh tong tien bang JavaScript co ban.">
     <title>Giỏ hàng - SmartMobile</title>
     <!-- Dùng chung file CSS với các trang khác -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="images/logo-phone.svg">
+    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="shortcut icon" href="../images/logo-phone.svg">
 </head>
 <body>
 
@@ -19,7 +19,7 @@
         <div class="container nav-bar">
             <!-- Logo + tên cửa hàng → click về trang chủ -->
             <a href="index.html#home" target="_self" class="logo-box">
-                <img src="images/logo-phone.svg" alt="Logo SmartMobile">
+                <img src="../images/logo-phone.svg" alt="Logo SmartMobile">
                 <div>
                     <h1>SmartMobile</h1>
                     <p>Điện thoại chính hãng</p>
@@ -57,6 +57,7 @@
 
             <!-- Tiêu đề trang -->
             <h2 class="cart-page-title">Giỏ hàng của bạn</h2>
+            <div class="cart-notice" id="cartNotice" role="status" aria-live="polite" hidden></div>
 
             <!-- -------------------------------------------------
                  LAYOUT 2 CỘT: Luôn hiển thị (dùng CSS grid)
@@ -117,6 +118,33 @@
         </div><!-- /.container -->
     </main>
 
+    <dialog class="checkout-dialog" id="checkoutDialog">
+        <form class="checkout-form" id="checkoutForm" novalidate>
+            <div class="checkout-dialog-header">
+                <div>
+                    <h2>Thông tin đặt hàng</h2>
+                    <p>SmartMobile sẽ liên hệ xác nhận qua số điện thoại.</p>
+                </div>
+                <button class="checkout-dialog-close" type="button" id="checkoutDialogClose" aria-label="Đóng">×</button>
+            </div>
+
+            <div class="form-group">
+                <label for="checkoutCustomerName">Họ và tên</label>
+                <input class="form-input" id="checkoutCustomerName" type="text" minlength="2" placeholder="Nhập họ và tên" autocomplete="name">
+            </div>
+            <div class="form-group">
+                <label for="checkoutCustomerPhone">Số điện thoại</label>
+                <input class="form-input" id="checkoutCustomerPhone" type="tel" inputmode="numeric" maxlength="10" placeholder="Nhập số điện thoại gồm 10 chữ số" autocomplete="tel">
+            </div>
+
+            <p class="checkout-error" id="checkoutError" aria-live="polite"></p>
+            <div class="checkout-dialog-actions">
+                <button class="continue-btn" type="button" id="checkoutCancelButton">Hủy</button>
+                <button class="checkout-btn" type="submit">Xác nhận đặt hàng</button>
+            </div>
+        </form>
+    </dialog>
+
 
     <!-- =====================================================
          FOOTER - Copy nguyên từ index.html
@@ -126,8 +154,8 @@
             <div class="footer-info">
                 <h2>SmartMobile Store</h2>
                 <p><strong>Địa chỉ:</strong> 300A Nguyễn Tất Thành, Quận 4, TP. Hồ Chí Minh</p>
-                <p><strong>Email:</strong> 1235@gmail.com</p>
-                <p><strong>Điện thoại:</strong> 1234 567 891</p>
+                <p><strong>Email:</strong> contact@smartmobile.example</p>
+                <p><strong>Điện thoại:</strong> Đang cập nhật</p>
                 <p><strong>Giờ mở cửa:</strong> 8:00 - 21:00 mỗi ngày</p>
             </div>
             <nav class="footer-links" aria-label="Liên kết thông tin">
@@ -171,9 +199,12 @@
             vì script bên dưới gọi các hàm trong cart.js
          ===================================================== -->
 
+    <!-- Dữ liệu sản phẩm phải tải trước logic giỏ hàng -->
+    <script src="../shared/store-data.js?v=2"></script>
+
     <!-- Nhúng file cart.js - chứa: getCart, formatPrice, parsePrice,
          updateQuantity, removeFromCart, updateCartBadge -->
-    <script src="cart.js"></script>
+    <script src="cart.js?v=2"></script>
     <script src="auth.js"></script>
     <script>
         // =====================================================
@@ -188,38 +219,30 @@
         // Trả về: chuỗi HTML của một dòng .cart-item
         // -----------------------------------------------------
         function renderCartItem(item) {
-            // Tính thành tiền = giá đơn × số lượng
-            var unitPrice = parsePrice(item.price);  // parsePrice() ở cart.js
-            var subtotal  = unitPrice * item.quantity;
+            var product = getInventoryProduct(item.id);
+            var stock = product ? Number(product.stock) : 0;
+            var unitPrice = parsePrice(item.price);
+            var subtotal = unitPrice * item.quantity;
+            var safeId = escapeCartText(item.id);
+            var safeName = escapeCartText(item.name);
+            var safeImage = escapeCartText(item.image);
 
-            // Ghép HTML bằng chuỗi
-            // Chú ý: id duy nhất cho mỗi phần tử để refreshItem() cập nhật được
-            return '<div class="cart-item" id="item-' + item.id + '">'
-                 +   '<img class="cart-item-img" src="' + item.image + '" alt="' + item.name + '">'
-
+            return '<div class="cart-item" id="item-' + safeId + '">'
+                 +   '<img class="cart-item-img" src="' + safeImage + '" alt="' + safeName + '">'
                  +   '<div class="cart-item-info">'
-                 +     '<h4>' + item.name + '</h4>'
-                 +     '<p class="cart-item-price">' + item.price + '</p>'
+                 +     '<h4>' + safeName + '</h4>'
+                 +     '<p class="cart-item-price">' + escapeCartText(item.price) + '</p>'
+                 +     '<small class="cart-stock">Còn ' + stock + ' sản phẩm</small>'
                  +   '</div>'
-
                  +   '<div class="qty-control">'
-                 +     '<button class="qty-btn" onclick="handleMinus(\'' + item.id + '\')">&#8722;</button>'
-
-                 // INPUT số lượng: dùng thẻ <input type="number"> để người dùng có thể gõ trực tiếp
-                 // - min="1": không cho phép nhập giá trị nhỏ hơn 1
-                 // - onchange: gọi handleQtyInput() khi người dùng thay đổi và rời khỏi ô
-                 +     '<input type="number" class="qty-input" id="qty-' + item.id + '"'
-                 +       ' value="' + item.quantity + '" min="1"'
-                 +       ' onchange="handleQtyInput(\'' + item.id + '\', this.value)">'
-
-                 +     '<button class="qty-btn" onclick="handlePlus(\'' + item.id + '\')">+</button>'
+                 +     '<button class="qty-btn" type="button" onclick="handleMinus(\'' + safeId + '\')" aria-label="Giảm số lượng">&#8722;</button>'
+                 +     '<input type="number" class="qty-input" id="qty-' + safeId + '"'
+                 +       ' value="' + item.quantity + '" min="1" max="' + stock + '"'
+                 +       ' onchange="handleQtyInput(\'' + safeId + '\', this.value)" aria-label="Số lượng ' + safeName + '">'
+                 +     '<button class="qty-btn qty-plus" type="button" onclick="handlePlus(\'' + safeId + '\')" aria-label="Tăng số lượng"' + (item.quantity >= stock ? ' disabled' : '') + '>+</button>'
                  +   '</div>'
-
-                 +   '<p class="cart-item-subtotal" id="sub-' + item.id + '">' + formatPrice(subtotal) + '</p>'
-
-                 +   '<button class="cart-item-remove"'
-                 +     ' onclick="handleRemove(\'' + item.id + '\')";'
-                 +     ' title="Xóa sản phẩm này">&#10005;</button>'
+                 +   '<p class="cart-item-subtotal" id="sub-' + safeId + '">' + formatPrice(subtotal) + '</p>'
+                 +   '<button class="cart-item-remove" type="button" onclick="handleRemove(\'' + safeId + '\')" title="Xóa sản phẩm này">&#10005;</button>'
                  + '</div>';
         }
 
@@ -253,10 +276,22 @@
         // - Khi trống: chèn <p class="cart-empty-msg"> vào danh sách
         // - Khi có hàng: hiển thị các dòng sản phẩm bình thường
         // -----------------------------------------------------
-        function renderCartPage() {
-            var cart      = getCart();
+        function showCartNotice(messages) {
+            var notice = document.getElementById('cartNotice');
+            var list = Array.isArray(messages) ? messages.filter(Boolean) : [messages].filter(Boolean);
+            notice.textContent = list.join(' ');
+            notice.hidden = list.length === 0;
+        }
+
+        function renderCartPage(extraMessages) {
+            var syncResult = syncCartWithInventory();
+            var cart = syncResult.cart;
             var listEl    = document.getElementById('cartItemList');
             var clearBtn  = document.getElementById('clearCartBtn');
+            var checkoutBtn = document.getElementById('checkoutBtn');
+            var messages = syncResult.messages.concat(extraMessages || []);
+
+            showCartNotice(messages);
 
             if (cart.length === 0) {
                 // Giỏ TRỒNG: hiển thị <p> thông báo ngay trong hộp sản phẩm
@@ -268,6 +303,7 @@
                 // Reset tổng đơn về 0
                 document.getElementById('cartTotal').textContent    = '0đ';
                 document.getElementById('summaryCount').textContent = '0 sản phẩm';
+                checkoutBtn.disabled = true;
 
             } else {
                 // Có sản phẩm: vẽ danh sách các dòng sản phẩm
@@ -279,6 +315,7 @@
 
                 // Cập nhật tổng đơn bên phải
                 updateSummary();
+                checkoutBtn.disabled = false;
             }
         }
 
@@ -313,38 +350,13 @@
         // - newVal: giá trị mới người dùng vừa nhập (dạng chuỗi)
         // -----------------------------------------------------
         function handleQtyInput(id, newVal) {
-            // parseInt: chuyển chuỗi thành số nguyên (bỏ phần thập phân nếu có)
-            var qty = parseInt(newVal, 10);
-
-            // Kiểm tra hợp lệ:
-            // - isNaN(qty): kiểm tra có phải số không (isNaN = "is Not a Number")
-            // - qty < 1: không cho nhập giá trị 0 hoặc âm
-            if (isNaN(qty) || qty < 1) {
-                // Giá trị không hợp lệ → đặt lại về 1
-                qty = 1;
+            var result = setCartQuantity(id, newVal);
+            if (result.removed) {
+                renderCartPage([result.message]);
+                return;
             }
-
-            // Cập nhật số lượng trong localStorage
-            // Không dùng updateQuantity(delta) vì ta muốn đặt thẳng giá trị mới
-            var cart = getCart();
-            for (var i = 0; i < cart.length; i++) {
-                if (cart[i].id === id) {
-                    cart[i].quantity = qty;  // Ghi đè số lượng mới
-                    break;
-                }
-            }
-            saveCart(cart);      // Lưu lại vào localStorage
-            updateCartBadge();   // Cập nhật badge
-
-            // Cập nhật hiển thị: điền lại đúng giá trị vào input (phòng trường hợp input hiển thị sai)
-            var inputEl = document.getElementById('qty-' + id);
-            if (inputEl) inputEl.value = qty;
-
-            // Cập nhật thành tiền và tổng đơn
-            var unitPrice = parsePrice(cart.find(function(item) { return item.id === id; }).price);
-            var subEl = document.getElementById('sub-' + id);
-            if (subEl) subEl.textContent = formatPrice(unitPrice * qty);
-            updateSummary();
+            refreshItem(id);
+            showCartNotice(result.message ? [result.message] : []);
         }
 
 
@@ -352,8 +364,13 @@
         // TĂNG số lượng (nút +)
         // -----------------------------------------------------
         function handlePlus(id) {
-            updateQuantity(id, +1);  // Hàm trong cart.js, tăng 1
-            refreshItem(id);         // Chỉ cập nhật dòng đó, không render lại tất cả
+            var result = updateQuantity(id, +1);
+            if (result.removed) {
+                renderCartPage([result.message]);
+                return;
+            }
+            refreshItem(id);
+            showCartNotice(result.message ? [result.message] : []);
         }
 
 
@@ -390,10 +407,23 @@
             }
             if (!item) return;
 
+            var product = getInventoryProduct(id);
+            if (!product || Number(product.stock) <= 0) {
+                renderCartPage();
+                return;
+            }
+
             // Cập nhật giá trị hiển thị trong INPUT số lượng
             // (dùng .value thấy vì là input, không dùng .textContent)
             var inputEl = document.getElementById('qty-' + id);
-            if (inputEl) inputEl.value = item.quantity;
+            if (inputEl) {
+                inputEl.value = item.quantity;
+                inputEl.max = Number(product.stock);
+            }
+
+            var itemElement = document.getElementById('item-' + id);
+            var plusButton = itemElement ? itemElement.querySelector('.qty-plus') : null;
+            if (plusButton) plusButton.disabled = Number(item.quantity) >= Number(product.stock);
 
             // Cập nhật thành tiền
             var subEl = document.getElementById('sub-' + id);
@@ -407,6 +437,133 @@
             // Cập nhật badge trên nút giỏ hàng nổi
             updateCartBadge();
         }
+
+
+        // -----------------------------------------------------
+        // THANH TOÁN MÔ PHỎNG: tạo đơn admin và trừ tồn kho
+        // -----------------------------------------------------
+        function openCheckoutDialog() {
+            if (getCart().length === 0) return;
+            document.getElementById('checkoutError').textContent = '';
+            document.getElementById('checkoutDialog').showModal();
+        }
+
+        function closeCheckoutDialog() {
+            document.getElementById('checkoutDialog').close();
+        }
+
+        function getNextOrderId(orders) {
+            var maxNumber = orders.reduce(function(max, order) {
+                var match = String(order.id).match(/^DH(\d+)$/);
+                return match ? Math.max(max, Number(match[1])) : max;
+            }, 1000);
+            return 'DH' + (maxNumber + 1);
+        }
+
+        function getLocalDateValue() {
+            var today = new Date();
+            var month = String(today.getMonth() + 1).padStart(2, '0');
+            var day = String(today.getDate()).padStart(2, '0');
+            return today.getFullYear() + '-' + month + '-' + day;
+        }
+
+        function handleCheckoutSubmit(event) {
+            event.preventDefault();
+            var errorBox = document.getElementById('checkoutError');
+            var customer = document.getElementById('checkoutCustomerName').value.trim();
+            var phone = document.getElementById('checkoutCustomerPhone').value.trim();
+
+            if (customer.length < 2) {
+                errorBox.textContent = 'Vui lòng nhập họ và tên có ít nhất 2 ký tự.';
+                return;
+            }
+            if (!/^0\d{9}$/.test(phone)) {
+                errorBox.textContent = 'Số điện thoại phải gồm 10 chữ số và bắt đầu bằng 0.';
+                return;
+            }
+
+            // Kiểm tra lại ngay trước khi lưu đơn để tránh dùng dữ liệu kho cũ.
+            var syncResult = syncCartWithInventory();
+            if (syncResult.messages.length > 0 || syncResult.cart.length === 0) {
+                errorBox.textContent = syncResult.cart.length === 0
+                    ? 'Giỏ hàng không còn sản phẩm đủ điều kiện đặt mua.'
+                    : 'Tồn kho vừa thay đổi. Vui lòng kiểm tra lại giỏ hàng trước khi đặt.';
+                renderCartPage(syncResult.messages);
+                return;
+            }
+
+            var products = getStoreProducts();
+            var total = 0;
+            var orderItems = [];
+            var invalidItem = null;
+
+            syncResult.cart.forEach(function(cartItem) {
+                var product = products.find(function(item) {
+                    return String(item.id) === String(cartItem.id);
+                });
+                if (!product || Number(product.stock) < Number(cartItem.quantity)) {
+                    invalidItem = cartItem.name;
+                    return;
+                }
+
+                product.stock = Number(product.stock) - Number(cartItem.quantity);
+                total += Number(product.price) * Number(cartItem.quantity);
+                orderItems.push({ name: product.name, quantity: Number(cartItem.quantity) });
+            });
+
+            if (invalidItem) {
+                errorBox.textContent = invalidItem + ' không còn đủ tồn kho. Vui lòng kiểm tra lại giỏ hàng.';
+                renderCartPage();
+                return;
+            }
+
+            var orders = getStoreOrders();
+            var orderId = getNextOrderId(orders);
+            var productsBeforeCheckout = localStorage.getItem(STORE_PRODUCTS_KEY);
+            var ordersBeforeCheckout = localStorage.getItem(STORE_ORDERS_KEY);
+            orders.unshift({
+                id: orderId,
+                customer: customer,
+                phone: phone,
+                date: getLocalDateValue(),
+                total: total,
+                status: 'Chờ xử lý',
+                items: orderItems
+            });
+
+            try {
+                saveStoreProducts(products);
+                saveStoreOrders(orders);
+                clearCart();
+            } catch (error) {
+                if (productsBeforeCheckout === null) {
+                    localStorage.removeItem(STORE_PRODUCTS_KEY);
+                } else {
+                    localStorage.setItem(STORE_PRODUCTS_KEY, productsBeforeCheckout);
+                }
+                if (ordersBeforeCheckout === null) {
+                    localStorage.removeItem(STORE_ORDERS_KEY);
+                } else {
+                    localStorage.setItem(STORE_ORDERS_KEY, ordersBeforeCheckout);
+                }
+                errorBox.textContent = 'Không thể lưu đơn hàng trên trình duyệt. Vui lòng thử lại.';
+                return;
+            }
+
+            closeCheckoutDialog();
+            document.getElementById('checkoutForm').reset();
+            renderCartPage();
+            window.alert('Đặt hàng thành công! Mã đơn của bạn là ' + orderId + '. SmartMobile sẽ liên hệ xác nhận sớm.');
+        }
+
+        document.getElementById('checkoutBtn').addEventListener('click', openCheckoutDialog);
+        document.getElementById('checkoutDialogClose').addEventListener('click', closeCheckoutDialog);
+        document.getElementById('checkoutCancelButton').addEventListener('click', closeCheckoutDialog);
+        document.getElementById('checkoutForm').addEventListener('submit', handleCheckoutSubmit);
+
+        window.addEventListener('storage', function(event) {
+            if (event.key === STORE_PRODUCTS_KEY || event.key === CART_KEY) renderCartPage();
+        });
 
 
         // =====================================================

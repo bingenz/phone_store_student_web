@@ -359,6 +359,24 @@ button {
     background-color: #1d4ed8;
 }
 
+.add-cart-btn:disabled,
+.add-cart-btn:disabled:hover {
+    color: #64748b;
+    background-color: #e2e8f0;
+    cursor: not-allowed;
+}
+
+.stock-status {
+    margin: 10px 0 0;
+    color: #15803d;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.stock-status.out-of-stock {
+    color: #dc2626;
+}
+
 /* Banner ưu đãi */
 .sale-banner {
     padding: 18px 0 38px;
@@ -1028,6 +1046,20 @@ button {
     background-color: #e2e8f0;
 }
 
+.qty-btn:disabled,
+.qty-btn:disabled:hover {
+    color: #94a3b8;
+    background-color: #f1f5f9;
+    cursor: not-allowed;
+}
+
+.cart-stock {
+    display: block;
+    margin-top: 5px;
+    color: #15803d;
+    font-size: 12px;
+}
+
 /* Ô hiển thị số lượng ở giữa */
 .qty-num {
     width: 40px;
@@ -1139,6 +1171,87 @@ button {
 
 .checkout-btn:hover {
     background-color: #1d4ed8;
+}
+
+.checkout-btn:disabled,
+.checkout-btn:disabled:hover {
+    color: #94a3b8;
+    background-color: #e2e8f0;
+    cursor: not-allowed;
+}
+
+.cart-notice {
+    margin-bottom: 18px;
+    padding: 12px 14px;
+    border: 1px solid #fbbf24;
+    border-radius: 10px;
+    color: #92400e;
+    background-color: #fffbeb;
+    line-height: 1.5;
+}
+
+.checkout-dialog {
+    width: min(520px, calc(100% - 28px));
+    margin: auto;
+    padding: 0;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.28);
+}
+
+.checkout-dialog::backdrop {
+    background: rgba(15, 23, 42, 0.55);
+}
+
+.checkout-form {
+    display: grid;
+    gap: 15px;
+    padding: 24px;
+}
+
+.checkout-dialog-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.checkout-dialog-header h2,
+.checkout-dialog-header p {
+    margin: 0;
+}
+
+.checkout-dialog-header p {
+    margin-top: 6px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.checkout-dialog-close {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: #e2e8f0;
+    cursor: pointer;
+}
+
+.checkout-error {
+    min-height: 20px;
+    margin: 0;
+    color: #dc2626;
+    font-size: 14px;
+}
+
+.checkout-dialog-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.checkout-dialog-actions .continue-btn,
+.checkout-dialog-actions .checkout-btn {
+    margin-top: 0;
 }
 
 /* Nút "Tiếp tục mua sắm" */

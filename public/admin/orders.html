@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý đơn hàng - SmartMobile Admin</title>
+    <link rel="shortcut icon" href="../images/logo-phone.svg">
+    <link rel="stylesheet" href="admin.css?v=2">
+</head>
+<body data-page="orders">
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <a class="admin-brand" href="index.html" target="_self">
+                <img src="../images/logo-phone.svg" alt="Logo SmartMobile">
+                <div><strong>SmartMobile</strong><span>Quản trị cửa hàng</span></div>
+            </a>
+            <nav class="admin-nav" aria-label="Điều hướng quản trị">
+                <a href="index.html" target="_self">
+                    <svg class="admin-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>
+                    <span>Tổng quan</span>
+                </a>
+                <a class="active" href="orders.html" target="_self">
+                    <svg class="admin-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h10a2 2 0 0 1 2 2v15l-3-2-4 2-4-2-3 2v-15a2 2 0 0 1 2-2Z"></path><path d="M8.5 8h7M8.5 12h7"></path></svg>
+                    <span>Đơn hàng</span>
+                </a>
+                <a href="products.html" target="_self">
+                    <svg class="admin-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 7 8-4 8 4-8 4-8-4Z"></path><path d="m4 7 8 4 8-4v10l-8 4-8-4V7Z"></path><path d="M12 11v10"></path></svg>
+                    <span>Sản phẩm</span>
+                </a>
+                <button type="button" id="logoutButton">
+                    <svg class="admin-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"></path><path d="M10 8 6 12l4 4M6 12h9"></path></svg>
+                    <span>Đăng xuất</span>
+                </button>
+            </nav>
+        </aside>
+
+        <main class="admin-content">
+            <header class="admin-topbar">
+                <div><h1>Quản lý đơn hàng</h1><p>Tìm kiếm và cập nhật trạng thái đơn hàng mẫu.</p></div>
+                <div class="admin-user">Xin chào, <strong id="adminUserName"></strong></div>
+            </header>
+
+            <section class="admin-card">
+                <div class="toolbar">
+                    <input type="search" id="orderSearch" placeholder="Tìm theo mã đơn hoặc khách hàng">
+                    <select id="orderStatusFilter" aria-label="Lọc trạng thái đơn hàng">
+                        <option value="">Tất cả trạng thái</option>
+                        <option value="Chờ xử lý">Chờ xử lý</option>
+                        <option value="Đang giao">Đang giao</option>
+                        <option value="Hoàn thành">Hoàn thành</option>
+                        <option value="Đã hủy">Đã hủy</option>
+                    </select>
+                </div>
+                <div class="table-wrap">
+                    <table class="admin-table">
+                        <thead><tr><th>Mã đơn</th><th>Khách hàng</th><th>Ngày đặt</th><th>Tổng tiền</th><th>Trạng thái</th><th>Chi tiết</th></tr></thead>
+                        <tbody id="ordersTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <dialog class="admin-dialog" id="orderDetailDialog">
+        <div class="dialog-content">
+            <div class="dialog-header"><h2>Chi tiết đơn hàng</h2><button class="dialog-close" type="button" id="orderDetailClose" aria-label="Đóng">×</button></div>
+            <div id="orderDetailContent"></div>
+        </div>
+    </dialog>
+    <script src="../shared/store-data.js?v=2"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

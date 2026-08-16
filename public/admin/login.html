@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập quản trị - SmartMobile</title>
+    <link rel="shortcut icon" href="../images/logo-phone.svg">
+    <link rel="stylesheet" href="admin.css?v=1">
+</head>
+<body class="login-page" data-page="login">
+    <main class="login-card">
+        <a class="admin-brand login-brand" href="../user/index.html" target="_self">
+            <img src="../images/logo-phone.svg" alt="Logo SmartMobile">
+            <div><strong>SmartMobile</strong><span>Khu vực quản trị</span></div>
+        </a>
+        <h1>Đăng nhập Admin</h1>
+        <p class="login-note">Nhập tài khoản và mật khẩu để mở trang quản trị mô phỏng.</p>
+        <form id="adminLoginForm" class="login-form" novalidate>
+            <div class="form-group">
+                <label for="adminUsername">Tên đăng nhập</label>
+                <input class="form-control" type="text" id="adminUsername" autocomplete="username" placeholder="Nhập tên đăng nhập">
+            </div>
+            <div class="form-group">
+                <label for="adminPassword">Mật khẩu</label>
+                <input class="form-control" type="password" id="adminPassword" autocomplete="current-password" placeholder="Nhập mật khẩu">
+            </div>
+            <p class="form-error" id="loginError" aria-live="polite"></p>
+            <button class="btn btn-primary" type="submit">Đăng nhập</button>
+        </form>
+        <a class="login-back" href="../user/index.html" target="_self">Về trang bán hàng</a>
+    </main>
+    <script src="../shared/store-data.js?v=2"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

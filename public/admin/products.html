@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý sản phẩm - SmartMobile Admin</title>
+    <link rel="shortcut icon" href="../images/logo-phone.svg">
+    <link rel="stylesheet" href="admin.css?v=2">
+</head>
+<body data-page="products">
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <a class="admin-brand" href="index.html" target="_self">
+                <img src="../images/logo-phone.svg" alt="Logo SmartMobile">
+                <div><strong>SmartMobile</strong><span>Quản trị cửa hàng</span></div>
+            </a>
+            <nav class="admin-nav" aria-label="Điều hướng quản trị">
+                <a href="index.html" target="_self">
+                    <svg class="admin-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>
+                    <span>Tổng quan</span>
+                </a>
+                <a href="orders.html" target="_self">
+                    <svg class="admin-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h10a2 2 0 0 1 2 2v15l-3-2-4 2-4-2-3 2v-15a2 2 0 0 1 2-2Z"></path><path d="M8.5 8h7M8.5 12h7"></path></svg>
+                    <span>Đơn hàng</span>
+                </a>
+                <a class="active" href="products.html" target="_self">
+                    <svg class="admin-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 7 8-4 8 4-8 4-8-4Z"></path><path d="m4 7 8 4 8-4v10l-8 4-8-4V7Z"></path><path d="M12 11v10"></path></svg>
+                    <span>Sản phẩm</span>
+                </a>
+                <button type="button" id="logoutButton">
+                    <svg class="admin-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"></path><path d="M10 8 6 12l4 4M6 12h9"></path></svg>
+                    <span>Đăng xuất</span>
+                </button>
+            </nav>
+        </aside>
+
+        <main class="admin-content">
+            <header class="admin-topbar">
+                <div><h1>Quản lý sản phẩm</h1><p>Thêm, sửa và xóa dữ liệu sản phẩm quản trị.</p></div>
+                <div class="admin-user">Xin chào, <strong id="adminUserName"></strong></div>
+            </header>
+
+            <section class="admin-card">
+                <div class="toolbar">
+                    <input type="search" id="productSearch" placeholder="Tìm theo tên sản phẩm">
+                    <select id="productCategoryFilter" aria-label="Lọc loại sản phẩm">
+                        <option value="">Tất cả loại</option>
+                        <option value="Điện thoại">Điện thoại</option>
+                        <option value="Đồng hồ">Đồng hồ</option>
+                        <option value="Phụ kiện">Phụ kiện</option>
+                    </select>
+                    <button class="btn btn-primary" type="button" id="addProductButton">+ Thêm sản phẩm</button>
+                </div>
+                <div class="table-wrap">
+                    <table class="admin-table">
+                        <thead><tr><th>Sản phẩm</th><th>Loại</th><th>Giá</th><th>Tồn kho</th><th>Trạng thái</th><th>Thao tác</th></tr></thead>
+                        <tbody id="productsTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <dialog class="admin-dialog" id="productDialog">
+        <form class="dialog-content" id="productForm" novalidate>
+            <div class="dialog-header"><h2 id="productDialogTitle">Thêm sản phẩm</h2><button class="dialog-close" type="button" id="productDialogClose" aria-label="Đóng">×</button></div>
+            <input type="hidden" id="productId">
+            <div class="form-grid">
+                <div class="form-group full"><label for="productName">Tên sản phẩm</label><input class="form-control" id="productName" type="text" placeholder="Ví dụ: iPhone 17 Pro"></div>
+                <div class="form-group"><label for="productCategory">Loại sản phẩm</label><select class="form-control" id="productCategory"><option value="">Chọn loại</option><option value="Điện thoại">Điện thoại</option><option value="Đồng hồ">Đồng hồ</option><option value="Phụ kiện">Phụ kiện</option></select></div>
+                <div class="form-group"><label for="productPrice">Giá bán (đồng)</label><input class="form-control" id="productPrice" type="number" min="1" step="1000" placeholder="1000000"></div>
+                <div class="form-group"><label for="productStock">Số lượng tồn</label><input class="form-control" id="productStock" type="number" min="0" step="1" placeholder="0"></div>
+                <div class="form-group"><label for="productImage">Đường dẫn ảnh</label><input class="form-control" id="productImage" type="text" placeholder="../images/cropped/ten-anh.png"></div>
+            </div>
+            <p class="form-error" id="productFormError" aria-live="polite"></p>
+            <div class="dialog-actions"><button class="btn btn-secondary" type="button" id="cancelProductButton">Hủy</button><button class="btn btn-primary" type="submit">Lưu sản phẩm</button></div>
+        </form>
+    </dialog>
+    <script src="../shared/store-data.js?v=2"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
