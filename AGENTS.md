@@ -11,9 +11,6 @@
 - Nếu yêu cầu chưa rõ, cần hỏi lại hoặc xác nhận trước khi sửa.
 - Nếu có nhiều phương án, nên gợi ý ngắn gọn ưu/nhược điểm để người thực hiện chọn.
 - Nếu người dùng đã nói rõ yêu cầu, thực hiện trực tiếp theo yêu cầu đó, không tự ý đổi hướng.
-- Cần phân biệt rõ file chính và file tham khảo. Ví dụ: `phone_store...` là dự án cần sửa, còn `c.zip` chỉ dùng để tham khảo giao diện hoặc cách làm.
-- Thư mục dự án ngoài cùng là bản chính. Không tạo hoặc chỉnh một thư mục `phone_store_student_web-master` khác nằm bên trong chính dự án.
-- Khi giải nén hoặc sao chép dự án, cần kiểm tra đường dẫn đích trước để tránh lồng thêm một bản sao cùng tên.
 
 ## Cấu trúc dự án bắt buộc
 
