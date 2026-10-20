@@ -1,0 +1,3 @@
+@model Category
+@{ ViewData["Title"] = "Sửa danh mục"; }
+<main class="container page narrow"><h2>Danh mục</h2><form asp-action="Edit" method="post"><div asp-validation-summary="All"></div><input asp-for="Id" type="hidden"><label asp-for="Name">Tên</label><input asp-for="Name"><label asp-for="Slug">Slug (chữ thường không dấu, số và dấu gạch ngang)</label><input asp-for="Slug"><button type="submit">Lưu</button></form></main>

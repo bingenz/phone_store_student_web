@@ -2,6 +2,8 @@
 
 ## Thông tin người thực hiện
 
+- Người thực hiện duy nhất hiện tại: **Lê Ngọc Thuận**. Đây là dự án cá nhân, không còn phân công nhóm 3 thành viên.
+- Tài liệu và thông tin tác giả phải thống nhất tên Lê Ngọc Thuận; thông tin đã được xác nhận: MSSV 2500016989, lớp học phần 25DTH1C, năm học 2026, giảng viên Bùi Duy Tân. Chưa có thông tin học kỳ.
 - Người thực hiện hiện là sinh viên năm nhất ngành Công nghệ thông tin.
 - Khi hỗ trợ làm bài hoặc chỉnh sửa dự án, cần ưu tiên cách làm dễ hiểu, dễ giải thích và phù hợp trình độ hiện tại.
 - Không nên tự ý viết code quá phức tạp nếu bài làm chỉ yêu cầu HTML/CSS/JavaScript cơ bản.

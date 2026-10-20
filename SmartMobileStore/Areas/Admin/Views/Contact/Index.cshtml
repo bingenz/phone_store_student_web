@@ -1,0 +1,3 @@
+@model List<ContactMessage>
+@{ ViewData["Title"] = "Yêu cầu liên hệ"; }
+<main class="container page"><h2>Yêu cầu liên hệ</h2>@if(Model.Count == 0){<p>Chưa có yêu cầu.</p>}@foreach(var m in Model){<article class="message-card"><h3>@m.Name</h3><p>@m.Email — @m.Phone · @m.CreatedAt.AddHours(7).ToString("dd/MM/yyyy HH:mm")</p><p class="preserve-lines">@m.Message</p><p>@(m.IsHandled ? "Đã xử lý" : "Chưa xử lý")</p>@if(!m.IsHandled){<form asp-action="Handle" method="post"><input name="id" type="hidden" value="@m.Id"><button type="submit">Đánh dấu đã xử lý</button></form>}</article>}</main>

@@ -1,0 +1,244 @@
+[
+  {
+    "SKU": "IPHONE17PRO256",
+    "Slug": "iphone17pro256",
+    "Name": "iPhone 17 Pro 256GB",
+    "Price": 33990000,
+    "OldPrice": 34990000,
+    "Stock": 20,
+    "Description": "Thiết kế sang trọng, hiệu năng mạnh, camera chất lượng cao, phù hợp học tập, làm việc và giải trí.",
+    "ImagePath": "/images/cropped/iphone17pro256.png",
+    "CategorySlug": "dien-thoai",
+    "Specifications": [
+      "Màn hình: Super Retina XDR 6.3 inch",
+      "Dung lượng: 256GB",
+      "Camera: Chụp ảnh và quay video chất lượng cao",
+      "Bảo hành: 12 tháng"
+    ]
+  },
+  {
+    "SKU": "IPHONE17PRO512",
+    "Slug": "iphone17pro512",
+    "Name": "iPhone 17 Pro 512GB",
+    "Price": 39990000,
+    "OldPrice": 41490000,
+    "Stock": 20,
+    "Description": "Dung lượng lớn, phù hợp người cần lưu nhiều ảnh, video, tài liệu và ứng dụng học tập.",
+    "ImagePath": "/images/cropped/iphone17pro512.png",
+    "CategorySlug": "dien-thoai",
+    "Specifications": [
+      "Màn hình: Super Retina XDR 6.3 inch",
+      "Dung lượng: 512GB",
+      "Phù hợp: Lưu trữ nhiều dữ liệu",
+      "Bảo hành: 12 tháng"
+    ]
+  },
+  {
+    "SKU": "S25ULTRA",
+    "Slug": "s25ultra",
+    "Name": "Samsung Galaxy S25 Ultra",
+    "Price": 31090000,
+    "OldPrice": 39490000,
+    "Stock": 20,
+    "Description": "Màn hình lớn, cấu hình cao, hỗ trợ bút cảm ứng, phù hợp ghi chú và xử lý nhiều tác vụ.",
+    "ImagePath": "/images/cropped/s25ultra.png",
+    "CategorySlug": "dien-thoai",
+    "Specifications": [
+      "Màn hình: 6.9 inch",
+      "RAM/Bộ nhớ: 12GB/512GB",
+      "Tính năng: Hỗ trợ bút cảm ứng",
+      "Bảo hành: 12 tháng"
+    ]
+  },
+  {
+    "SKU": "XIAOMI17ULTRA",
+    "Slug": "xiaomi17ultra",
+    "Name": "Xiaomi 17 Ultra 5G",
+    "Price": 31190000,
+    "OldPrice": 39990000,
+    "Stock": 20,
+    "Description": "Hiệu năng mạnh, thiết kế hiện đại, phù hợp người dùng thích màn hình lớn và nhiều tác vụ.",
+    "ImagePath": "/images/cropped/xiaomi17ultra.png",
+    "CategorySlug": "dien-thoai",
+    "Specifications": [
+      "Màn hình: 6.9 inch",
+      "RAM/Bộ nhớ: 16GB/512GB",
+      "Kết nối: 5G",
+      "Bảo hành: 12 tháng"
+    ]
+  },
+  {
+    "SKU": "GALAXY_A07",
+    "Slug": "galaxy_a07",
+    "Name": "Samsung Galaxy A07",
+    "Price": 3090000,
+    "OldPrice": 3290000,
+    "Stock": 20,
+    "Description": "Giá dễ tiếp cận, đáp ứng tốt nhu cầu nghe gọi, học online và sử dụng mạng xã hội cơ bản.",
+    "ImagePath": "/images/cropped/galaxy_a07.png",
+    "CategorySlug": "dien-thoai",
+    "Specifications": [
+      "Màn hình: 6.7 inch",
+      "RAM/Bộ nhớ: 4GB/64GB",
+      "Phân khúc: Phổ thông",
+      "Bảo hành: 12 tháng"
+    ]
+  },
+  {
+    "SKU": "GALAXY_A17",
+    "Slug": "galaxy_a17",
+    "Name": "Samsung Galaxy A17",
+    "Price": 5890000,
+    "OldPrice": 6090000,
+    "Stock": 20,
+    "Description": "Dung lượng tốt, phù hợp học tập, giải trí, xem video và làm việc online hằng ngày.",
+    "ImagePath": "/images/cropped/galaxy_a17.png",
+    "CategorySlug": "dien-thoai",
+    "Specifications": [
+      "Màn hình: 6.7 inch",
+      "RAM/Bộ nhớ: 8GB/256GB",
+      "Phù hợp: Học tập và giải trí",
+      "Bảo hành: 12 tháng"
+    ]
+  },
+  {
+    "SKU": "WATCH_CITIZEN1",
+    "Slug": "watch_citizen1",
+    "Name": "Citizen EG7073-16Y",
+    "Price": 10280000,
+    "OldPrice": 13860000,
+    "Stock": 20,
+    "Description": "Thiết kế thanh lịch, phù hợp sử dụng hằng ngày hoặc làm quà tặng.",
+    "ImagePath": "/images/cropped/watch_citizen1.png",
+    "CategorySlug": "dong-ho",
+    "Specifications": [
+      "Loại: Đồng hồ nữ",
+      "Kích thước: 31 mm",
+      "Phong cách: Thanh lịch",
+      "Bảo hành: Theo chính sách cửa hàng"
+    ]
+  },
+  {
+    "SKU": "WATCH_CITIZEN2",
+    "Slug": "watch_citizen2",
+    "Name": "Citizen EW2700-54L",
+    "Price": 10302000,
+    "OldPrice": 13885000,
+    "Stock": 20,
+    "Description": "Mặt số sáng màu, dây kim loại sang trọng, dễ phối với nhiều trang phục.",
+    "ImagePath": "/images/cropped/watch_citizen2.png",
+    "CategorySlug": "dong-ho",
+    "Specifications": [
+      "Loại: Đồng hồ nữ",
+      "Kích thước: 33 mm",
+      "Dây: Kim loại",
+      "Bảo hành: Theo chính sách cửa hàng"
+    ]
+  },
+  {
+    "SKU": "WATCH_CITIZEN3",
+    "Slug": "watch_citizen3",
+    "Name": "Citizen CA0711-80H",
+    "Price": 10315000,
+    "OldPrice": 13900000,
+    "Stock": 20,
+    "Description": "Kiểu dáng mạnh mẽ, phù hợp phong cách thể thao và sử dụng hằng ngày.",
+    "ImagePath": "/images/cropped/watch_citizen3.png",
+    "CategorySlug": "dong-ho",
+    "Specifications": [
+      "Loại: Đồng hồ nam",
+      "Kích thước: 44 mm",
+      "Phong cách: Thể thao",
+      "Bảo hành: Theo chính sách cửa hàng"
+    ]
+  },
+  {
+    "SKU": "WATCH_ORIENT1",
+    "Slug": "watch_orient1",
+    "Name": "Orient Star RE-AT0004S00B",
+    "Price": 17864000,
+    "OldPrice": 23190000,
+    "Stock": 20,
+    "Description": "Mặt đồng hồ nổi bật, phù hợp phong cách lịch lãm và môi trường công sở.",
+    "ImagePath": "/images/cropped/watch_orient1.png",
+    "CategorySlug": "dong-ho",
+    "Specifications": [
+      "Loại: Đồng hồ nam",
+      "Kích thước: 39.2 mm",
+      "Phong cách: Lịch lãm",
+      "Bảo hành: Theo chính sách cửa hàng"
+    ]
+  },
+  {
+    "SKU": "AIRPODS_PRO",
+    "Slug": "airpods_pro",
+    "Name": "Apple AirPods Pro",
+    "Price": 5490000,
+    "OldPrice": 6200000,
+    "Stock": 20,
+    "Description": "Chất âm thanh vang, thiết kế nhẹ cóm, hộp sạc kèm theo.",
+    "ImagePath": "/images/tai_nghe_airpods.png",
+    "CategorySlug": "phu-kien",
+    "Specifications": []
+  },
+  {
+    "SKU": "GALAXY_BUDS_FE",
+    "Slug": "galaxy_buds_fe",
+    "Name": "Samsung Galaxy Buds FE",
+    "Price": 1290000,
+    "OldPrice": 1800000,
+    "Stock": 20,
+    "Description": "Chống ồn chủ động, âm bass sâu, tương thích tốt với Android.",
+    "ImagePath": "/images/tai_nghe_samsung.png",
+    "CategorySlug": "phu-kien",
+    "Specifications": []
+  },
+  {
+    "SKU": "OP_LUNG_PITAKA",
+    "Slug": "op_lung_pitaka",
+    "Name": "Ổp lưng PITAKA MagEZ",
+    "Price": 890000,
+    "OldPrice": 1100000,
+    "Stock": 20,
+    "Description": "Siêu nhẹ, củng cáp, vân carbon đẹp mắt, bảo vệ máy tốt.",
+    "ImagePath": "/images/op_lung_pitaka.png",
+    "CategorySlug": "phu-kien",
+    "Specifications": []
+  },
+  {
+    "SKU": "OP_LUNG_CAM",
+    "Slug": "op_lung_cam",
+    "Name": "Ổp lưng XTREME INNO",
+    "Price": 350000,
+    "OldPrice": 500000,
+    "Stock": 20,
+    "Description": "Thiết kế nổi bật với vòng camera độc đáo, chất liệu silicon cao cấp.",
+    "ImagePath": "/images/op_lung_cam.png",
+    "CategorySlug": "phu-kien",
+    "Specifications": []
+  },
+  {
+    "SKU": "CUC_SAC_20W",
+    "Slug": "cuc_sac_20w",
+    "Name": "Củc sạc nhanh 20W USB-C",
+    "Price": 180000,
+    "OldPrice": 250000,
+    "Stock": 20,
+    "Description": "Thiết kế gọn, thiết lập nhanh, tương thích nhiều thiết bị USB-C.",
+    "ImagePath": "/images/cuc_sac_trang.png",
+    "CategorySlug": "phu-kien",
+    "Specifications": []
+  },
+  {
+    "SKU": "ANKER_45W",
+    "Slug": "anker_45w",
+    "Name": "Anker Nano II 45W",
+    "Price": 390000,
+    "OldPrice": 520000,
+    "Stock": 20,
+    "Description": "Sạc siêu nhanh, kích thước nhỏ gọn, an toàn thông minh với Power IQ.",
+    "ImagePath": "/images/cuc_sac_anker.png",
+    "CategorySlug": "phu-kien",
+    "Specifications": []
+  }
+]

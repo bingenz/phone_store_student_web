@@ -1,0 +1,8 @@
+@model ProductInput
+@{ ViewData["Title"] = "Sửa sản phẩm"; }
+<main class="container page narrow"><h2>@(Model.Id == 0 ? "Thêm" : "Sửa") sản phẩm</h2><form asp-action="Edit" method="post" enctype="multipart/form-data"><div asp-validation-summary="All"></div><input asp-for="Id" type="hidden"><input asp-for="RowVersion" type="hidden">
+<label asp-for="Name">Tên</label><input asp-for="Name"><label asp-for="SKU">SKU</label><input asp-for="SKU"><label asp-for="Slug">Slug (không dấu)</label><input asp-for="Slug">
+<label asp-for="CategoryId">Danh mục</label><select asp-for="CategoryId" asp-items="ViewBag.Categories"><option value="">Chọn danh mục</option></select>
+<label asp-for="Price">Giá bán (VNĐ)</label><input asp-for="Price" type="number" min="1" step="1"><label asp-for="OldPrice">Giá cũ (tùy chọn)</label><input asp-for="OldPrice" type="number" min="1" step="1"><label asp-for="Stock">Tồn kho</label><input asp-for="Stock" type="number" min="0">
+<label asp-for="Description">Mô tả</label><textarea asp-for="Description" rows="5"></textarea><label asp-for="Specifications">Thông số (mỗi dòng một thông số)</label><textarea asp-for="Specifications" rows="5"></textarea>
+<label asp-for="Image">Ảnh JPEG/PNG tối đa 5 MB; bỏ trống để giữ ảnh</label><input asp-for="Image" type="file" accept=".jpg,.jpeg,.png"><label class="checkbox"><input asp-for="IsActive">Đang bán</label><button type="submit">Lưu</button></form></main>

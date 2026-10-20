@@ -1,0 +1,72 @@
+@inject CartService Cart
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>@ViewData["Title"] - SmartMobile</title><link rel="icon" href="/images/logo-phone.svg">
+<link rel="stylesheet" href="/css/style.css" asp-append-version="true"><link rel="stylesheet" href="/css/store.css" asp-append-version="true"></head>
+<body><a class="skip-link" href="#content">Đến nội dung</a><header class="header">
+        <div class="container nav-bar">
+            <a href="/" class="logo-box">
+                <img src="/images/logo-phone.svg" alt="Logo SmartMobile">
+                <div>
+                    <h1>SmartMobile</h1>
+                    <p>Điện thoại chính hãng</p>
+                </div>
+            </a>
+
+            <!-- Menu ngang: hiển thị trên desktop (>768px) -->
+            <nav class="menu">
+                <a href="/">Trang chủ</a>
+                <a href="/Products?category=dien-thoai">Điện thoại</a>
+                <a href="/Products?category=dong-ho">Đồng hồ</a>
+                <a href="/Home/About" target="_self">Giới thiệu</a>
+                <a href="/Home/News" target="_self">Tin tức</a>
+                <a href="/Contact" target="_self">Liên hệ</a>
+            </nav>
+
+            <!-- Nút hamburger ☰: chỉ hiện trên mobile (<768px) -->
+            <!-- onclick: thêm/bỏ class "open" vào .menu-mobile để hiện/ẩn menu -->
+            <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Mở menu" aria-controls="menuMobile" aria-expanded="false">☰</button>
+        </div>
+
+        <!-- Menu dọc mobile: ẩn mặc định, hiện khi bấm hamburger -->
+        <nav class="menu-mobile" id="menuMobile">
+            <a href="/" onclick="closeMenu()">Trang chủ</a>
+            <a href="/Products?category=dien-thoai" onclick="closeMenu()">Điện thoại</a>
+            <a href="/Products?category=dong-ho" onclick="closeMenu()">Đồng hồ</a>
+            <a href="/Home/About" target="_self">Giới thiệu</a>
+            <a href="/Home/News" target="_self">Tin tức</a>
+            <a href="/Contact" target="_self">Liên hệ</a>
+        </nav>
+    </header>
+<div class="container account-bar"><a href="/Cart">Giỏ hàng (@Cart.Get().Sum(x => x.Quantity))</a>
+@if(User.Identity?.IsAuthenticated == true) {
+<a href="/Orders">Đơn hàng của tôi</a><span>@User.Identity.Name</span>
+@if(User.IsInRole("Admin")){<a href="/Admin/Products">Quản trị</a>}
+<form asp-area="" asp-controller="Account" asp-action="Logout" method="post"><button type="submit">Đăng xuất</button></form>
+} else { <a href="/Account/Login">Đăng nhập</a><a href="/Account/Register">Đăng ký</a> }</div>
+@if(User.IsInRole("Admin") && ViewContext.RouteData.Values["area"]?.ToString() == "Admin") {
+<nav class="container admin-nav" aria-label="Quản trị"><a href="/Admin/Products">Sản phẩm</a><a href="/Admin/Categories">Danh mục</a><a href="/Admin/Orders">Đơn hàng</a><a href="/Admin/Contact">Liên hệ</a></nav>}
+<div class="container" role="status">@if(TempData["Success"] is string success){<p class="notice">@success</p>}@if(TempData["Error"] is string error){<p class="validation-summary-errors">@error</p>}</div>
+<div id="content">@RenderBody()</div><footer id="contact" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h2>SmartMobile Store</h2>
+                <p><strong>Địa chỉ:</strong> 300A Nguyễn Tất Thành, Quận 4, TP. Hồ Chí Minh</p>
+                <p><strong>Email:</strong> 1235@gmail.com</p>
+                <p><strong>Điện thoại:</strong> 1234 567 891</p>
+                <p><strong>Giờ mở cửa:</strong> 8:00 - 21:00 mỗi ngày</p>
+            </div>
+
+            <div class="footer-map">
+                <iframe
+                    src="https://www.google.com/maps?q=300A%20Nguyen%20Tat%20Thanh%2C%20Quan%204%2C%20Ho%20Chi%20Minh%20City&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Bản đồ cửa hàng SmartMobile">
+                </iframe>
+                <!-- loading="lazy": chỉ tải bản đồ khi người dùng cuộn gần tới footer.
+     referrerpolicy: tăng bảo mật, hạn chế gửi thông tin trang khi tải bản đồ. -->
+
+            </div>
+        </div>
+    </footer>
+<script src="/js/store.js" asp-append-version="true"></script>@await RenderSectionAsync("Scripts", required:false)</body></html>

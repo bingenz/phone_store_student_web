@@ -9,8 +9,20 @@ desktop.ini
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 
 # Temp files
 *.tmp
 *.log
+
+# ASP.NET / local data
+**/bin/
+**/obj/
+.vs/
+TestResults/
+*.mdf
+*.ldf
+*.bak
+*.user
+**/wwwroot/uploads/
+**/appsettings.Local.json
+.env

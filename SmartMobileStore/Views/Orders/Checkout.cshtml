@@ -1,0 +1,4 @@
+@model CheckoutInput
+@{ ViewData["Title"] = "Đặt hàng"; }
+<main class="container page narrow"><h2>Thông tin nhận hàng</h2><p>COD · Miễn phí vận chuyển demo · Tổng hiện tại: @DisplayFormat.Money((decimal)ViewBag.Total)</p>
+<form asp-action="Checkout" method="post" data-once><div asp-validation-summary="All"></div><input asp-for="SubmissionKey" type="hidden"><label asp-for="Recipient">Người nhận</label><input asp-for="Recipient" maxlength="100"><label asp-for="Phone">Điện thoại</label><input asp-for="Phone" maxlength="20"><label asp-for="Address">Địa chỉ</label><textarea asp-for="Address" maxlength="500"></textarea><button type="submit">Xác nhận đặt hàng COD</button></form></main>

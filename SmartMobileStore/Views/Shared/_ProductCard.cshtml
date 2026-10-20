@@ -1,0 +1,6 @@
+@model Product
+<article class="product-card"><a href="/Products/Details/@Model.Slug"><img src="@Model.ImagePath" alt="@Model.Name" loading="lazy"></a>
+<h3>@Model.Name</h3><p class="desc">@Model.Description</p><div class="price-box"><span class="new-price">@DisplayFormat.Money(Model.Price)</span>
+@if(Model.OldPrice.HasValue){<span class="old-price">@DisplayFormat.Money(Model.OldPrice.Value)</span>}</div>
+<div class="product-actions"><a href="/Products/Details/@Model.Slug" class="detail-link">Xem chi tiết</a>
+<form asp-area="" asp-controller="Cart" asp-action="Add" method="post"><input type="hidden" name="id" value="@Model.Id"><button class="add-cart-btn" disabled="@(Model.Stock == 0)" type="submit">@(Model.Stock == 0 ? "Hết hàng" : "Thêm vào giỏ")</button></form></div></article>

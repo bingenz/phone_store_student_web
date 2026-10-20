@@ -1,0 +1,8 @@
+@model Product
+@{ ViewData["Title"] = Model.Name; }
+<main class="detail-page"><div class="container"><p class="breadcrumb">Trang chủ / Sản phẩm / @Model.Name</p>
+<section class="detail-layout"><div class="detail-image-box"><img src="@Model.ImagePath" alt="@Model.Name"></div><div class="detail-info"><h2>@Model.Name</h2>
+<div class="detail-price"><span class="new-price">@DisplayFormat.Money(Model.Price)</span>@if(Model.OldPrice.HasValue){<span class="old-price">@DisplayFormat.Money(Model.OldPrice.Value)</span>}</div>
+<p class="detail-desc">@Model.Description</p><ul class="detail-spec-list">@foreach(var spec in Model.Specifications.OrderBy(x => x.Position)){<li>@spec.Text</li>}</ul><p>Tồn kho: @Model.Stock</p>
+<form asp-controller="Cart" asp-action="Add" method="post"><input type="hidden" name="id" value="@Model.Id"><button class="add-cart-btn" disabled="@(Model.Stock == 0)" type="submit">@(Model.Stock == 0 ? "Hết hàng" : "Thêm vào giỏ")</button></form></div></section>
+<section class="review-section"><h3>Đánh giá minh họa</h3><p>★★★★★ — Sản phẩm hiển thị rõ ràng, dễ xem trên điện thoại. Đây là đánh giá giả lập phục vụ bài tập.</p></section></div></main>

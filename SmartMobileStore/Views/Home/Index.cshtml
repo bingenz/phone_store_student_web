@@ -1,0 +1,76 @@
+@model List<Product>
+@{ ViewData["Title"] = "Trang chủ"; }
+<main>
+        <section id="home" class="hero">
+            <div class="container hero-wrap">
+                <div class="hero-text">
+                    <h2>Điện thoại mới, giá tốt, bảo hành rõ ràng</h2>
+                    <p>
+                        SmartMobile cung cấp nhiều mẫu điện thoại chính hãng,
+                        phù hợp nhu cầu học tập, làm việc, giải trí và chụp ảnh.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="/Products?category=dien-thoai" class="btn btn-primary">Xem sản phẩm</a>
+                        <a href="/Contact" target="_self" class="btn btn-outline">Liên hệ tư vấn</a>
+                    </div>
+                </div>
+
+                @if(Model.FirstOrDefault(x => x.Category?.Slug == "dien-thoai") is Product featured){
+<a href="/Products/Details/@featured.Slug" class="hero-image-box hero-product-link"><img src="@featured.ImagePath" alt="@featured.Name"><h3>@featured.Name</h3><p>Sản phẩm nổi bật</p><strong>@DisplayFormat.Money(featured.Price)</strong></a>}
+            </div>
+        </section>
+
+        <section class="quick-info">
+            <div class="container info-grid">
+                <div class="info-box">
+                    <h3>Bảo hành 12 tháng</h3>
+                    <p>Hỗ trợ bảo hành sản phẩm theo chính sách cửa hàng.</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>Trả góp 0%</h3>
+                    <p>Nội dung minh họa; bản demo chỉ hỗ trợ COD.</p>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="phones" class="product-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Điện thoại nổi bật</h2>
+                    <p>Các mẫu điện thoại được quan tâm hiện nay</p>
+                </div>
+
+                <div class="product-grid">
+@foreach(var product in Model.Where(x => x.Category?.Slug == "dien-thoai")){<partial name="_ProductCard" model="product" />}
+</div>
+            </div>
+        </section>
+
+        <section class="sale-banner">
+            <div class="container sale-wrap">
+                <div>
+                    <h2>Ưu đãi khi mua kèm phụ kiện</h2>
+                    <p>Khám phá đồng hồ, tai nghe, sạc nhanh và ốp lưng. Ưu đãi là nội dung minh họa, không tự áp dụng vào đơn.</p>
+                </div>
+
+                <a href="/Products/Accessories" target="_self" class="btn btn-light">Xem thêm</a>
+            </div>
+        </section>
+
+        <section id="watches" class="product-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Đồng hồ thời trang</h2>
+                    <p>Một số mẫu đồng hồ đang được giảm giá</p>
+                </div>
+
+                <div class="product-grid watch-grid">
+@foreach(var product in Model.Where(x => x.Category?.Slug == "dong-ho")){<partial name="_ProductCard" model="product" />}
+</div>
+            </div>
+        </section>
+    </main>

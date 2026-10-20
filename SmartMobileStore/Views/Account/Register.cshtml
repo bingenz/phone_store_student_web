@@ -1,0 +1,5 @@
+@model RegisterInput
+@{ ViewData["Title"] = "Đăng ký"; }
+<main class="container page narrow"><h2>Đăng ký</h2><form asp-action="Register" method="post"><div asp-validation-summary="All"></div><input asp-for="ReturnUrl" type="hidden"><label asp-for="Email">Email</label><input asp-for="Email" type="email" autocomplete="email"><span asp-validation-for="Email"></span>
+<label asp-for="Password">Mật khẩu</label><input asp-for="Password" type="password" autocomplete="new-password"><span asp-validation-for="Password"></span>
+<label asp-for="ConfirmPassword">Nhập lại mật khẩu</label><input asp-for="ConfirmPassword" type="password" autocomplete="new-password"><span asp-validation-for="ConfirmPassword"></span><p>Mật khẩu tối thiểu 10 ký tự, có chữ hoa, chữ thường, số và ký hiệu.</p><button type="submit">Đăng ký</button></form><a href="/Account/Login">Đăng nhập</a></main>

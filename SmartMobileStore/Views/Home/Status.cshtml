@@ -1,0 +1,3 @@
+@model int
+@{ ViewData["Title"] = "Thông báo"; }
+<main class="container page"><h2>@Model</h2><p>@(Model == 404 ? "Không tìm thấy trang hoặc sản phẩm." : "Yêu cầu không thể thực hiện. Kiểm tra dữ liệu và quyền truy cập.")</p><a href="/">Trang chủ</a></main>

@@ -1,0 +1,6 @@
+@model ContactMessage
+@{ ViewData["Title"] = "Liên hệ"; }
+<main class="container page narrow"><h2>Liên hệ SmartMobile</h2><p>300A Nguyễn Tất Thành, Quận 4, TP. Hồ Chí Minh — 1234 567 891</p>
+<form asp-action="Index" method="post"><div asp-validation-summary="All"></div>
+<label asp-for="Name">Họ tên</label><input asp-for="Name" maxlength="100"><label asp-for="Email">Email</label><input asp-for="Email" type="email" maxlength="200">
+<label asp-for="Phone">Điện thoại</label><input asp-for="Phone" maxlength="20"><label asp-for="Message">Nội dung</label><textarea asp-for="Message" maxlength="4000" rows="6"></textarea><button type="submit">Gửi yêu cầu</button></form><p>Yêu cầu được lưu để quản trị viên xem; không gửi email tự động.</p></main>
