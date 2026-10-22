@@ -1,4 +1,5 @@
 using System.Data;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using SmartMobileStore.Data;
 using SmartMobileStore.Models;
@@ -9,6 +10,14 @@ public class StoreException(string message) : Exception(message);
 
 public class OrderService(StoreDbContext db)
 {
+    public static bool IsDeadlock(Exception exception)
+    {
+        // EF may wrap SQL 1205 in InvalidOperationException; do not hide unrelated errors.
+        for (Exception? cause = exception; cause != null; cause = cause.InnerException)
+            if (cause is SqlException sql && sql.Errors.Cast<SqlError>().Any(error => error.Number == 1205)) return true;
+        return false;
+    }
+
     public static bool CanTransition(OrderStatus from, OrderStatus to) => (from, to) switch
     {
         (OrderStatus.Pending, OrderStatus.Confirmed or OrderStatus.Cancelled) => true,

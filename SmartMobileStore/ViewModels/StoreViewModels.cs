@@ -4,13 +4,13 @@ namespace SmartMobileStore.ViewModels;
 
 public class LoginInput
 {
-    [Required, EmailAddress] public string Email { get; set; } = "";
-    [Required, DataType(DataType.Password)] public string Password { get; set; } = "";
+    [Required(ErrorMessage = "Vui lòng nhập email."), EmailAddress(ErrorMessage = "Email không hợp lệ.")] public string Email { get; set; } = "";
+    [Required(ErrorMessage = "Vui lòng nhập mật khẩu."), DataType(DataType.Password)] public string Password { get; set; } = "";
     public string? ReturnUrl { get; set; }
 }
 public class RegisterInput : LoginInput
 {
-    [Required, Compare(nameof(Password)), DataType(DataType.Password)] public string ConfirmPassword { get; set; } = "";
+    [Required(ErrorMessage = "Vui lòng nhập lại mật khẩu."), Compare(nameof(Password), ErrorMessage = "Mật khẩu nhập lại chưa khớp."), DataType(DataType.Password)] public string ConfirmPassword { get; set; } = "";
 }
 public class CheckoutInput
 {

@@ -14,6 +14,10 @@ namespace SmartMobileStore.Tests;
 public class BusinessTests
 {
     [Fact]
+    public void UnrelatedFailuresAreNotTreatedAsSqlDeadlocks()
+        => Assert.False(OrderService.IsDeadlock(new InvalidOperationException("Unexpected application error", new Exception("Not SQL"))));
+
+    [Fact]
     public void OrderStatusOnlyAllowsApprovedTransitions()
     {
         var allowed = new[] { (OrderStatus.Pending, OrderStatus.Confirmed), (OrderStatus.Pending, OrderStatus.Cancelled), (OrderStatus.Confirmed, OrderStatus.Shipping), (OrderStatus.Confirmed, OrderStatus.Cancelled), (OrderStatus.Shipping, OrderStatus.Completed) };

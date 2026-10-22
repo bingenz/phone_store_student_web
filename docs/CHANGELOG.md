@@ -24,3 +24,11 @@ Xem TEST_REPORT để biết bằng chứng, lệnh và giới hạn xác minh. 
 - Bổ sung biến SMARTMOBILE_TEST_SERVER tùy chọn cho test để dùng đúng server đang chạy; tên database test vẫn cố định, không cho trỏ test sang demo bằng biến này.
 
 - Theo yêu cầu mới: kiểm thử lại 37/37, tạo bản publish Production chạy tại localhost:5182, thêm Run-PublishedDemo.ps1/Chay-Demo.cmd/Publish-Demo.ps1 và docs/DEMO.md hướng dẫn mở dự án trước giảng viên. Người dùng duyệt commit/push; giữ nhánh master remote không đổi, bàn giao ASP.NET trên feature/aspnet-smartmobile.
+
+## 22/10/2026
+
+- Theo yêu cầu: mở solution/F5 trực tiếp trong Visual Studio; thêm hiện/ẩn mật khẩu ở đăng ký, xác nhận và đăng nhập.
+- Đặt Identity tối thiểu 6 ký tự, bỏ quy tắc chữ hoa/thường/số/ký hiệu; sửa hint web, lệnh tạo admin và README cho thống nhất; không reset tài khoản cũ.
+- Thêm kiểm thử HTTP/SQL: mật khẩu 6 chữ thường, 6 số và ký tự lặp đăng ký/đăng nhập được, chỉ có vai trò User; mật khẩu dưới 6 hoặc xác nhận sai không tạo tài khoản.
+- Bộ test phát hiện deadlock SQL 1205 được EF bọc trong InvalidOperationException. Bổ sung nhận diện qua chuỗi InnerException ở checkout/Admin; không bắt nhầm lỗi không liên quan, không đổi transaction hay tự retry.
+- Kết quả cuối: 40/40 test đạt trên LocalDB test riêng. Cập nhật publish cục bộ theo lựa chọn trước đó; không hosting Internet.

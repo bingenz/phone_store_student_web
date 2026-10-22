@@ -77,3 +77,15 @@ Kiểm tra bàn giao cuối: đã dừng/chạy lại F5 sau cập nhật Razor 
 - Thử bản bàn giao thực tế bằng Windows PowerShell 5.1 giống launcher Chay-Demo.cmd tại cổng 5183: About HTTP 200. Launcher chỉ đọc kiểm tra SQL và dò pipe khi alias lỗi, không tạo/xóa DB hoặc thay đổi thiết lập hệ thống.
 - Người dùng chọn publish trên máy để trình diễn; không yêu cầu hosting công khai. Cấp quyền commit/push riêng trong yêu cầu mới. Fetch cho thấy master trên remote có thay đổi HTML khác; chỉ push nhánh feature/aspnet-smartmobile, không ghi đè master.
 - Quét mẫu private key/token/AWS key trên file văn bản không phát hiện đường dẫn nghi vấn; không xem đây là kiểm toán đầy đủ lịch sử Git.
+
+## Xác minh cập nhật tài khoản 22/10/2026
+
+- dotnet test -c Release: 40 passed, 0 failed, 0 skipped; kết quả password-update-final.trx trong scratch.
+- HTTP/SQL: chấp nhận mật khẩu 6 chữ thường, 6 chữ số, 6 ký tự lặp; đăng xuất/đăng nhập lại được, mật khẩu lưu dạng hash, tài khoản chỉ có User và không vào Admin.
+- Password dưới 6 và xác nhận sai: từ chối bằng thông báo tiếng Việt, không tạo user trong SQL.
+- Browser thật tại localhost:5180: từng nút Hiện/Ẩn đổi type password/text đúng ở đăng ký/đăng nhập; ô xác nhận độc lập; phím Space toggle được và không submit form. Chỉ nhập chuỗi minh họa, không submit tài khoản demo qua UI.
+- Lần đầu kiểm thử đầy đủ phát hiện EF bọc deadlock SQL 1205 bằng InvalidOperationException; đã sửa nhận diện lỗi ở checkout/Admin và test concurrency. Bộ test cuối 40/40, ràng buộc không bán vượt kho vẫn kiểm tra số đơn/kho. Không coi test thất bại ban đầu là đạt.
+- Không đổi schema hoặc reset dữ liệu demo; chỉ thêm bản ghi vào database test đã duyệt.
+- Kiểm tra breakpoint 375 px qua trình duyệt bị timeout; chưa kết luận breakpoint mới từ lần thử đó. Ảnh form ở viewport mặc định đã được kiểm tra, không thấy chồng lấn.
+
+- Bản publish Production mới chạy qua Windows PowerShell launcher tại localhost:5182: Home/Register/Login/JS HTTP 200; Register có hai nút hiện/ẩn, Login có một nút; hint 6 ký tự đã có trong HTML publish.

@@ -33,3 +33,7 @@ Các thao tác ghi là POST có CSRF; API JSON công khai không được thêm.
 | `style.css`, `images/` | Bản sao trong wwwroot; file gốc không đổi |
 
 Phụ kiện dùng bố cục thẻ sản phẩm chung, có chi tiết hoạt động thay cho `href="#"`. Tài khoản/admin/checkout là màn hình mới bổ sung. Tìm kiếm/lọc nằm ở trang danh sách, không thêm mục Chi tiết vào header.
+
+## Cập nhật tài khoản 22/10/2026
+
+Đăng ký yêu cầu ít nhất 6 ký tự, bỏ yêu cầu hoa/thường/số/ký tự đặc biệt. Đăng nhập giữ tương thích tài khoản cũ. Nút Hiện/Ẩn ở từng ô dùng được bằng chuột/bàn phím, có aria-controls/aria-pressed, không submit form. Xác nhận mật khẩu và lỗi quá ngắn hiển thị tiếng Việt. Identity vẫn hash mật khẩu, chống CSRF, giới hạn đăng nhập sai và chỉ cấp User khi đăng ký.

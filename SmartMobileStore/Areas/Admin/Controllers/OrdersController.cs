@@ -21,7 +21,7 @@ public class OrdersController(StoreDbContext db, OrderService orders) : Controll
     {
         try { await orders.TransitionAsync(id, status); TempData["Success"] = "Đã cập nhật trạng thái."; }
         catch (StoreException ex) { TempData["Error"] = ex.Message; }
-        catch (Exception ex) when (ex is DbUpdateException or SqlException) { TempData["Error"] = "Đơn vừa thay đổi hoặc kết nối gián đoạn. Tải lại để kiểm tra trước khi thử lại."; }
+        catch (Exception ex) when (ex is DbUpdateException or SqlException || OrderService.IsDeadlock(ex)) { TempData["Error"] = "Đơn vừa thay đổi hoặc kết nối gián đoạn. Tải lại để kiểm tra trước khi thử lại."; }
         return RedirectToAction(nameof(Details), new { id });
     }
 }

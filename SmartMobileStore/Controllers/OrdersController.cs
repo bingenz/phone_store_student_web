@@ -38,7 +38,7 @@ public class OrdersController(StoreDbContext db, CartService cart, OrderService 
                 return RedirectToAction(nameof(Details), new { id = order.Id });
             }
             catch (StoreException ex) { ModelState.AddModelError("", ex.Message); }
-            catch (Exception ex) when (ex is DbUpdateException or SqlException) { ModelState.AddModelError("", "Dữ liệu vừa thay đổi hoặc kết nối bị gián đoạn. Kiểm tra Đơn hàng của tôi trước khi thử lại."); }
+            catch (Exception ex) when (ex is DbUpdateException or SqlException || OrderService.IsDeadlock(ex)) { ModelState.AddModelError("", "Dữ liệu vừa thay đổi hoặc kết nối bị gián đoạn. Kiểm tra Đơn hàng của tôi trước khi thử lại."); }
         }
         ViewBag.Total = await TotalAsync(); return View(input);
     }

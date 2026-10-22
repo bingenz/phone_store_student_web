@@ -1,5 +1,27 @@
 @model RegisterInput
 @{ ViewData["Title"] = "Đăng ký"; }
-<main class="container page narrow"><h2>Đăng ký</h2><form asp-action="Register" method="post"><div asp-validation-summary="All"></div><input asp-for="ReturnUrl" type="hidden"><label asp-for="Email">Email</label><input asp-for="Email" type="email" autocomplete="email"><span asp-validation-for="Email"></span>
-<label asp-for="Password">Mật khẩu</label><input asp-for="Password" type="password" autocomplete="new-password"><span asp-validation-for="Password"></span>
-<label asp-for="ConfirmPassword">Nhập lại mật khẩu</label><input asp-for="ConfirmPassword" type="password" autocomplete="new-password"><span asp-validation-for="ConfirmPassword"></span><p>Mật khẩu tối thiểu 10 ký tự, có chữ hoa, chữ thường, số và ký hiệu.</p><button type="submit">Đăng ký</button></form><a href="/Account/Login">Đăng nhập</a></main>
+<main class="container page narrow">
+    <h2>Tạo tài khoản</h2>
+    <form asp-action="Register" method="post">
+        <div asp-validation-summary="All"></div>
+        <input asp-for="ReturnUrl" type="hidden">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" type="email" autocomplete="email">
+        <span asp-validation-for="Email"></span>
+        <label asp-for="Password">Mật khẩu</label>
+        <div class="password-field">
+            <input asp-for="Password" type="password" minlength="6" autocomplete="new-password" aria-describedby="password-help">
+            <button type="button" class="password-toggle" data-password-toggle aria-controls="Password" aria-pressed="false" aria-label="Hiện mật khẩu">Hiện</button>
+        </div>
+        <span asp-validation-for="Password"></span>
+        <p id="password-help" class="password-help">Ít nhất 6 ký tự. Không bắt buộc chữ hoa, số hay ký tự đặc biệt.</p>
+        <label asp-for="ConfirmPassword">Nhập lại mật khẩu</label>
+        <div class="password-field">
+            <input asp-for="ConfirmPassword" type="password" minlength="6" autocomplete="new-password">
+            <button type="button" class="password-toggle" data-password-toggle aria-controls="ConfirmPassword" aria-pressed="false" aria-label="Hiện mật khẩu nhập lại">Hiện</button>
+        </div>
+        <span asp-validation-for="ConfirmPassword"></span>
+        <button type="submit">Đăng ký</button>
+    </form>
+    <a href="/Account/Login">Đã có tài khoản? Đăng nhập</a>
+</main>

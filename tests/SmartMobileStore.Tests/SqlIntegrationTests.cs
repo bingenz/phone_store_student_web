@@ -58,6 +58,56 @@ public class SqlFixture : IAsyncLifetime
 public class SqlIntegrationTests(SqlFixture fixture)
 {
     [SqlFact]
+    public async Task SimpleSixCharacterPasswordsCanRegisterAndLoginWithoutAdminRights()
+    {
+        await using var factory = fixture.Factory();
+        using (var scope = factory.Services.CreateScope())
+        {
+            var roles = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            if (!await roles.RoleExistsAsync("User")) Assert.True((await roles.CreateAsync(new IdentityRole("User"))).Succeeded);
+        }
+        foreach (var password in new[] { "abcdef", "123456", "aaaaaa" })
+        {
+            using var client = factory.CreateClient(new() { AllowAutoRedirect = false });
+            var email = Guid.NewGuid().ToString("N") + "@example.test";
+            var response = await Post(client, "/Account/Register", "/Account/Register", new() { ["Email"] = email, ["Password"] = password, ["ConfirmPassword"] = password });
+            Assert.Equal(HttpStatusCode.Redirect, response.StatusCode);
+            using (var scope = factory.Services.CreateScope())
+            {
+                var users = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+                var user = await users.FindByEmailAsync(email);
+                Assert.NotNull(user);
+                Assert.NotEqual(password, user.PasswordHash);
+                Assert.True(await users.CheckPasswordAsync(user, password));
+                Assert.True(await users.IsInRoleAsync(user, "User"));
+                Assert.False(await users.IsInRoleAsync(user, "Admin"));
+            }
+            Assert.Equal(HttpStatusCode.Redirect, (await Post(client, "/Account/Logout", "/Orders", new())).StatusCode);
+            var login = await Post(client, "/Account/Login", "/Account/Login", new() { ["Email"] = email, ["Password"] = password });
+            Assert.Equal(HttpStatusCode.Redirect, login.StatusCode);
+            Assert.Equal("/", login.Headers.Location!.ToString());
+            Assert.Contains("/Account/Denied", (await client.GetAsync("/Admin/Products")).Headers.Location!.ToString());
+        }
+    }
+
+    [SqlFact]
+    public async Task ShortOrMismatchedPasswordsDoNotCreateAccounts()
+    {
+        await using var factory = fixture.Factory();
+        using var client = factory.CreateClient(new() { AllowAutoRedirect = false });
+        foreach (var pair in new[] { ("abcde", "abcde", "Mật khẩu cần ít nhất 6 ký tự."), ("abcdef", "abcdeg", "Mật khẩu nhập lại chưa khớp.") })
+        {
+            var email = Guid.NewGuid().ToString("N") + "@example.test";
+            var response = await Post(client, "/Account/Register", "/Account/Register", new() { ["Email"] = email, ["Password"] = pair.Item1, ["ConfirmPassword"] = pair.Item2 });
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            var html = WebUtility.HtmlDecode(await response.Content.ReadAsStringAsync());
+            Assert.Contains(pair.Item3, html);
+            using var scope = factory.Services.CreateScope();
+            Assert.Null(await scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>().FindByEmailAsync(email));
+        }
+    }
+
+    [SqlFact]
     public async Task CheckoutPersistsServerPricesAndDeductsStock()
     {
         var setup = await fixture.ArrangeAsync();
@@ -108,10 +158,11 @@ public class SqlIntegrationTests(SqlFixture fixture)
         {
             await using var db = fixture.NewDb();
             try { await new OrderService(db).PlaceAsync(setup.UserId, SqlFixture.Input(), [new(setup.ProductId, 1)]); return true; }
-            catch (Exception ex) when (ex is StoreException or SqlException or DbUpdateException) { return false; }
+            catch (Exception ex) when (ex is StoreException or SqlException or DbUpdateException || OrderService.IsDeadlock(ex)) { return false; }
         }
         var results = await Task.WhenAll(Buy(), Buy()); Assert.Single(results, x => x);
         await using var verify = fixture.NewDb(); Assert.Equal(0, (await verify.Products.FindAsync(setup.ProductId))!.Stock);
+        Assert.Equal(1, await verify.OrderItems.CountAsync(x => x.ProductId == setup.ProductId));
     }
     [SqlFact]
     public async Task ConcurrentAdminEditCannotOverwriteCheckoutStock()

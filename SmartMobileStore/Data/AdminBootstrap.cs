@@ -12,7 +12,7 @@ public static class AdminBootstrap
         if (!new System.ComponentModel.DataAnnotations.EmailAddressAttribute().IsValid(email)) throw new InvalidOperationException("Email không hợp lệ.");
         var users = services.GetRequiredService<UserManager<ApplicationUser>>();
         if (await users.FindByEmailAsync(email) != null) throw new InvalidOperationException("Tài khoản đã tồn tại; không tự nâng quyền hoặc reset mật khẩu.");
-        Console.Write("Mật khẩu (ít nhất 10 ký tự, hoa/thường, số, ký hiệu): ");
+        Console.Write("Mật khẩu (ít nhất 6 ký tự): ");
         var password = ReadPassword();
         Console.Write("Nhập lại mật khẩu: ");
         if (ReadPassword() != password) throw new InvalidOperationException("Mật khẩu xác nhận không khớp.");

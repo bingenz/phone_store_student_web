@@ -11,10 +11,14 @@ builder.Services.AddDbContext<StoreDbContext>(o => o.UseSqlServer(builder.Config
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(o =>
 {
     o.User.RequireUniqueEmail = true;
-    o.Password.RequiredLength = 10;
+    o.Password.RequiredLength = 6;
+    o.Password.RequireUppercase = false;
+    o.Password.RequireLowercase = false;
+    o.Password.RequireDigit = false;
+    o.Password.RequireNonAlphanumeric = false;
     o.Lockout.MaxFailedAccessAttempts = 5;
     o.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-}).AddEntityFrameworkStores<StoreDbContext>().AddDefaultTokenProviders();
+}).AddEntityFrameworkStores<StoreDbContext>().AddErrorDescriber<AccountErrorDescriber>().AddDefaultTokenProviders();
 builder.Services.ConfigureApplicationCookie(o =>
 {
     o.LoginPath = "/Account/Login"; o.AccessDeniedPath = "/Account/Denied";

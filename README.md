@@ -17,7 +17,7 @@ Bài tập cửa hàng điện thoại, chuyển từ website HTML/CSS/JavaScrip
 dotnet run --project SmartMobileStore --no-launch-profile -- --create-admin
 ```
 
-Nhập email mới và mật khẩu khi được hỏi. Mật khẩu nhập ẩn, ít nhất 10 ký tự gồm hoa/thường, số và ký hiệu. Lệnh không reset hoặc nâng quyền tài khoản đã tồn tại. Không gửi mật khẩu qua chat. Đăng nhập tài khoản này, bấm **Quản trị**.
+Nhập email mới và mật khẩu khi được hỏi. Mật khẩu nhập ẩn, ít nhất 6 ký tự; không bắt buộc chữ hoa, số hay ký tự đặc biệt. Lệnh không reset hoặc nâng quyền tài khoản đã tồn tại. Không gửi mật khẩu qua chat. Đăng nhập tài khoản này, bấm **Quản trị**.
 
 Chạy bằng dòng lệnh:
 
@@ -109,6 +109,8 @@ Xem `docs/ARCHITECTURE.md`, `docs/FEATURES.md`, `docs/TEST_REPORT.md`, `docs/LEA
 Đã build bằng MSBuild của Visual Studio, mở solution và chạy F5 trực tiếp trong IDE; localhost trả HTTP 200. Công nghệ Core/.NET 10 vẫn cần đối chiếu rubric giảng viên nếu nhận được. Bản ASP.NET dùng nhánh `feature/aspnet-smartmobile`; nhánh `master` trên GitHub có bản HTML khác, không tự ghi đè hoặc gộp hai bản. Chưa triển khai hosting công khai. Chưa xác minh giấy phép ảnh, chỉ tái sử dụng tài nguyên bài tập hiện có.
 
 ### Mở khi giảng viên yêu cầu
+
+**Cập nhật 22/10/2026:** đăng ký dùng mật khẩu từ 6 ký tự, không bắt buộc chữ hoa, chữ thường, số hay ký tự đặc biệt. Trang đăng ký/đăng nhập có nút Hiện/Ẩn ở từng ô. Mật khẩu cũ vẫn sử dụng được, không cần tạo lại tài khoản. Mật khẩu vẫn được Identity hash, form vẫn chống CSRF và có khóa tạm khi nhập sai nhiều lần.
 
 Mở `SmartMobileStore.sln` → chọn project/profile **SmartMobileStore** → **F5** → `http://localhost:5180`. Hoặc dùng bản publish: mở **Chay-Demo.cmd** → `http://localhost:5182`. Xem `docs/DEMO.md` để biết kịch bản 5 phút, tạo admin và chuyển máy. GitHub lưu source; database, tài khoản và đơn hàng nằm riêng trên máy.
 
